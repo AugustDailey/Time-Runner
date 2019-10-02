@@ -10,12 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Library.fs" />
+    <Compile Include="Interpretation\UserContoller.fs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>..\Library\ScriptAssemblies\Assembly-CSharp.dll</HintPath>
+    <Reference Include="FSharp.Core">
+      <HintPath>..\Assets\FSharp.Core.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Cecil">
       <HintPath>..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\Unity.Cecil.dll</HintPath>
@@ -215,7 +215,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy $(TargetPath) $(SolutionDir)\..\Assets\" />
+    <Exec Command="copy $(TargetPath) $(SolutionDir)\..\Assets\" />
   </Target>
 
 </Project>
