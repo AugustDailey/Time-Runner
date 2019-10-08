@@ -215,7 +215,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="copy $(TargetPath) $(SolutionDir)\..\Assets\" />
+    <Exec Command="xcopy $(TargetPath) $(SolutionDir)\..\Assets\ /Y" />
   </Target>
 
 </Project>
