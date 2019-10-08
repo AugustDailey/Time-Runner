@@ -6,11 +6,9 @@ let addCommand x =
     commands <- x::commands
 
 let executeAllCommands commands = 
-    //List.iter (fun x -> execute x) commands
-    List.iter (fun x -> printfn "Executing element %d" x) commands
+    // Looping through list to execute commands and ignoring subsequent output list
+    List.map (fun x -> printfn "Executing element %d" x) commands |> ignore
 
 addCommand 4
 addCommand 5
 executeAllCommands commands;;
-
-//printfn "%A" commands;;
