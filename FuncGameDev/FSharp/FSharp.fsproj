@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Command\CommandList.fs" />
     <Compile Include="Behavior\CommonEntityBehavior.fs" />
     <Compile Include="Behavior\EffectBehavior.fs" />
     <Compile Include="Behavior\ProjectileBehavior.fs" />
