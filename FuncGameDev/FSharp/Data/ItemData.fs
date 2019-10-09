@@ -1,3 +1,4 @@
 ﻿module ItemData
 
-type Item = { itemid: String, position: float * float }
+type ItemData = { itemid: int, 
+                  position: float * float }

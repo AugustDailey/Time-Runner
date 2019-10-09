@@ -1,3 +1,7 @@
 ﻿module EnemyData
 
-type Enemy = { eid: String; position: float * float; health: int; weapon: Weapon; effects: Effect array }
+type Enemy = { eid: int; 
+               position: float * float; 
+               health: int; 
+               weapon: WeaponData; 
+               effects: Effect list }
