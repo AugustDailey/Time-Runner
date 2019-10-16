@@ -9,7 +9,7 @@
 //degrees: float = angle to move, 0 is north, moves clockwise
 //gs: GameState = the current gamestate
 //returns a function that takes a gamestate and returns a gamestate
-let move eid degrees gs =
+let move eid degrees (gs : obj) =
     gs
 
 //Move entity a set amount in each direction
