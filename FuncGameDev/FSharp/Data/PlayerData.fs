@@ -1,5 +1,9 @@
 ﻿module PlayerData
 
+open WeaponData
+open ItemData
+open EffectData
+
 type PlayerData = { playerid: int; 
                     position: float * float; 
                     health: int; 

@@ -1,7 +1,8 @@
 ﻿module WeaponData
 
-type Weapon = { wid: int; 
+open EffectData
+type WeaponData = { wid: int; 
                 cooldown: float; 
-                damage: 0; 
-                effects: Effect list; 
-                weaponType: String}
+                damage: int; 
+                effects: EffectData list; 
+                weaponType: string}
