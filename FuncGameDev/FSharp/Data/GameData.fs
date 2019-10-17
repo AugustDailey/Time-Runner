@@ -1,5 +1,4 @@
 module GameData
 
-type GameData = { money: int; 
-                  time: float; 
-                  score: int}
+type T = { time: float;
+           floor: int }
