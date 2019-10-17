@@ -17,6 +17,7 @@
     <Compile Include="Behavior\ItemBehavior.fs" />
     <Compile Include="Behavior\PlayerBehavior.fs" />
     <Compile Include="Behavior\EnemyBehavior.fs" />
+    <Compile Include="Data\CommonEntityData.fs" />
     <Compile Include="Data\EffectData.fs" />
     <Compile Include="Data\WeaponData.fs" />
     <Compile Include="Data\EnemyData.fs" />
@@ -25,6 +26,7 @@
     <Compile Include="Data\LevelData.fs" />
     <Compile Include="Data\PlayerData.fs" />
     <Compile Include="Data\ProjectileData.fs" />
+    <Compile Include="Data\GameState.fs" />
     <Compile Include="Interpretation\ControlModel.fs" />
     <Compile Include="Interpretation\Interpreter.fs" />
     <Compile Include="Unity\UserController.fs" />
