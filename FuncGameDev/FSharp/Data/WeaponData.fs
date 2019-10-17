@@ -1,8 +1,7 @@
 ﻿module WeaponData
 
-open EffectData
-type WeaponData = { wid: int; 
-                cooldown: float; 
-                damage: int; 
-                effects: EffectData list; 
-                weaponType: string}
+type T = { ced: CommonEntityData.T;
+           cooldown: float; 
+           damage: int; 
+           effects: EffectData.T list; 
+           weaponType: string }

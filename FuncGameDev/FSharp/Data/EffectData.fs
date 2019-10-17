@@ -1,4 +1,4 @@
 ﻿module EffectData
 
-type EffectData = { effid: int; 
-                    stacks: int }
+type T = { effid: int; 
+           stacks: int }

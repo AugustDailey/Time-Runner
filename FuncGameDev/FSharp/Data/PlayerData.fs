@@ -1,15 +1,9 @@
 ﻿module PlayerData
 
-open WeaponData
-open ItemData
-open EffectData
-
-type PlayerData = { playerid: int; 
-                    position: float * float; 
-                    health: int; 
-                    melee: WeaponData; 
-                    ranged: WeaponData; 
-                    roll: WeaponData; 
-                    active: WeaponData; 
-                    items: ItemData list; 
-                    effect: EffectData list}
+type T = { ced: CommonEntityData.T;
+           melee: WeaponData.T; 
+           ranged: WeaponData.T; 
+           roll: WeaponData.T; 
+           active: WeaponData.T; 
+           items: ItemData.T list; 
+           effects: EffectData.T list }

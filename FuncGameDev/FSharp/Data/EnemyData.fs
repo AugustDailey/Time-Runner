@@ -1,10 +1,6 @@
 ﻿module EnemyData
 
-open WeaponData
-open EffectData
-
-type Enemy = { eid: int; 
-               position: float * float; 
-               health: int; 
-               weapon: WeaponData; 
-               effects: EffectData list }
+type T = { ced: CommonEntityData.T;
+           health: int; 
+           weapon: WeaponData.T; 
+           effects: EffectData.T list }
