@@ -5,7 +5,7 @@ open UnityEngine
 type UserControllerScript() =
     inherit MonoBehaviour()
 
-    let mutable Players : Collections.Map<int, ControlModel.T> = Map.ofList[ (1, {right = "right"; left = "left"; up = "up"; down = "down"})]
+    let Players : Collections.Map<int, ControlModel.T> = Map.ofList[ (1, {right = "right"; left = "left"; up = "up"; down = "down"})]
 
     let checkRight id (model : ControlModel.T) = 
         if Input.GetKeyDown(model.right)
