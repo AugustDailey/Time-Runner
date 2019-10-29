@@ -29,6 +29,7 @@
     <Compile Include="Data\GameState.fs" />
     <Compile Include="Interpretation\ControlModel.fs" />
     <Compile Include="Interpretation\Interpreter.fs" />
+    <Compile Include="Services\InputConfigurationService.fs" />
     <Compile Include="Unity\UserController.fs" />
   </ItemGroup>
 
