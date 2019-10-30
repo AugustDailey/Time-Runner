@@ -1,3 +1,3 @@
 ﻿module ItemData
 
-type T = { ced: CommonEntityData.T }
+type T = { itemName: string }

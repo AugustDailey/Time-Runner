@@ -2,4 +2,5 @@
 
 type T = { id: int;
            position: float * float;
-           speed: int }
+           speed: int;
+           entity: EntityType.T }
