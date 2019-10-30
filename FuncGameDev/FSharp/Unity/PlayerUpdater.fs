@@ -15,6 +15,5 @@ type PlayerUpdateScript() =
         this.UpdatePosition()
 
     member this.UpdatePosition() =
-        Debug.Log(gO.transform.position)
-        gO.transform.position <- StateManager.GetPlayerPosition
+        gO.transform.position <- StateManager.GetPosition 0
 
