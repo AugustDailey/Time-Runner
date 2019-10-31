@@ -14,15 +14,16 @@ open System
 //gs: GameState = the current gamestate
 //returns a function that takes a gamestate and returns a gamestate
 let move eid (degrees:float) (delta:float) (gs : GameState.T) =
-    let entity = gs.entities.TryFind(eid)
+    let entityOption = gs.entities.TryFind(eid)
     let radians = degrees * Math.PI / 180.0
-    match entity with
+    match entityOption with
     | None -> gs
     | _ -> 
-        let position = entity.Value.position
-        let distance = (float) entity.Value.speed * delta;
+        let entity = entityOption.Value
+        let position = entity.position
+        let distance = (float) entity.speed * delta;
         let newPosition = ((fst position + distance * (Math.Sin radians)), (snd position + distance * (Math.Cos radians)))
-        let newEntity = { entity.Value with position = newPosition }
+        let newEntity = { entity with position = newPosition }
         let newMap = gs.entities.Add(eid, newEntity)
         { gs with entities = newMap }
 
@@ -32,13 +33,14 @@ let move eid (degrees:float) (delta:float) (gs : GameState.T) =
 //gs: GameState = the current gamestate
 //returns a function that takes a gamestate and returns a gamestate
 let moveBy eid xy (gs: GameState.T) =
-    let entity = gs.entities.TryFind(eid)
-    match entity with
+    let entityOption = gs.entities.TryFind(eid)
+    match entityOption with
     | None -> gs
     | _ -> 
-        let position = entity.Value.position
+        let entity = entityOption.Value
+        let position = entity.position
         let newPosition = ((fst position + fst xy), (snd position + snd xy))
-        let newEntity = { entity.Value with position = newPosition }
+        let newEntity = { entity with position = newPosition }
         let newMap = gs.entities.Add(eid, newEntity)
         { gs with entities = newMap }
     
@@ -48,11 +50,12 @@ let moveBy eid xy (gs: GameState.T) =
 //gs: GameState = the current gamestate
 //returns a function that takes a gamestate and returns a gamestate
 let moveTo eid xy (gs: GameState.T) = 
-    let entity = gs.entities.TryFind(eid)
-    match entity with
+    let entityOption = gs.entities.TryFind(eid)
+    match entityOption with
     | None -> gs
     | _ -> 
-        let newEntity = { entity.Value with position = xy }
+        let entity = entityOption.Value
+        let newEntity = { entity with position = xy }
         let newMap = gs.entities.Add(eid, newEntity)
         { gs with entities = newMap }
 
