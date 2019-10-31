@@ -1,6 +1,6 @@
 module Commands
 
-let mutable commands : (int -> obj) list = []
+let mutable commands : (GameState.T -> GameState.T) list = []
 
 let addCommand x = 
     commands <- x::commands
