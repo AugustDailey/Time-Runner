@@ -7,7 +7,6 @@ type UserControllerScript() =
     member this.Update() =
         if Input.GetKeyDown(KeyCode.RightArrow)
             then Debug.Log("Player moved right. Call move right function here.")
-
         if Input.GetKeyDown(KeyCode.LeftArrow)
             then Debug.Log("Player moved left. Call move left function here.")
         if Input.GetKeyDown(KeyCode.UpArrow)
