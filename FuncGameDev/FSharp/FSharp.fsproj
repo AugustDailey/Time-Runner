@@ -33,6 +33,7 @@
     <Compile Include="Interpretation\Interpreter.fs" />
     <Compile Include="Unity\PlayerUpdater.fs" />
     <Compile Include="Services\InputConfigurationService.fs" />
+    <Compile Include="Unity\EnemyAI.fs" />
     <Compile Include="Unity\UserController.fs" />
     <Compile Include="Test\TestGameState.fs" />
   </ItemGroup>
