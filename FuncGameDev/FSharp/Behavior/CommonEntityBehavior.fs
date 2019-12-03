@@ -13,7 +13,8 @@ open System
 //delta: float = the amount of time passed
 //gs: GameState = the current gamestate
 //returns a function that takes a gamestate and returns a gamestate
-let move eid (degrees:float) (delta:float) (gs : GameState.T) =
+let move eid (degrees:float) (delta:float32) (gs : GameState.T) =
+    let delta = float delta
     let entityOption = gs.entities.TryFind(eid)
     let radians = degrees * Math.PI / 180.0
     match entityOption with
