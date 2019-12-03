@@ -74,3 +74,4 @@ let collides eid1 eid2 gs =
 //returns a function that takes a gamestate and returns a gamestate
 let die eid gs =
     gs
+

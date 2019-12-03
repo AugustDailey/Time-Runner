@@ -21,13 +21,17 @@
     <Compile Include="Data\EntityType.fs" />
     <Compile Include="Data\CommonEntityData.fs" />
     <Compile Include="Data\GameState.fs" />
-    <Compile Include="Command\CommandList.fs" />
+    <Compile Include="Behavior\GameStateUtils.fs" />
     <Compile Include="Behavior\CommonEntityBehavior.fs" />
     <Compile Include="Behavior\EffectBehavior.fs" />
     <Compile Include="Behavior\ProjectileBehavior.fs" />
-    <Compile Include="Behavior\ItemBehavior.fs" />
     <Compile Include="Behavior\PlayerBehavior.fs" />
     <Compile Include="Behavior\EnemyBehavior.fs" />
+    <Compile Include="Behavior\Item\Type.fs" />
+    <Compile Include="Behavior\Item\Items\TestItem.fs" />
+    <Compile Include="Behavior\Item\Table.fs" />
+    <Compile Include="Behavior\Item\Behavior.fs" />
+    <Compile Include="Command\CommandList.fs" />
     <Compile Include="Interpretation\StateManager.fs" />
     <Compile Include="Interpretation\ControlModel.fs" />
     <Compile Include="Interpretation\Interpreter.fs" />
@@ -35,7 +39,6 @@
     <Compile Include="Services\InputConfigurationService.fs" />
     <Compile Include="Unity\EnemyAI.fs" />
     <Compile Include="Unity\UserController.fs" />
-    <Compile Include="Test\TestGameState.fs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -277,6 +280,8 @@
       <HintPath>..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.XRModule.dll</HintPath>
     </Reference>
   </ItemGroup>
+
+  <ItemGroup />
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="xcopy $(TargetPath) $(SolutionDir)\..\Assets\ /Y" />
