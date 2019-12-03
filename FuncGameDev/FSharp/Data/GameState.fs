@@ -21,3 +21,4 @@ let mutable instance: T = {
     };
     nextid = 1
 }
+

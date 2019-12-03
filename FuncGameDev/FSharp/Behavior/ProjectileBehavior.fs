@@ -15,6 +15,7 @@ let spawnProjectile damage effects speed initX initY gs =
             damage = damage;
             effects = effects
         }
+        CommonEntityData.sprite = "yay"
     }
 
     gs
