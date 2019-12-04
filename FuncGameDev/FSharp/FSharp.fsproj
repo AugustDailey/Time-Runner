@@ -63,6 +63,9 @@
     <Reference Include="Unity.CollabProxy.Editor">
       <HintPath>..\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.CollabProxy.Editor">
+      <HintPath>..\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Legacy.NRefactory">
       <HintPath>..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\Unity.Legacy.NRefactory.dll</HintPath>
     </Reference>
@@ -84,8 +87,32 @@
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>..\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>..\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>..\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>..\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>..\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline.Editor">
+      <HintPath>..\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>..\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TestRunner">
+      <HintPath>..\Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>..\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>..\Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
@@ -210,6 +237,9 @@
     <Reference Include="UnityEngine.TestRunner">
       <HintPath>..\Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>..\Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.TextCoreModule">
       <HintPath>..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.TextCoreModule.dll</HintPath>
     </Reference>
@@ -221,6 +251,9 @@
     </Reference>
     <Reference Include="UnityEngine.TLSModule">
       <HintPath>..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.TLSModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>..\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
