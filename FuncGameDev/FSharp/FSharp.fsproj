@@ -24,7 +24,10 @@
     <Compile Include="Behavior\GameStateUtils.fs" />
     <Compile Include="Behavior\CommonEntityBehavior.fs" />
     <Compile Include="Behavior\EffectBehavior.fs" />
-    <Compile Include="Behavior\ProjectileBehavior.fs" />
+    <Compile Include="Behavior\Projectile\Type.fs" />
+    <Compile Include="Behavior\Projectile\Projectiles\TestProjectile.fs" />
+    <Compile Include="Behavior\Projectile\Table.fs" />
+    <Compile Include="Behavior\Projectile\Behavior.fs" />
     <Compile Include="Behavior\PlayerBehavior.fs" />
     <Compile Include="Behavior\EnemyBehavior.fs" />
     <Compile Include="Behavior\Item\Type.fs" />

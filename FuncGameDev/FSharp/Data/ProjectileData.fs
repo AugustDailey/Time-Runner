@@ -3,4 +3,5 @@
 type T = { damage: int; 
            effects: EffectData.T list;
            lifespan: float;
-           degrees: float; }
+           degrees: float; 
+           behaviorID: int; }
