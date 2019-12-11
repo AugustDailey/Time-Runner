@@ -21,6 +21,7 @@
     <Compile Include="Data\EntityType.fs" />
     <Compile Include="Data\CommonEntityData.fs" />
     <Compile Include="Data\GameState.fs" />
+    <Compile Include="Behavior\GameDataUtils.fs" />
     <Compile Include="Behavior\GameStateUtils.fs" />
     <Compile Include="Behavior\CommonEntityBehavior.fs" />
     <Compile Include="Behavior\EffectBehavior.fs" />
