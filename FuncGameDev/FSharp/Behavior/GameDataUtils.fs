@@ -12,9 +12,13 @@ let increaseTime deltaTime (gs: GameState.T) =
 let decreaseTime deltaTime (gs: GameState.T) =
     let gameData = gs.gamedata
     let newTime = gameData.time - deltaTime
-    match newTime with
-    | newTime when newTime < 0.0 -> newTime = 0.0
+    if newTime < 0.0 then 
+        let newGameData = { gameData with time = 0.0 }
+        let newGS = { gs with gamedata = newGameData}
+        newGS
+    else 
+        let newGameData = { gameData with time = newTime }
+        let newGS = { gs with gamedata = newGameData}
+        newGS
 
-    let newGameData = { gameData with time = newTime }
-    let newGS = { gs with gamedata = newGameData}
-    newGS
+    
