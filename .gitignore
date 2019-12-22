@@ -22,7 +22,6 @@ ExportedObj/
 *.svd
 *.pdb
 *.opendb
-*.dll
 *.xml
 *.json
 
