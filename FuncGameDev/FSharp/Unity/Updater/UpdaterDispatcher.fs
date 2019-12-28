@@ -9,7 +9,7 @@ let generalUpdate (entityData:CommonEntityData.T) (gameObject:GameObject) =
     gameObject.transform.position.y = y
 
 let specificUpdate (entityData:CommonEntityData.T) (gameObject:GameObject) = 
-    match entityData.entity with
+    match entityData.data with
     | EntityType.Player playerData ->
         PlayerUpdater.update entityData playerData gameObject
         ()
