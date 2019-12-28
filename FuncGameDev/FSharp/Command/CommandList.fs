@@ -6,5 +6,9 @@ let addCommand x =
     commands <- x::commands
 
 let executeAllCommands commands (gs:GameState.T) = 
-    let grandCommand = List.reduce (>>) commands // Compose all functions in the command list into one superfunction
-    grandCommand gs // Run the grand command on our gamestate to get the output gamestate, and return it
+    match List.length commands with
+    | 0 -> 
+        gs
+    | _ ->
+        let grandCommand = List.reduce (>>) commands // Compose all functions in the command list into one superfunction
+        grandCommand gs // Run the grand command on our gamestate to get the output gamestate, and return it
