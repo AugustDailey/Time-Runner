@@ -14,7 +14,7 @@ let spawn (weaponData: WeaponData.T) xy speed degrees (gs: GameState.T) =
         CommonEntityData.id = id
         CommonEntityData.position = xy
         CommonEntityData.speed = speed
-        CommonEntityData.entity = EntityType.Projectile {
+        CommonEntityData.data = EntityType.Projectile {
             damage = weaponData.damage
             effects = weaponData.effects
             lifespan = 100.0
@@ -28,7 +28,7 @@ let spawn (weaponData: WeaponData.T) xy speed degrees (gs: GameState.T) =
 let move pid (deltaTime: float32) (gs: GameState.T) =
     let projData = GameStateUtils.getEntityByID gs pid
     let delta = float deltaTime
-    match projData.entity with
+    match projData.data with
     | EntityType.Projectile proj ->
         let projBehavior = Map.find proj.behaviorID ProjectileBehaviorTable.Instance
         projBehavior.move projData delta gs
@@ -37,7 +37,7 @@ let move pid (deltaTime: float32) (gs: GameState.T) =
 
 let collision pid eid (gs: GameState.T) =
     let projData = GameStateUtils.getEntityByID gs pid
-    match projData.entity with
+    match projData.data with
     | EntityType.Projectile proj ->
         let entityData = GameStateUtils.getEntityByID gs eid
         let projBehavior = Map.find proj.behaviorID ProjectileBehaviorTable.Instance

@@ -8,7 +8,7 @@ let useWeapon eid (gs: GameState.T) =
     let entityOption = gs.entities.TryFind(eid)
     match entityOption with
     | _ ->
-        let entity = entityOption.Value.entity
+        let entity = entityOption.Value.data
         match entity with
         | EntityType.Weapon weapon -> 
             let weaponType = weapon.weaponType

@@ -14,20 +14,16 @@ open System
 //gs: GameState = the current gamestate
 //returns a function that takes a gamestate and returns a gamestate
 let move eid (degrees:float) (delta:float32) (gs : GameState.T) =
-    UnityEngine.Debug.Log("wow")
     let delta = float delta
-    let entityOption = gs.entities.TryFind(eid)
+    let entity = GameStateUtils.getEntityByID gs eid
     let radians = degrees * Math.PI / 180.0
-    match entityOption with
-    | None -> gs
-    | _ -> 
-        let entity = entityOption.Value
-        let position = entity.position
-        let distance = (float) entity.speed * delta;
-        let newPosition = ((fst position + distance * (Math.Sin radians)), (snd position + distance * (Math.Cos radians)))
-        let newEntity = { entity with position = newPosition }
-        let newMap = gs.entities.Add(eid, newEntity)
-        { gs with entities = newMap }
+    let position = entity.position
+    let distance = (float) entity.speed * delta;
+    let newPosition = ((fst position + distance * (Math.Sin radians)), (snd position + distance * (Math.Cos radians)))
+    UnityEngine.Debug.Log(newPosition)
+    let newEntity = { entity with position = newPosition }
+    let newMap = gs.entities.Add(eid, newEntity)
+    { gs with entities = newMap }
 
 //Move entity a set amount in each direction
 //eid: int = id of entity (1-4)
