@@ -9,7 +9,7 @@ let emptyCommand gs =
 //associated with the given ID.
 //Assumes that the given ID is valid.
 //If it may not be, you should check it in the calling code.
-let getEntityByID eid (gs:GameState.T) =
+let getEntityByID (gs:GameState.T) eid =
     let entity = Map.find eid gs.entities
     entity
 

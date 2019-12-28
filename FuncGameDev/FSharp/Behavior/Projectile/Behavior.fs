@@ -26,7 +26,7 @@ let spawn (weaponData: WeaponData.T) xy speed degrees (gs: GameState.T) =
     {gs with entities = gs.entities.Add(id, newProjectile)}
 
 let move pid (deltaTime: float32) (gs: GameState.T) =
-    let projData = GameStateUtils.getEntityByID pid gs
+    let projData = GameStateUtils.getEntityByID gs pid
     let delta = float deltaTime
     match projData.entity with
     | EntityType.Projectile proj ->
@@ -36,10 +36,10 @@ let move pid (deltaTime: float32) (gs: GameState.T) =
         gs
 
 let collision pid eid (gs: GameState.T) =
-    let projData = GameStateUtils.getEntityByID pid gs
+    let projData = GameStateUtils.getEntityByID gs pid
     match projData.entity with
     | EntityType.Projectile proj ->
-        let entityData = GameStateUtils.getEntityByID eid gs
+        let entityData = GameStateUtils.getEntityByID gs eid
         let projBehavior = Map.find proj.behaviorID ProjectileBehaviorTable.Instance
         projBehavior.collision projData entityData gs
     | _ ->

@@ -38,8 +38,18 @@
     <Compile Include="Interpretation\StateManager.fs" />
     <Compile Include="Interpretation\ControlModel.fs" />
     <Compile Include="Interpretation\Interpreter.fs" />
-    <Compile Include="Unity\PlayerUpdater.fs" />
     <Compile Include="Services\InputConfigurationService.fs" />
+    <Compile Include="Unity\Updater\PlayerUpdater.fs" />
+    <Compile Include="Unity\Updater\EnemyUpdater.fs" />
+    <Compile Include="Unity\Updater\ItemUpdater.fs" />
+    <Compile Include="Unity\Updater\ProjectileUpdater.fs" />
+    <Compile Include="Unity\Updater\WeaponUpdater.fs" />
+    <Compile Include="Unity\Updater\GameDataUpdater.fs" />
+    <Compile Include="Unity\Updater\Spawner.fs" />
+    <Compile Include="Unity\Updater\Destroyer.fs" />
+    <Compile Include="Unity\Updater\UpdaterDispatcher.fs" />
+    <Compile Include="Unity\Update.fs" />
+    <Compile Include="Unity\PlayerUpdater.fs" />
     <Compile Include="Unity\EnemyAI.fs" />
     <Compile Include="Unity\UserController.fs" />
   </ItemGroup>
@@ -244,8 +254,6 @@
       <HintPath>..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.XRModule.dll</HintPath>
     </Reference>
   </ItemGroup>
-
-  <ItemGroup />
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="xcopy $(TargetPath) $(SolutionDir)\..\Assets\ /Y" />

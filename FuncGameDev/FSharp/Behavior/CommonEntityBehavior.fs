@@ -14,6 +14,7 @@ open System
 //gs: GameState = the current gamestate
 //returns a function that takes a gamestate and returns a gamestate
 let move eid (degrees:float) (delta:float32) (gs : GameState.T) =
+    UnityEngine.Debug.Log("wow")
     let delta = float delta
     let entityOption = gs.entities.TryFind(eid)
     let radians = degrees * Math.PI / 180.0
