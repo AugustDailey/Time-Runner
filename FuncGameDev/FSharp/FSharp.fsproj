@@ -39,15 +39,15 @@
     <Compile Include="Interpretation\ControlModel.fs" />
     <Compile Include="Interpretation\Interpreter.fs" />
     <Compile Include="Services\InputConfigurationService.fs" />
+    <Compile Include="Unity\Destroyer\Destroyer.fs" />
     <Compile Include="Unity\Updater\PlayerUpdater.fs" />
     <Compile Include="Unity\Updater\EnemyUpdater.fs" />
     <Compile Include="Unity\Updater\ItemUpdater.fs" />
     <Compile Include="Unity\Updater\ProjectileUpdater.fs" />
     <Compile Include="Unity\Updater\WeaponUpdater.fs" />
     <Compile Include="Unity\Updater\GameDataUpdater.fs" />
-    <Compile Include="Unity\Updater\Spawner.fs" />
-    <Compile Include="Unity\Updater\Destroyer.fs" />
     <Compile Include="Unity\Updater\UpdaterDispatcher.fs" />
+    <Compile Include="Unity\Spawner\Spawner.fs" />
     <Compile Include="Unity\Update.fs" />
     <Compile Include="Unity\PlayerUpdater.fs" />
     <Compile Include="Unity\EnemyAI.fs" />
