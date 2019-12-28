@@ -5,6 +5,8 @@ type T = {
     level: LevelData.T;
     gamedata: GameData.T;
     nextid: int // the next created entity will have this id
+    spawnIds: int list
+    killIds: int list
 }
 
 let mutable instance: T = {
@@ -20,5 +22,7 @@ let mutable instance: T = {
         GameData.floor = 0
     };
     nextid = 1
+    spawnIds = []
+    killIds = []
 }
 

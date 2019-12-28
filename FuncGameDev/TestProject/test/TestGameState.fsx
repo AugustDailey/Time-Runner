@@ -103,6 +103,8 @@ let testGameState = {
     GameState.level = testLevel;
     GameState.gamedata = testGameData;
     GameState.nextid = 4
+    GameState.spawnIds = []
+    GameState.killIds = []
 }
 
 
