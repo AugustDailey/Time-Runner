@@ -23,7 +23,7 @@ type EnemyAIScript() =
         let entityOption = GameState.instance.entities.TryFind(id)
         match entityOption with
         | None -> ()
-        | Some entityData -> match entityData.entity with
+        | Some entityData -> match entityData.data with
             | EntityType.Enemy _ -> randomEnemyAI id
             | _ -> ()
 

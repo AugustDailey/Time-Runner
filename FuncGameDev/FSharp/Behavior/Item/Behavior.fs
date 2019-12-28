@@ -7,7 +7,7 @@
 //returns a function that takes a gamestate and returns a gamestate
 let onpickup iid eid (gs:GameState.T) =
     let itemData = GameStateUtils.getEntityByID gs iid
-    match itemData.entity with
+    match itemData.data with
     | EntityType.Item item ->
         let entityData = GameStateUtils.getEntityByID gs eid
         let itemBehavior = Map.find item.behaviorID ItemBehaviorTable.Instance
@@ -22,7 +22,7 @@ let onpickup iid eid (gs:GameState.T) =
 //returns a function that takes a gamestate and returns a gamestate
 let ondestroy iid eid (gs:GameState.T) =
     let itemData = GameStateUtils.getEntityByID gs iid
-    match itemData.entity with
+    match itemData.data with
     | EntityType.Item item ->
         let entityData = GameStateUtils.getEntityByID gs eid
         let itemBehavior = Map.find item.behaviorID ItemBehaviorTable.Instance
