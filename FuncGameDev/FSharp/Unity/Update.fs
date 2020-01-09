@@ -32,7 +32,16 @@ type Updater() =
             CommonEntityData.sprite = "yay"
         }
         GameState.instance <- { gs with entities = Map.add player1.id player1 gs.entities }
-        let go = gameObjects.Item(0)
+        //let go = gameObjects.Item(0)
+        Spawner.spawnEntity(gs)
+
+        //spawn object
+        let player = GameObject.Instantiate(Resources.Load<GameObject>("Player"))
+        let enemy = GameObject.Instantiate(Resources.Load<GameObject>("Enemy"))
+        let item = GameObject.Instantiate(Resources.Load<GameObject>("Item"))
+        let weapon = GameObject.Instantiate(Resources.Load<GameObject>("Weapon"))
+        //Add Components
+        Debug.Log("Spawned Hardcoded GOs")
         ()
 
     member this.Update() =
