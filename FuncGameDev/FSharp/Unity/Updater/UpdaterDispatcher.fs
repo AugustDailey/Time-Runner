@@ -16,14 +16,14 @@ let updateDispatch (entityData:CommonEntityData.T) (gameObject:GameObject) =
     | EntityType.Weapon weaponData ->
         ()
 
-let updateObject (gs:GameState.T) (gameObject:GameObject) =
-    let id = gameObject.GetInstanceID()
+let updateObject (gs:GameState.T) (gameObjectWrapper:GameObjectWrapper.T) =
+    let id = gameObjectWrapper.id
     let entityData = GameStateUtils.getEntityByID gs id
-    CommonEntityUpdater.update entityData gameObject
-    updateDispatch entityData gameObject
+    CommonEntityUpdater.update entityData gameObjectWrapper.go
+    updateDispatch entityData gameObjectWrapper.go
     ()
 
-let updateAllGameObjects (gs:GameState.T) (gameObjects:GameObject list) =
+let updateAllGameObjects (gs:GameState.T) (gameObjects:GameObjectWrapper.T list) =
     let callUpdaterWithGameState = updateObject gs
     gameObjects |> List.iter callUpdaterWithGameState
     ()
