@@ -16,6 +16,7 @@
     <Compile Include="Data\GameData.fs" />
     <Compile Include="Data\ItemData.fs" />
     <Compile Include="Data\LevelData.fs" />
+    <Compile Include="Data\ControlModel.fs" />
     <Compile Include="Data\PlayerData.fs" />
     <Compile Include="Data\ProjectileData.fs" />
     <Compile Include="Data\EntityType.fs" />
@@ -35,7 +36,6 @@
     <Compile Include="Behavior\Item\Table.fs" />
     <Compile Include="Behavior\Item\Behavior.fs" />
     <Compile Include="Command\CommandList.fs" />
-    <Compile Include="Interpretation\ControlModel.fs" />
     <Compile Include="Interpretation\Interpreter.fs" />
     <Compile Include="Services\InputConfigurationService.fs" />
     <Compile Include="Unity\GameObjectWrapper.fs" />
@@ -49,9 +49,9 @@
     <Compile Include="Unity\Updater\GameDataUpdater.fs" />
     <Compile Include="Unity\Updater\UpdaterDispatcher.fs" />
     <Compile Include="Unity\Spawner\Spawner.fs" />
-    <Compile Include="Unity\Update.fs" />
-    <Compile Include="Unity\EnemyAI.fs" />
     <Compile Include="Unity\UserController.fs" />
+    <Compile Include="Unity\EnemyAI.fs" />
+    <Compile Include="Unity\Update.fs" />
   </ItemGroup>
 
   <ItemGroup>

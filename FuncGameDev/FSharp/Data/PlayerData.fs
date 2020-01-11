@@ -5,4 +5,5 @@ type T = { melee: WeaponData.T;
            roll: WeaponData.T; 
            active: WeaponData.T; 
            items: ItemData.T list; 
-           effects: EffectData.T list }
+           effects: EffectData.T list;
+           controlModel: ControlModel.T }
