@@ -2,13 +2,7 @@
 
 open UnityEngine
 
-let generalUpdate (entityData:CommonEntityData.T) (gameObject:GameObject) =
-    let x = entityData.position |> fst |> float32
-    let y = entityData.position |> snd |> float32
-    gameObject.transform.position.x = x
-    gameObject.transform.position.y = y
-
-let specificUpdate (entityData:CommonEntityData.T) (gameObject:GameObject) = 
+let updateDispatch (entityData:CommonEntityData.T) (gameObject:GameObject) = 
     match entityData.data with
     | EntityType.Player playerData ->
         PlayerUpdater.update entityData playerData gameObject
@@ -25,8 +19,8 @@ let specificUpdate (entityData:CommonEntityData.T) (gameObject:GameObject) =
 let updateObject (gs:GameState.T) (gameObject:GameObject) =
     let id = gameObject.GetInstanceID()
     let entityData = GameStateUtils.getEntityByID gs id
-    generalUpdate entityData gameObject
-    specificUpdate entityData gameObject
+    CommonEntityUpdater.update entityData gameObject
+    updateDispatch entityData gameObject
     ()
 
 let updateAllGameObjects (gs:GameState.T) (gameObjects:GameObject list) =
