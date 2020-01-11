@@ -6,7 +6,7 @@ type Updater() =
     inherit MonoBehaviour()
 
     [<SerializeField>]
-    let mutable gameObjects: GameObject list = List.empty
+    let mutable gameObjects: GameObjectWrapper.T list = List.empty
 
     member this.Start() =
         let gs = GameState.instance
@@ -55,5 +55,5 @@ type Updater() =
         let gs = GameState.instance
         Commands.executeAllCommands Commands.commands gs
         UpdaterDispatcher.updateAllGameObjects gs gameObjects
-        Spawner.spawnGameObjects gs
+        gameObjects <- Spawner.spawnGameObjects gs
         ()

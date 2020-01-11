@@ -38,6 +38,7 @@
     <Compile Include="Interpretation\ControlModel.fs" />
     <Compile Include="Interpretation\Interpreter.fs" />
     <Compile Include="Services\InputConfigurationService.fs" />
+    <Compile Include="Unity\GameObjectWrapper.fs" />
     <Compile Include="Unity\Destroyer\Destroyer.fs" />
     <Compile Include="Unity\Updater\CommonEntityUpdater.fs" />
     <Compile Include="Unity\Updater\PlayerUpdater.fs" />
