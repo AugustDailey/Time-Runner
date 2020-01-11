@@ -16,11 +16,10 @@ open System
 let move eid (degrees:float) (delta:float32) (gs : GameState.T) =
     let delta = float delta
     let entity = GameStateUtils.getEntityByID gs eid
-    let radians = degrees * Math.PI / 180.0
+    let radians = (degrees + 90.0) * Math.PI / -180.0
     let position = entity.position
-    let distance = (float) entity.speed * delta;
+    let distance = (float) entity.speed * -delta;
     let newPosition = ((fst position + distance * (Math.Sin radians)), (snd position + distance * (Math.Cos radians)))
-    UnityEngine.Debug.Log(newPosition)
     let newEntity = { entity with position = newPosition }
     let newMap = gs.entities.Add(eid, newEntity)
     { gs with entities = newMap }

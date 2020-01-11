@@ -9,7 +9,15 @@ type Updater() =
     let mutable gameObjects: GameObjectWrapper.T list = List.empty
 
     member this.Start() =
+        //InputConfigurationService.Read
         let gs = GameState.instance
+        //let controlModel = Map.find 1 InputConfigurationService.PlayersToControls
+        let controlModel = {
+            ControlModel.down = "down";
+            ControlModel.up = "up";
+            ControlModel.left = "left";
+            ControlModel.right = "right"
+        }
         let tempWeapon = {
             WeaponData.weaponName = "Temp Weapon";
             WeaponData.cooldown = 0.4;
@@ -27,7 +35,8 @@ type Updater() =
                 roll = tempWeapon;
                 active = tempWeapon;
                 items = [];
-                effects = []
+                effects = [];
+                controlModel = controlModel
             }
             CommonEntityData.sprite = "yay"
         }
@@ -52,8 +61,9 @@ type Updater() =
         ()
 
     member this.Update() =
-        let gs = GameState.instance
-        Commands.executeAllCommands Commands.commands gs
-        UpdaterDispatcher.updateAllGameObjects gs gameObjects
-        gameObjects <- Spawner.spawnGameObjects gs
+        GameState.instance.entities |> Map.iter UserController.tryQueryInput
+        GameState.instance <- Commands.executeAllCommands GameState.instance
+        UpdaterDispatcher.updateAllGameObjects GameState.instance gameObjects
+        let newGameObjects = Spawner.spawnGameObjects GameState.instance
+        gameObjects <- List.append gameObjects newGameObjects
         ()
