@@ -5,30 +5,18 @@ open UnityEngine
 type PlayerCollision()=
     inherit MonoBehaviour()
 
-    member this.Start() = 
-        Debug.Log(this.GetComponent<Rigidbody2D>())
-
     member this.OnTriggerEnter2D (col : Collider2D) =
         
-        if (col.gameObject.name = "Player(Clone)") then
-            // Player Collision
-            Debug.Log("Player collided with another Player")
-            ()
-        
-        if (col.gameObject.name = "Enemy(Clone)") then
-            // Enemy Collision
-            Debug.Log("Player collided with Enemy")
-            ()
+        let collisionFunction = match col.gameObject.name with
+            | "Player(Clone)" -> PlayerBehavior.collideWithPlayer
+            | "Enemy(Clone)" -> PlayerBehavior.collideWithEnemy
+            | "Item(Clone)" -> PlayerBehavior.collideWithItem
+            | "Weapon(Clone)" -> PlayerBehavior.collideWithWeapon
+            | "Projectile(Clone)" -> PlayerBehavior.collideWithProjectile
 
-        if (col.gameObject.name = "Item(Clone)") then
-            // Item Collision
-            Debug.Log("Player collided with Item")
-            ()
-
-        if (col.gameObject.name = "Weapon(Clone)") then
-            // Weapon Collision
-            Debug.Log("Player collided with Weapon")
-            ()
-         
-        
+        let selfWrapper = GameObjectWrapper.findWrapperForGameObject this.gameObject
+        let otherWrapper = GameObjectWrapper.findWrapperForGameObject col.gameObject
+        let selfData = GameStateUtils.getEntityByID GameState.instance selfWrapper.id
+        let otherData = GameStateUtils.getEntityByID GameState.instance otherWrapper.id
+        collisionFunction selfData otherData |> Commands.addCommand
         
