@@ -8,7 +8,7 @@ type PlayerCollision()=
     member this.Start() = 
         Debug.Log(this.GetComponent<Rigidbody2D>())
 
-    member this.OnTriggerEnter2D (col : Collision2D) =
+    member this.OnTriggerEnter2D (col : Collider2D) =
         
         if (col.gameObject.name = "Player(Clone)") then
             // Player Collision
