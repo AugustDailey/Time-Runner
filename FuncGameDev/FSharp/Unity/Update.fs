@@ -5,8 +5,8 @@ open UnityEngine
 type Updater() = 
     inherit MonoBehaviour()
 
-    [<SerializeField>]
-    let mutable gameObjects: GameObjectWrapper.T list = List.empty
+    //[<SerializeField>]
+    //let mutable gameObjects: GameObjectWrapper.T list = List.empty
 
     // TODO: THIS VARIABLE SHOULD BE REMOVED ONCE WE COMPLETE TIMER DISPLAY
     let mutable lastTime = GameState.instance.gamedata.time |> int
@@ -76,7 +76,7 @@ type Updater() =
         GameState.instance.entities |> Map.iter UserController.tryQueryInput
         GameState.instance.entities |> Map.iter EnemyAIScript.callEnemyAI
         GameState.instance <- Commands.executeAllCommands GameState.instance
-        UpdaterDispatcher.updateAllGameObjects GameState.instance gameObjects
+        UpdaterDispatcher.updateAllGameObjects GameState.instance GameObjectWrapper.wrappers
         let newGameObjects = Spawner.spawnGameObjects GameState.instance
-        gameObjects <- List.append gameObjects newGameObjects
+        GameObjectWrapper.wrappers <- List.append GameObjectWrapper.wrappers newGameObjects
         ()
