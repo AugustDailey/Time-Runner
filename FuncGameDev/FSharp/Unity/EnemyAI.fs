@@ -1,10 +1,8 @@
-﻿namespace FSharp.Unity
+﻿module EnemyAIScript
 
 open UnityEngine
 open System
 
-type EnemyAIScript() =
-    inherit MonoBehaviour()
 
     // AI that randomly moves the enemy in a Cardinal direction
     let randomEnemyAI id = 
@@ -18,8 +16,11 @@ type EnemyAIScript() =
         elif rand < 3 then  CommonEntityBehavior.move id 90.0 Time.deltaTime |> Commands.addCommand
         // down 
         else CommonEntityBehavior.move id 270.0 Time.deltaTime |> Commands.addCommand
+    
+    let trackerAI id =
+        CommonEntityBehavior.move id 180.0 Time.deltaTime |> Commands.addCommand
 
-    let callEnemyAI id =
+    let callEnemyAI id (entity:CommonEntityData.T) =
         let entityOption = GameState.instance.entities.TryFind(id)
         match entityOption with
         | None -> ()
@@ -27,5 +28,8 @@ type EnemyAIScript() =
             | EntityType.Enemy _ -> randomEnemyAI id
             | _ -> ()
 
-    member this.Update() =
-        [1..GameState.instance.entities.Count] |> List.map callEnemyAI
+    let determineUpdate enemyType id= 
+        match enemyType with
+        | "Tracker" -> trackerAI id
+    //member this.Update() =
+    //    [1..GameState.instance.entities.Count] |> List.map callEnemyAI
