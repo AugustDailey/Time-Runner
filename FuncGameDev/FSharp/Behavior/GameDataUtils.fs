@@ -5,8 +5,7 @@ let increaseTime deltaTime (gs: GameState.T) =
     let gameData = gs.gamedata
     let newTime = gameData.time + deltaTime
     let newGameData = { gameData with time = newTime }
-    let newGS = { gs with gamedata = newGameData}
-    newGS
+    { gs with gamedata = newGameData}
 
 // Decreases time and returns a new GameState with updated time
 let decreaseTime deltaTime (gs: GameState.T) =
@@ -19,6 +18,5 @@ let decreaseTime deltaTime (gs: GameState.T) =
     | _ ->
         let newGameData = { gameData with time = newTime }
         { gs with gamedata = newGameData }
-        gs
 
     
