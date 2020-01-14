@@ -25,7 +25,6 @@ let queryInput eid (player:PlayerData.T) =
     controlQueryFunctionList |> List.map (fun x -> x eid) |> List.map (fun x -> x model)
     ()
 
-
 let tryQueryInput eid (entity:CommonEntityData.T) =
     match entity.data with
     | EntityType.Player player ->

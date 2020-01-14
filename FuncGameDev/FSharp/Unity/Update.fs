@@ -50,7 +50,8 @@ type Updater() =
             CommonEntityData.data = EntityType.Enemy {
                 health = 10;
                 weapon = tempWeapon;
-                effects = []
+                effects = [];
+                enemyType = "Tracker"
             }
             CommonEntityData.sprite = "yay"
         }
@@ -73,6 +74,7 @@ type Updater() =
 
         Time.deltaTime |> float |> GameDataUtils.decreaseTime |> Commands.addCommand
         GameState.instance.entities |> Map.iter UserController.tryQueryInput
+        GameState.instance.entities |> Map.iter EnemyAIScript.callEnemyAI
         GameState.instance <- Commands.executeAllCommands GameState.instance
         UpdaterDispatcher.updateAllGameObjects GameState.instance gameObjects
         let newGameObjects = Spawner.spawnGameObjects GameState.instance

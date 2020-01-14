@@ -7,7 +7,7 @@ let spawnEntity (gs:GameState.T) eid =
     let entityName = 
         match entity.data with
         | EntityType.Player player -> "Player"
-        | EntityType.Enemy enemy -> "Enemy"
+        | EntityType.Enemy enemy -> enemy.enemyType
         | EntityType.Item item -> "Item"
         | EntityType.Weapon weapon -> "Weapon"
         | EntityType.Projectile projectile -> "Projectile"
@@ -20,4 +20,3 @@ let spawnGameObjects (gs:GameState.T) =
     let gameObjects = gs.spawnIds |> (gs |> spawnEntity |> List.map) // call spawnEntity with given gamestate on all ids in spawnIds
     GameState.instance <- { gs with spawnIds = List.empty }
     gameObjects
-
