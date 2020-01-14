@@ -13,4 +13,8 @@ let getEntityByID (gs:GameState.T) eid =
     let entity = Map.find eid gs.entities
     entity
 
+//Removes the entity with the given ID
+//and returns the resulting gamestate.
+let removeEntityWithID (gs:GameState.T) eid =
+    { gs with entities = Map.remove eid gs.entities }
 
