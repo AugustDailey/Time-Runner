@@ -18,8 +18,7 @@ let collideWithPlayer (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:G
     gs
     
 let collideWithEnemy (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:GameState.T) =
-    UnityEngine.Debug.Log("Player collided with an Enemy")
-    gs
+    GameDataUtils.decreaseTime 5.0 gs
     
 let collideWithWeapon (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:GameState.T) =
     UnityEngine.Debug.Log("Player collided with a Weapon")
