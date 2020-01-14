@@ -28,6 +28,19 @@ type Updater() =
             WeaponData.effects = [];
             WeaponData.weaponType = WeaponData.Category.Melee;
         }
+        let weapon1 = {
+            CommonEntityData.id = 3;
+            CommonEntityData.position = (0.0, 1.0);
+            CommonEntityData.speed = 0.0;
+            CommonEntityData.data = EntityType.Weapon {
+                WeaponData.weaponName = "Ranged Weapon";
+                WeaponData.cooldown = 0.2;
+                WeaponData.damage = 5;
+                WeaponData.effects = [];
+                WeaponData.weaponType = WeaponData.Category.Ranged
+            };
+            CommonEntityData.sprite = "yay"
+        }
         let player1 = {
             CommonEntityData.id = 1;
             CommonEntityData.position = (2.0, 1.0);
@@ -58,8 +71,9 @@ type Updater() =
         let entitiesMap = 
             Map.empty.
                 Add(player1.id, player1).
-                Add(enemy1.id, enemy1)
-        let spawnIds = [1 ; 2]
+                Add(enemy1.id, enemy1).
+                Add(weapon1.id, weapon1)
+        let spawnIds = [1 ; 2 ; 3]
         GameState.instance <- { gs with entities = entitiesMap; spawnIds = spawnIds }
         //GameState.instance <- { gs with entities = Map.add player1.id player1 gs.entities; spawnIds = player1.id::gs.spawnIds }
         ()
