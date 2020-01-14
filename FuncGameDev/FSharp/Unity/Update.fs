@@ -8,6 +8,9 @@ type Updater() =
     [<SerializeField>]
     let mutable gameObjects: GameObjectWrapper.T list = List.empty
 
+    // TODO: THIS VARIABLE SHOULD BE REMOVED ONCE WE COMPLETE TIMER DISPLAY
+    let mutable lastTime = GameState.instance.gamedata.time |> int
+
     member this.Start() =
         //InputConfigurationService.Read
         let gs = GameState.instance
@@ -61,6 +64,14 @@ type Updater() =
         ()
 
     member this.Update() =
+        
+        // TODO: THIS BLOCK SHOULD BE REMOVED ONCE WE COMPLETE TIMER DISPLAY
+        // it's just here so that we only print each time increment once rather than spamming the console with it
+        let time = GameState.instance.gamedata.time |> int
+        if time <> lastTime then Debug.Log("TIME: " + time.ToString());
+        lastTime <- time
+
+        Time.deltaTime |> float |> GameDataUtils.decreaseTime |> Commands.addCommand
         GameState.instance.entities |> Map.iter UserController.tryQueryInput
         GameState.instance <- Commands.executeAllCommands GameState.instance
         UpdaterDispatcher.updateAllGameObjects GameState.instance gameObjects
