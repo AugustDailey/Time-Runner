@@ -30,6 +30,11 @@
     <Compile Include="Behavior\Projectile\Behavior.fs" />
     <Compile Include="Behavior\PlayerBehavior.fs" />
     <Compile Include="Behavior\EnemyBehavior.fs" />
+    <Compile Include="Behavior\Weapon\Type.fs" />
+    <Compile Include="Behavior\Weapon\Weapons\TestMeleeWeapon.fs" />
+    <Compile Include="Behavior\Weapon\Weapons\TestRollWeapon.fs" />
+    <Compile Include="Behavior\Weapon\Table.fs" />
+    <Compile Include="Behavior\Weapon\Behavior.fs" />
     <Compile Include="Behavior\Item\Type.fs" />
     <Compile Include="Behavior\Item\Items\TestItem.fs" />
     <Compile Include="Behavior\Item\Table.fs" />
@@ -244,8 +249,6 @@
       <HintPath>..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.XRModule.dll</HintPath>
     </Reference>
   </ItemGroup>
-
-  <ItemGroup />
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="xcopy $(TargetPath) $(SolutionDir)\..\Assets\ /Y" />
