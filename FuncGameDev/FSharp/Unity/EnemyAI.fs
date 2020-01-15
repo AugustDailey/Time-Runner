@@ -19,17 +19,19 @@ open System
     
     let trackerAI id =
         CommonEntityBehavior.move id 180.0 Time.deltaTime |> Commands.addCommand
+    
+    let determineUpdate enemyType id= 
+        match enemyType with
+        | "Tracker" -> trackerAI id
 
     let callEnemyAI id (entity:CommonEntityData.T) =
         let entityOption = GameState.instance.entities.TryFind(id)
         match entityOption with
         | None -> ()
         | Some entityData -> match entityData.data with
-            | EntityType.Enemy _ -> randomEnemyAI id
+            | EntityType.Enemy enemy -> determineUpdate enemy.enemyType id
             | _ -> ()
 
-    let determineUpdate enemyType id= 
-        match enemyType with
-        | "Tracker" -> trackerAI id
+    
     //member this.Update() =
     //    [1..GameState.instance.entities.Count] |> List.map callEnemyAI
