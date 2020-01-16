@@ -5,11 +5,25 @@ open UnityEngine
 type T = { id: int; 
            go: GameObject }
 
-let mutable wrappers: T list = List.empty
+let mutable wrappers: Map<int, T> = Map.empty
 
 let findWrapperWithID id =
-    List.find (fun (gow:T) -> gow.id = id) wrappers
+    Map.find id wrappers
     
 let findWrapperForGameObject go =
-    List.find (fun (gow:T) -> gow.go = go) wrappers
+    let mutable foundGo = { id = -1 ; go = null }
+    wrappers |> Map.iter (fun key value ->
+        match value.go with
+        | go -> 
+            foundGo <- value
+            ()
+        | _ -> 
+            ())
+    foundGo
+
+let removeWrapperWithId id =
+    wrappers <- Map.remove id wrappers
+
+let addWrapper (wrapper:T) = 
+    wrappers <- Map.add wrapper.id wrapper wrappers
 

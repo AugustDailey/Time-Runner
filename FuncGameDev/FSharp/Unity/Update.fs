@@ -92,5 +92,5 @@ type Updater() =
         GameState.instance <- Commands.executeAllCommands GameState.instance
         UpdaterDispatcher.updateAllGameObjects GameState.instance GameObjectWrapper.wrappers
         let newGameObjects = Spawner.spawnGameObjects GameState.instance
-        GameObjectWrapper.wrappers <- List.append GameObjectWrapper.wrappers newGameObjects
+        newGameObjects |> Map.iter (fun key value -> GameObjectWrapper.addWrapper value)
         ()
