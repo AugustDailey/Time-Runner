@@ -51,6 +51,7 @@
     <Compile Include="Unity\Updater\GameDataUpdater.fs" />
     <Compile Include="Unity\Updater\UpdaterDispatcher.fs" />
     <Compile Include="Unity\Spawner\Spawner.fs" />
+    <Compile Include="Unity\HUDUpdater.fs" />
     <Compile Include="Unity\UserController.fs" />
     <Compile Include="Unity\EnemyAI.fs" />
     <Compile Include="Unity\Update.fs" />
