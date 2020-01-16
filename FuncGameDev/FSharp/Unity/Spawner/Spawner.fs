@@ -13,10 +13,11 @@ let spawnEntity (gs:GameState.T) eid =
         | EntityType.Projectile projectile -> "Projectile"
     let go = entityName |> Resources.Load<GameObject> |> GameObject.Instantiate<GameObject>
     go.transform.position <- new Vector3(entity.position |> fst |> float32, entity.position |> snd |> float32)
-    { GameObjectWrapper.T.id = eid; GameObjectWrapper.T.go = go}
+    (eid, { GameObjectWrapper.T.id = eid; GameObjectWrapper.T.go = go})
 
 
 let spawnGameObjects (gs:GameState.T) =
     let gameObjects = gs.spawnIds |> (gs |> spawnEntity |> List.map) // call spawnEntity with given gamestate on all ids in spawnIds
+    let gameObjectsMap = Map.ofList gameObjects
     GameState.instance <- { gs with spawnIds = List.empty }
-    gameObjects
+    gameObjectsMap
