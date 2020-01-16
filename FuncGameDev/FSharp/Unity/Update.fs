@@ -79,7 +79,7 @@ type Updater() =
         ()
 
     member this.Update() =
-        
+
         // TODO: THIS BLOCK SHOULD BE REMOVED ONCE WE COMPLETE TIMER DISPLAY
         // it's just here so that we only print each time increment once rather than spamming the console with it
         let time = GameState.instance.gamedata.time |> int
@@ -93,4 +93,6 @@ type Updater() =
         UpdaterDispatcher.updateAllGameObjects GameState.instance GameObjectWrapper.wrappers
         let newGameObjects = Spawner.spawnGameObjects GameState.instance
         newGameObjects |> Map.iter (fun key value -> GameObjectWrapper.addWrapper value)
+        GameState.instance <- GameStateUtils.removeMarkedEntities GameState.instance
+        GameState.instance.killIds |> Destroyer.update
         ()

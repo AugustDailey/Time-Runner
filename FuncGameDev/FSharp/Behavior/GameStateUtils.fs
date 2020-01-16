@@ -12,9 +12,17 @@ let emptyCommand gs =
 let getEntityByID (gs:GameState.T) eid =
     let entity = Map.find eid gs.entities
     entity
-
+    
 //Removes the entity with the given ID
 //and returns the resulting gamestate.
 let removeEntityWithID (gs:GameState.T) eid =
     { gs with entities = Map.remove eid gs.entities }
 
+//Marks an entity so we can destroy it
+//at the end of the update loop
+let markEntityForDestruction (gs:GameState.T) eid =
+    { gs with killIds = eid::gs.killIds }
+
+//Removes all entities that have been marked for destruction
+let removeMarkedEntities (gs:GameState.T) =
+    List.fold removeEntityWithID gs gs.killIds
