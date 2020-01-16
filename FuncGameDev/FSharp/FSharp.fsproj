@@ -30,12 +30,12 @@
     <Compile Include="Behavior\Projectile\Projectiles\TestProjectile.fs" />
     <Compile Include="Behavior\Projectile\Table.fs" />
     <Compile Include="Behavior\Projectile\Behavior.fs" />
-    <Compile Include="Behavior\PlayerBehavior.fs" />
-    <Compile Include="Behavior\EnemyBehavior.fs" />
     <Compile Include="Behavior\Item\Type.fs" />
     <Compile Include="Behavior\Item\Items\TestItem.fs" />
     <Compile Include="Behavior\Item\Table.fs" />
     <Compile Include="Behavior\Item\Behavior.fs" />
+    <Compile Include="Behavior\PlayerBehavior.fs" />
+    <Compile Include="Behavior\EnemyBehavior.fs" />
     <Compile Include="Command\CommandList.fs" />
     <Compile Include="Interpretation\Interpreter.fs" />
     <Compile Include="Services\InputConfigurationService.fs" />

@@ -21,9 +21,7 @@ let collideWithEnemy (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:Ga
     GameDataUtils.decreaseTime 5.0 gs
     
 let collideWithWeapon (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:GameState.T) =
-    let newKillIds = other.id::gs.killIds
-    let gsWithoutWeapon = GameStateUtils.removeEntityWithID gs other.id
-    { gsWithoutWeapon with killIds = newKillIds }
+    GameStateUtils.markEntityForDestruction gs other.id
     
 let collideWithItem (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:GameState.T) =
     UnityEngine.Debug.Log("Player collided with an Item")
