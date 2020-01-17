@@ -10,6 +10,8 @@ type HUDUpdater() =
     member this.Update() = 
         let camera = GameObject.Find("Main Camera")
         let txt = this.GetComponent<TextMesh>()
-        txt.text <- "Time: 100" // grab time from where ever it is
+        let time : int = int GameState.instance.gamedata.time
+        let time_string : string = string time
+        txt.text <- "Time: " + time_string
         this.transform.position <- new Vector3(0.0f, 4.5f, 5.0f) + camera.transform.position
         ()
