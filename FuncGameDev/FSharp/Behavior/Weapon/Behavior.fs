@@ -8,10 +8,10 @@
 //gs: GameState = the current gamestate
 //returns a function that takes a gamestate and returns a gamestate
 let attack wid eid xy degrees (gs:GameState.T) =
-    let weaponData = GameStateUtils.getEntityByID wid gs
-    match weaponData.entity with
+    let weaponData = GameStateUtils.getEntityByID gs wid
+    match weaponData.data with
     | EntityType.Weapon weapon ->
-        let entityData = GameStateUtils.getEntityByID eid gs
+        let entityData = GameStateUtils.getEntityByID gs wid
         let weaponBehavior = Map.find weapon.behaviorID WeaponBehaviorTable.Instance
         weaponBehavior.attack weapon entityData xy degrees gs
     | _ ->
