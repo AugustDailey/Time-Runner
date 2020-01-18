@@ -27,6 +27,7 @@ type Updater() =
             WeaponData.damage = 35;
             WeaponData.effects = [];
             WeaponData.weaponType = WeaponData.Category.Melee;
+            WeaponData.behaviorID = 0
         }
         let weapon1 = {
             CommonEntityData.id = 3;
