@@ -7,6 +7,7 @@ type T = {
     //  a CommonEntityData, which is the owner of the weapon
     //  a float, which is the xy position of the unit using the weapon
     //  a float, which is the degree direction the unit is facing
+    //  a GameState instance
     //They return a GameState instance
 
     attack: (WeaponData.T -> CommonEntityData.T -> float -> float -> GameState.T -> GameState.T)
