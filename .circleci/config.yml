@@ -6,6 +6,7 @@ jobs:
     description: Build application with Release configuration
     executor:
       name: windows/default
+    checkout
     steps:
       - run:
           name: "Build Application according to some given configuration"
