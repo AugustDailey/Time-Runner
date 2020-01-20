@@ -13,11 +13,9 @@ let findWrapperWithID id =
 let findWrapperForGameObject go =
     let mutable foundGo = { id = -1 ; go = null }
     wrappers |> Map.iter (fun key value ->
-        match value.go with
-        | go -> 
+        if value.go = go then
             foundGo <- value
-            ()
-        | _ -> 
+        else
             ())
     foundGo
 

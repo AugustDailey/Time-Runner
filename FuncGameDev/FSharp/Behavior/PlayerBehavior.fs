@@ -19,9 +19,30 @@ let collideWithPlayer (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:G
     
 let collideWithEnemy (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:GameState.T) =
     GameDataUtils.decreaseTime 5.0 gs
+
+let addWeaponToPlayer (playerData:CommonEntityData.T) (player:PlayerData.T) (weapon:WeaponData.T) (gs:GameState.T) =
+    let newPlayer = match weapon.weaponType with
+    | WeaponData.Category.Melee -> { player with melee = weapon }
+    | WeaponData.Category.Ranged -> { player with ranged = weapon }
+    | WeaponData.Category.Roll -> { player with roll = weapon }
+    | WeaponData.Category.Active -> { player with active = weapon }
+    let newPlayerData = { playerData with data = EntityType.Player newPlayer }
+    { gs with entities = Map.add newPlayerData.id newPlayerData gs.entities }
     
 let collideWithWeapon (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:GameState.T) =
-    GameStateUtils.markEntityForDestruction gs other.id
+    UnityEngine.Debug.Log(self)
+    match other.data with
+    | EntityType.Weapon weapon ->
+        match self.data with
+        | EntityType.Player player ->
+            let newGs = addWeaponToPlayer self player weapon gs
+            UnityEngine.Debug.Log(newGs)
+            GameStateUtils.markEntityForDestruction newGs other.id
+        | _ ->
+            UnityEngine.Debug.Log("CASE 3");
+            gs
+    | _ ->
+        gs
     
 let collideWithItem (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:GameState.T) =
     UnityEngine.Debug.Log("Player collided with an Item")
