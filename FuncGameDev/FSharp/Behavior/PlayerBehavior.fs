@@ -30,23 +30,25 @@ let addWeaponToPlayer (playerData:CommonEntityData.T) (player:PlayerData.T) (wea
     { gs with entities = Map.add newPlayerData.id newPlayerData gs.entities }
     
 let collideWithWeapon (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:GameState.T) =
-    UnityEngine.Debug.Log(self)
     match other.data with
     | EntityType.Weapon weapon ->
         match self.data with
         | EntityType.Player player ->
             let newGs = addWeaponToPlayer self player weapon gs
-            UnityEngine.Debug.Log(newGs)
             GameStateUtils.markEntityForDestruction newGs other.id
         | _ ->
-            UnityEngine.Debug.Log("CASE 3");
             gs
     | _ ->
         gs
     
 let collideWithItem (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:GameState.T) =
-    UnityEngine.Debug.Log("Player collided with an Item")
-    gs
+    match other.data with
+    | EntityType.Item item ->
+        let itemBehavior = Map.find item.behaviorID ItemBehaviorTable.Instance
+        let newGs = itemBehavior.onpickup other self gs
+        GameStateUtils.markEntityForDestruction newGs other.id
+    | _ ->
+        gs
     
 let collideWithProjectile (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:GameState.T) =
     UnityEngine.Debug.Log("Player collided with a Projectile")
