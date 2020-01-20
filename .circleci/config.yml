@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
           name: "Install project dependencies"
-          command: dotnet.exe restore
+          command: dotnet.exe restore FuncGameDev\FSharp\FSharp.fsproj
       - run:
           name: "Build Application according to some given configuration"
           command: dotnet.exe build FuncGameDev\FSharp\FSharp.fsproj
