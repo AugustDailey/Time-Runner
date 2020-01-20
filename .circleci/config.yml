@@ -8,6 +8,16 @@ jobs:
       name: windows/default
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - dotnet-packages-v1-{{ checksum "FuncGameDev\FSharp\FSharp.fsproj" }}
+      - run:
+          name: "Install project dependencies"
+          command: dotnet.exe restore
+      - save_cache:
+          paths:
+            - C:\Users\circleci\.nuget\packages
+          key: dotnet-packages-v1-{{ checksum "FuncGameDev\FSharp\FSharp.fsproj" }}
       - run:
           name: "Build Application according to some given configuration"
           command: dotnet.exe build --configuration Release
