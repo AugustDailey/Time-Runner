@@ -78,13 +78,45 @@ type Updater() =
             }
             CommonEntityData.sprite = "yay"
         }
+        let projectile1 = {
+            CommonEntityData.id = 5
+            CommonEntityData.position = (-3.0, -2.5)
+            CommonEntityData.speed = 0.0
+            CommonEntityData.data = EntityType.Projectile {
+                damage = 5
+                effects = []
+                lifespan = 100.0
+                degrees = 0.0
+                behaviorID = 1
+                health = 1
+                team = 0
+            }
+            CommonEntityData.sprite = "yay"
+        }
+        let projectile2 = {
+            CommonEntityData.id = 6
+            CommonEntityData.position = (3.0, -2.5)
+            CommonEntityData.speed = 0.0
+            CommonEntityData.data = EntityType.Projectile {
+                damage = 5
+                effects = []
+                lifespan = 100.0
+                degrees = 0.0
+                behaviorID = 1
+                health = 2
+                team = 1
+            }
+            CommonEntityData.sprite = "yay"
+        }
         let entitiesMap = 
             Map.empty.
                 Add(player1.id, player1).
                 Add(enemy1.id, enemy1).
                 Add(weapon1.id, weapon1).
-                Add(item1.id, item1)
-        let spawnIds = [1 ; 2 ; 3 ; 4]
+                Add(item1.id, item1).
+                Add(projectile1.id, projectile1).
+                Add(projectile2.id, projectile2)
+        let spawnIds = [1 ; 2 ; 3 ; 4 ; 5 ; 6]
         GameState.instance <- { gs with entities = entitiesMap; spawnIds = spawnIds }
         //GameState.instance <- { gs with entities = Map.add player1.id player1 gs.entities; spawnIds = player1.id::gs.spawnIds }
         ()

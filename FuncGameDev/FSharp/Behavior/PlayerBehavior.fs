@@ -51,5 +51,21 @@ let collideWithItem (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:Gam
         gs
     
 let collideWithProjectile (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:GameState.T) =
-    UnityEngine.Debug.Log("Player collided with a Projectile")
-    gs
+    match other.data with
+    | EntityType.Projectile proj ->
+        match proj.team with
+        | 0 ->
+            gs
+        | _ ->
+            let newProj = { proj with health = proj.health - 1}
+            let projDamage = proj.damage |> float
+            let gsWithReducedTime = GameDataUtils.decreaseTime projDamage gs
+            match newProj.health with
+            | 0 ->
+                let gsWithoutProj = GameStateUtils.markEntityForDestruction gsWithReducedTime other.id
+                { gsWithoutProj with entities = Map.add other.id { other with data = EntityType.Projectile newProj } gsWithoutProj.entities}
+            | _ ->
+                { gsWithReducedTime with entities = Map.add other.id { other with data = EntityType.Projectile newProj } gsWithReducedTime.entities}
+
+
+

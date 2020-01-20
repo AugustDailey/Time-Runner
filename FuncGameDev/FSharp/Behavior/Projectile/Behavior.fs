@@ -20,6 +20,8 @@ let spawn (weaponData: WeaponData.T) xy speed degrees (gs: GameState.T) =
             lifespan = 100.0
             degrees = degrees
             behaviorID = 1
+            health = 1
+            team = 0
         }
         CommonEntityData.sprite = "yay"
     }
