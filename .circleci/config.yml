@@ -6,8 +6,8 @@ jobs:
     description: Build application with Release configuration
     executor:
       name: windows/default
-    checkout
     steps:
+      - checkout
       - run:
           name: "Build Application according to some given configuration"
           command: dotnet.exe build FuncGameDev\FSharp\FSharp.sln
