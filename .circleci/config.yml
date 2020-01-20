@@ -9,4 +9,4 @@ jobs:
     steps:
       - run:
           name: "Build Application according to some given configuration"
-          command: dotnet.exe build FuncGameDev\FSharp\FSharp.fsproj
+          command: dotnet.exe build FuncGameDev\FSharp\FSharp.sln
