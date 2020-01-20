@@ -1,17 +1,13 @@
 version: 2.1
+orbs:
+  windows: circleci/windows@2.2.0
 jobs:
   build:
-    docker:
-      - image: alpine:3.7
+    description: Build application with Release configuration
+    executor:
+      name: windows/default
     steps:
       - checkout
       - run:
-          name: The First Step
-          command: |
-            echo 'Hello World!'
-            echo 'This is the delivery pipeline'
-      - run:
-          name: Code Has Arrived
-          command: |
-            ls -al
-            echo '^^^That should look familiar^^^'
+          name: "Build Application according to some given configuration"
+          command: dotnet.exe build --configuration Release
