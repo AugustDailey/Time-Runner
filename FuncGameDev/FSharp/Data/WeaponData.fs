@@ -10,4 +10,5 @@ type T = { weaponName: string;
            cooldown: float; 
            damage: int; 
            effects: EffectData.T list; 
-           weaponType: Category}
+           weaponType: Category;
+           behaviorID: int}

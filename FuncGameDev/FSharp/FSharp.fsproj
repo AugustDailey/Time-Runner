@@ -30,6 +30,11 @@
     <Compile Include="Behavior\Projectile\Projectiles\TestProjectile.fs" />
     <Compile Include="Behavior\Projectile\Table.fs" />
     <Compile Include="Behavior\Projectile\Behavior.fs" />
+    <Compile Include="Behavior\Weapon\Type.fs" />
+    <Compile Include="Behavior\Weapon\Weapons\TestMeleeWeapon.fs" />
+    <Compile Include="Behavior\Weapon\Weapons\TestRollWeapon.fs" />
+    <Compile Include="Behavior\Weapon\Table.fs" />
+    <Compile Include="Behavior\Weapon\Behavior.fs" />
     <Compile Include="Behavior\Item\Type.fs" />
     <Compile Include="Behavior\Item\Items\TestItem.fs" />
     <Compile Include="Behavior\Item\Table.fs" />
