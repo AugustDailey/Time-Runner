@@ -38,7 +38,8 @@ type Updater() =
                 WeaponData.cooldown = 0.2;
                 WeaponData.damage = 5;
                 WeaponData.effects = [];
-                WeaponData.weaponType = WeaponData.Category.Ranged
+                WeaponData.weaponType = WeaponData.Category.Ranged;
+                WeaponData.behaviorID = 0
             };
             CommonEntityData.sprite = "yay"
         }
