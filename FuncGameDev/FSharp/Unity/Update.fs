@@ -113,12 +113,8 @@ type Updater() =
         let entitiesMap = 
             Map.empty.
                 Add(player1.id, player1).
-                Add(enemy1.id, enemy1).
-                Add(weapon1.id, weapon1).
-                Add(item1.id, item1).
-                Add(projectile1.id, projectile1).
-                Add(projectile2.id, projectile2)
-        let spawnIds = [1 ; 2 ; 3 ; 4 ; 5 ; 6]
+                Add(enemy1.id, enemy1)
+        let spawnIds = [1 ; 2]
         GameState.instance <- { gs with entities = entitiesMap; spawnIds = spawnIds }
         //GameState.instance <- { gs with entities = Map.add player1.id player1 gs.entities; spawnIds = player1.id::gs.spawnIds }
         ()
