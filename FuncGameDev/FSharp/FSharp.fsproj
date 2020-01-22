@@ -56,6 +56,7 @@
     <Compile Include="Unity\Updater\GameDataUpdater.fs" />
     <Compile Include="Unity\Updater\UpdaterDispatcher.fs" />
     <Compile Include="Unity\Spawner\Spawner.fs" />
+    <Compile Include="Unity\HUDUpdate.fs" />
     <Compile Include="Unity\UserController.fs" />
     <Compile Include="Unity\EnemyAI.fs" />
     <Compile Include="Unity\Update.fs" />
@@ -66,199 +67,199 @@
       <HintPath>..\Assets\FSharp.Core.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Cecil">
-      <HintPath>..\Dependencies\Unity.Cecil.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\Unity.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Cecil.Mdb">
-      <HintPath>..\Dependencies\Unity.Cecil.Mdb.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\Unity.Cecil.Mdb.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Cecil.Pdb">
-      <HintPath>..\Dependencies\Unity.Cecil.Pdb.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\Unity.Cecil.Pdb.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Legacy.NRefactory">
-      <HintPath>..\Dependencies\Unity.Legacy.NRefactory.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\Unity.Legacy.NRefactory.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>..\Dependencies\UnityEditor.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEditor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>..\Dependencies\UnityEngine.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AccessibilityModule">
-      <HintPath>..\Dependencies\UnityEngine.AccessibilityModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.AccessibilityModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
-      <HintPath>..\Dependencies\UnityEngine.AIModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.AIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AndroidJNIModule">
-      <HintPath>..\Dependencies\UnityEngine.AndroidJNIModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.AndroidJNIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AnimationModule">
-      <HintPath>..\Dependencies\UnityEngine.AnimationModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.AnimationModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ARModule">
-      <HintPath>..\Dependencies\UnityEngine.ARModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.ARModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AssetBundleModule">
-      <HintPath>..\Dependencies\UnityEngine.AssetBundleModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.AssetBundleModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AudioModule">
-      <HintPath>..\Dependencies\UnityEngine.AudioModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.AudioModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ClothModule">
-      <HintPath>..\Dependencies\UnityEngine.ClothModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.ClothModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ClusterInputModule">
-      <HintPath>..\Dependencies\UnityEngine.ClusterInputModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.ClusterInputModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ClusterRendererModule">
-      <HintPath>..\Dependencies\UnityEngine.ClusterRendererModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.ClusterRendererModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\Dependencies\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CrashReportingModule">
-      <HintPath>..\Dependencies\UnityEngine.CrashReportingModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.CrashReportingModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.DirectorModule">
-      <HintPath>..\Dependencies\UnityEngine.DirectorModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.DirectorModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.DSPGraphModule">
-      <HintPath>..\Dependencies\UnityEngine.DSPGraphModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.DSPGraphModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.FileSystemHttpModule">
-      <HintPath>..\Dependencies\UnityEngine.FileSystemHttpModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.FileSystemHttpModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.GameCenterModule">
-      <HintPath>..\Dependencies\UnityEngine.GameCenterModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.GameCenterModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.GridModule">
-      <HintPath>..\Dependencies\UnityEngine.GridModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.GridModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.HotReloadModule">
-      <HintPath>..\Dependencies\UnityEngine.HotReloadModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.HotReloadModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ImageConversionModule">
-      <HintPath>..\Dependencies\UnityEngine.ImageConversionModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.ImageConversionModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>..\Dependencies\UnityEngine.IMGUIModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.IMGUIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.InputLegacyModule">
-      <HintPath>..\Dependencies\UnityEngine.InputLegacyModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.InputLegacyModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.InputModule">
-      <HintPath>..\Dependencies\UnityEngine.InputModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.InputModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.JSONSerializeModule">
-      <HintPath>..\Dependencies\UnityEngine.JSONSerializeModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.JSONSerializeModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.LocalizationModule">
-      <HintPath>..\Dependencies\UnityEngine.LocalizationModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.LocalizationModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ParticleSystemModule">
-      <HintPath>..\Dependencies\UnityEngine.ParticleSystemModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.ParticleSystemModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.PerformanceReportingModule">
-      <HintPath>..\Dependencies\UnityEngine.PerformanceReportingModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.PerformanceReportingModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Physics2DModule">
-      <HintPath>..\Dependencies\UnityEngine.Physics2DModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.Physics2DModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.PhysicsModule">
-      <HintPath>..\Dependencies\UnityEngine.PhysicsModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.PhysicsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ProfilerModule">
-      <HintPath>..\Dependencies\UnityEngine.ProfilerModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.ProfilerModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ScreenCaptureModule">
-      <HintPath>..\Dependencies\UnityEngine.ScreenCaptureModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.ScreenCaptureModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SharedInternalsModule">
-      <HintPath>..\Dependencies\UnityEngine.SharedInternalsModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.SharedInternalsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpriteMaskModule">
-      <HintPath>..\Dependencies\UnityEngine.SpriteMaskModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.SpriteMaskModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpriteShapeModule">
-      <HintPath>..\Dependencies\UnityEngine.SpriteShapeModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.SpriteShapeModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.StreamingModule">
-      <HintPath>..\Dependencies\UnityEngine.StreamingModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.StreamingModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SubstanceModule">
-      <HintPath>..\Dependencies\UnityEngine.SubstanceModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.SubstanceModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TerrainModule">
-      <HintPath>..\Dependencies\UnityEngine.TerrainModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.TerrainModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TerrainPhysicsModule">
-      <HintPath>..\Dependencies\UnityEngine.TerrainPhysicsModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.TerrainPhysicsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TextCoreModule">
-      <HintPath>..\Dependencies\UnityEngine.TextCoreModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.TextCoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>..\Dependencies\UnityEngine.TextRenderingModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.TextRenderingModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TilemapModule">
-      <HintPath>..\Dependencies\UnityEngine.TilemapModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.TilemapModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TLSModule">
-      <HintPath>..\Dependencies\UnityEngine.TLSModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.TLSModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UIElementsModule">
-      <HintPath>..\Dependencies\UnityEngine.UIElementsModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.UIElementsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UIModule">
-      <HintPath>..\Dependencies\UnityEngine.UIModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.UIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UmbraModule">
-      <HintPath>..\Dependencies\UnityEngine.UmbraModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.UmbraModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UNETModule">
-      <HintPath>..\Dependencies\UnityEngine.UNETModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.UNETModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityAnalyticsModule">
-      <HintPath>..\Dependencies\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityAnalyticsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityConnectModule">
-      <HintPath>..\Dependencies\UnityEngine.UnityConnectModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityConnectModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityTestProtocolModule">
-      <HintPath>..\Dependencies\UnityEngine.UnityTestProtocolModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityTestProtocolModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
-      <HintPath>..\Dependencies\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestAudioModule">
-      <HintPath>..\Dependencies\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestModule">
-      <HintPath>..\Dependencies\UnityEngine.UnityWebRequestModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestTextureModule">
-      <HintPath>..\Dependencies\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestWWWModule">
-      <HintPath>..\Dependencies\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VehiclesModule">
-      <HintPath>..\Dependencies\UnityEngine.VehiclesModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.VehiclesModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VFXModule">
-      <HintPath>..\Dependencies\UnityEngine.VFXModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.VFXModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VideoModule">
-      <HintPath>..\Dependencies\UnityEngine.VideoModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.VideoModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VRModule">
-      <HintPath>..\Dependencies\UnityEngine.VRModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.VRModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.WindModule">
-      <HintPath>..\Dependencies\UnityEngine.WindModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.WindModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XRModule">
-      <HintPath>..\Dependencies\UnityEngine.XRModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.XRModule.dll</HintPath>
     </Reference>
   </ItemGroup>
 
