@@ -26,3 +26,6 @@ let markEntityForDestruction (gs:GameState.T) eid =
 //Removes all entities that have been marked for destruction
 let removeMarkedEntities (gs:GameState.T) =
     List.fold removeEntityWithID gs gs.killIds
+
+let modifyForSpawn (gs:GameState.T) =
+    { gs with nextid = gs.nextid + 1 ; spawnIds = List.Cons (gs.nextid, gs.spawnIds) }

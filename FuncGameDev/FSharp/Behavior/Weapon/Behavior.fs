@@ -16,3 +16,7 @@ let attack wid eid xy degrees (gs:GameState.T) =
         weaponBehavior.attack weapon entityData xy degrees gs
     | _ ->
         gs
+
+let spawn xy bid (gs:GameState.T) =
+    let weaponBehavior = Map.find bid WeaponBehaviorTable.Instance
+    weaponBehavior.spawn xy bid gs |> GameStateUtils.modifyForSpawn

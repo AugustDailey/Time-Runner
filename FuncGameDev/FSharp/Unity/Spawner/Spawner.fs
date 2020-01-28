@@ -2,6 +2,18 @@
 
 open UnityEngine
 
+let spawnWeapon xy bid =
+    WeaponBehavior.spawn xy bid |> Commands.addCommand
+
+let spawnItem xy bid =
+    ItemBehavior.spawn xy bid |> Commands.addCommand
+
+let spawnEnemy xy bid =
+    EnemyBehavior.spawn xy bid |> Commands.addCommand
+
+let spawnPlayer xy =
+    PlayerBehavior.spawnPlayer xy |> Commands.addCommand
+
 let spawnEntity (gs:GameState.T) eid =
     let entity = GameStateUtils.getEntityByID gs eid
     let entityName = 
