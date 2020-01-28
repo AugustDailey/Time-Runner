@@ -39,8 +39,12 @@
     <Compile Include="Behavior\Item\Items\TestItem.fs" />
     <Compile Include="Behavior\Item\Table.fs" />
     <Compile Include="Behavior\Item\Behavior.fs" />
+    <Compile Include="Behavior\Enemy\Type.fs" />
+    <Compile Include="Behavior\Enemy\Enemies\Stander.fs" />
+    <Compile Include="Behavior\Enemy\Enemies\Tracker.fs" />
+    <Compile Include="Behavior\Enemy\Table.fs" />
+    <Compile Include="Behavior\Enemy\Behavior.fs" />
     <Compile Include="Behavior\PlayerBehavior.fs" />
-    <Compile Include="Behavior\EnemyBehavior.fs" />
     <Compile Include="Command\CommandList.fs" />
     <Compile Include="Interpretation\Interpreter.fs" />
     <Compile Include="Services\InputConfigurationService.fs" />
@@ -56,8 +60,11 @@
     <Compile Include="Unity\Updater\GameDataUpdater.fs" />
     <Compile Include="Unity\Updater\UpdaterDispatcher.fs" />
     <Compile Include="Unity\Spawner\Spawner.fs" />
+    <Compile Include="Unity\EnemyAI\EnemyAIFunctions\StanderAI.fs" />
+    <Compile Include="Unity\EnemyAI\EnemyAIFunctions\TrackerAI.fs" />
+    <Compile Include="Unity\EnemyAI\EnemyAITable.fs" />
+    <Compile Include="Unity\EnemyAI\EnemyAI.fs" />
     <Compile Include="Unity\UserController.fs" />
-    <Compile Include="Unity\EnemyAI.fs" />
     <Compile Include="Unity\Update.fs" />
   </ItemGroup>
 

@@ -3,4 +3,6 @@
 type T = { health: int; 
            weapon: WeaponData.T; 
            effects: EffectData.T list;
-           enemyType: string }
+           enemyType: string;
+           behaviorId: int;
+           aiId: int }

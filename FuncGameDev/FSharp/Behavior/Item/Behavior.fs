@@ -29,3 +29,7 @@ let ondestroy iid eid (gs:GameState.T) =
         itemBehavior.ondestroy itemData entityData gs
     | _ ->
         gs
+
+let spawn xy bid (gs:GameState.T) =
+    let itemBehavior = Map.find bid ItemBehaviorTable.Instance
+    itemBehavior.spawn xy bid gs |> GameStateUtils.modifyForSpawn
