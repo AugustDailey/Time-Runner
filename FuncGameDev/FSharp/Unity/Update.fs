@@ -6,6 +6,7 @@ type Updater() =
     inherit MonoBehaviour()
 
     member this.Start() =
+        Generator.generateLevel GameState.instance
         Spawner.spawnPlayer (2.0, 1.0)
         EnemyGenerator.generateEntities [2 ; 2 ; 1 ; 1 ; 1]
         Spawner.spawnItem (-3.0, -2.5) 1
