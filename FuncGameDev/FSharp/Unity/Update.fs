@@ -117,10 +117,8 @@ type Updater() =
                 Add(player1.id, player1)
         let spawnIds = [1]
 
-        
-
         GameState.instance <- { gs with entities = entitiesMap; spawnIds = spawnIds }
-        EnemyGenerator.generateEntities 1
+        EnemyGenerator.generateEntities 2
         
         //GameState.instance <- { gs with entities = Map.add player1.id player1 gs.entities; spawnIds = player1.id::gs.spawnIds }
 >>>>>>> Add Enemy Proc Gen infrastructure + Hookup to Update Loop
