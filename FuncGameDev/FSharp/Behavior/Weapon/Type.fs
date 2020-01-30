@@ -11,4 +11,5 @@ type T = {
     //They return a GameState instance
 
     attack: (WeaponData.T -> CommonEntityData.T -> float -> float -> GameState.T -> GameState.T)
+    spawn: ((float * float) -> int -> GameState.T -> GameState.T)
 }
