@@ -10,10 +10,10 @@ let spawn (weaponData: WeaponData.T) xy speed degrees (gs: GameState.T) =
 let move (projData: CommonEntityData.T) (deltaTime: float) (gs: GameState.T) =
     match projData.data with 
     | EntityType.Projectile proj ->
-        let newX = projData.speed * cos proj.degrees * deltaTime + fst projData.position
-        let newY = projData.speed * sin proj.degrees * deltaTime + snd projData.position
+        let newX = projData.speed * cos proj.degrees * deltaTime + fst projData.direction
+        let newY = projData.speed * sin proj.degrees * deltaTime + snd projData.direction
         let newPos = (newX, newY)
-        {gs with entities = gs.entities.Add(projData.id, {projData with CommonEntityData.position = newPos})}
+        {gs with entities = gs.entities.Add(projData.id, {projData with CommonEntityData.direction = newPos})}
     | _ ->
         gs
         

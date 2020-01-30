@@ -8,14 +8,16 @@ let ai id =
     let player = GameState.instance.entities.TryFind(1);
     match player with
     | Some value ->
-        let pPosVector = player.Value.position
+        let pPos = GameObject.Find("Player(Clone)").transform.position
+        let pPosVector = pPos.x,pPos.y
         let playerPos = new Vector3(float32(fst pPosVector), float32(snd pPosVector))
 
         let enemy = GameState.instance.entities.TryFind(id);
-        let epos = enemy.Value.position
-        let enemyPos = new Vector3(float32(fst epos), float32(snd epos))
+        let eWrapper = GameObjectWrapper.findWrapperWithID id
+        let eObj = eWrapper.go
+        let ePos = eObj.transform.position
 
-        let result = playerPos - enemyPos
+        let result = playerPos - ePos
         let direction = Vector3.Normalize(result)
         let angle = Math.Atan2(float(direction.y), float(direction.x))
         let degreeAngle = angle * float(Mathf.Rad2Deg)
