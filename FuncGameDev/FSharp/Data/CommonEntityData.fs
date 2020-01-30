@@ -1,7 +1,8 @@
 ﻿module CommonEntityData
 
 type T = { id: int;
-           position: float * float;
+           direction: float * float;
            speed: float;
+           isMoving: bool;
            data: EntityType.T;
            sprite: string }

@@ -3,7 +3,8 @@
 let spawn xy bid (gs:GameState.T) =
     let enemyData = {
         CommonEntityData.id = gs.nextid;
-        CommonEntityData.position = xy;
+        CommonEntityData.isMoving = false;
+        CommonEntityData.direction = xy;
         CommonEntityData.speed = 4.0;
         CommonEntityData.data = EntityType.Enemy {
             health = 10;
