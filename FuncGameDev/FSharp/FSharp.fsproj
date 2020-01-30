@@ -48,6 +48,7 @@
     <Compile Include="Command\CommandList.fs" />
     <Compile Include="Interpretation\Interpreter.fs" />
     <Compile Include="Services\InputConfigurationService.fs" />
+    <Compile Include="Unity\HUDUpdate.fs" />
     <Compile Include="Unity\GameObjectWrapper.fs" />
     <Compile Include="Unity\Collision\PlayerCollision.fs" />
     <Compile Include="Unity\Destroyer\Destroyer.fs" />
