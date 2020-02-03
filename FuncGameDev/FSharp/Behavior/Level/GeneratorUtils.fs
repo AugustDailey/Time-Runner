@@ -4,7 +4,7 @@ let spawnTile xy blockID =
     { // just creates a tile with given position and id
         TileData.blockID = blockID;
         TileData.gridpos = xy
-        TileData.pos = (xy |> fst |> float, xy |> snd |> float)
+        TileData.pos = ((xy |> fst |> float) - 5.0, (xy |> snd |> float) - 4.0)
     }
 
 let spawnTileRow sizeRow idRow =
