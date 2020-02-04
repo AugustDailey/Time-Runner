@@ -30,8 +30,6 @@ let update =
         floor = GameState.instance.gamedata.floor;
         camera = cd }
 
-
     let gs = GameState.instance
     GameState.instance <- { gs with gamedata = gd}
-
     ()
