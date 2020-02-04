@@ -30,8 +30,7 @@ let spawnPlayer xy (gs:GameState.T) =
     }
     let player = {
         CommonEntityData.id = gs.nextid;
-        CommonEntityData.isMoving = false;
-        CommonEntityData.direction = xy;
+        CommonEntityData.position = xy;
         CommonEntityData.speed = 10.0;
         CommonEntityData.data = EntityType.Player {
             melee = tempWeapon;

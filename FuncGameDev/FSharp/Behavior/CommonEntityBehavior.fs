@@ -17,10 +17,44 @@ let move eid (degrees:float) (delta:float32) (gs : GameState.T) =
     let delta = float delta
     let entity = GameStateUtils.getEntityByID gs eid
     let radians = (degrees + 90.0) * Math.PI / -180.0
-    let direction = (Math.Sin radians),(Math.Cos radians)
-    let newEntity = { entity with isMoving = true; direction = direction}
+    let position = entity.position
+    let distance = (float) entity.speed * -delta;
+    let newPosition = ((fst position + distance * (Math.Sin radians)), (snd position + distance * (Math.Cos radians)))
+    let newEntity = { entity with position = newPosition }
     let newMap = gs.entities.Add(eid, newEntity)
     { gs with entities = newMap }
+
+//Move entity a set amount in each direction
+//eid: int = id of entity (1-4)
+//xy: float*float = amount to move in x and y directions
+//gs: GameState = the current gamestate
+//returns a function that takes a gamestate and returns a gamestate
+let moveBy eid xy (gs: GameState.T) =
+    let entityOption = gs.entities.TryFind(eid)
+    match entityOption with
+    | None -> gs
+    | _ -> 
+        let entity = entityOption.Value
+        let position = entity.position
+        let newPosition = ((fst position + fst xy), (snd position + snd xy))
+        let newEntity = { entity with position = newPosition }
+        let newMap = gs.entities.Add(eid, newEntity)
+        { gs with entities = newMap }
+    
+//Move entity to an absolute position
+//eid: int = id of entity
+//xy: float*float = position to move to
+//gs: GameState = the current gamestate
+//returns a function that takes a gamestate and returns a gamestate
+let moveTo eid xy (gs: GameState.T) = 
+    let entityOption = gs.entities.TryFind(eid)
+    match entityOption with
+    | None -> gs
+    | _ -> 
+        let entity = entityOption.Value
+        let newEntity = { entity with position = xy }
+        let newMap = gs.entities.Add(eid, newEntity)
+        { gs with entities = newMap }
 
 //Handle collision
 //eid1: int = id of first colliding entity

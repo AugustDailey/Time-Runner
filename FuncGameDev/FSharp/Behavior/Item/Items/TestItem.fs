@@ -13,8 +13,7 @@ let ondestroy (item:CommonEntityData.T) (owner:CommonEntityData.T) (gs:GameState
 let spawn xy bid (gs:GameState.T) =
     let itemData = {
         CommonEntityData.id = gs.nextid;
-        CommonEntityData.isMoving = false;
-        CommonEntityData.direction = xy;
+        CommonEntityData.position = xy;
         CommonEntityData.speed = 0.0;
         CommonEntityData.data = EntityType.Item {
             ItemData.itemName = "Time";

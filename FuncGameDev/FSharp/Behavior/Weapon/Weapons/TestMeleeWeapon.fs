@@ -10,8 +10,7 @@ let attack (weaponData: WeaponData.T) (commonEntityData: CommonEntityData.T) xy 
 let spawn xy bid (gs:GameState.T) =
     let weaponData = {
         CommonEntityData.id = gs.nextid;
-        CommonEntityData.isMoving = false;
-        CommonEntityData.direction = xy;
+        CommonEntityData.position = xy;
         CommonEntityData.speed = 0.0;
         CommonEntityData.data = EntityType.Weapon {
             WeaponData.weaponName = "Melee Weapon";
