@@ -14,12 +14,10 @@ let validatePosition (x : float) (y : float) entities =
     true
 
 let createEntity enemyID =
-    let levelWidth = GameState.instance.level.size |> fst
-    let levelHeight = GameState.instance.level.size |> snd
-    let xRand = r.Next(levelWidth)
-    let yRand = r.Next(levelHeight)
-    let xPos = ((xRand - levelWidth / 2) |> float)
-    let yPos = ((yRand - levelHeight / 2) |> float)
+    let xRand = CameraInterpreter.GetCameraWidth |> int |> r.Next
+    let yRand = CameraInterpreter.GetCameraHeight |> int |> r.Next
+    let xPos = ((xRand - xRand / 2) |> float)
+    let yPos = ((yRand - yRand / 2) |> float)
     Spawner.spawnEnemy (xPos, yPos) enemyID
     ()
 

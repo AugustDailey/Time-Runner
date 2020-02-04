@@ -2,6 +2,6 @@
 
 open UnityEngine
 
-let GetCameraWidth = 20.0
-let GetCameraHeight = 10.0
-let GetCameraPosition = (0.0, 0.0)
+let GetCameraWidth = GameState.instance.gamedata.camera.width
+let GetCameraHeight = GameState.instance.gamedata.camera.height
+let GetCameraPosition = GameState.instance.gamedata.camera.position
