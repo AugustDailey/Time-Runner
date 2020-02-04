@@ -1,4 +1,5 @@
 module GameData
 
 type T = { time: float;
-           floor: int }
+           floor: int;
+           camera: CameraData.T }

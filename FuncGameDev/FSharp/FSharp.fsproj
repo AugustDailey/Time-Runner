@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Data\CameraData.fs" />
     <Compile Include="Data\EffectData.fs" />
     <Compile Include="Data\WeaponData.fs" />
     <Compile Include="Data\EnemyData.fs" />
