@@ -46,6 +46,7 @@
     <Compile Include="Behavior\Enemy\Behavior.fs" />
     <Compile Include="Behavior\PlayerBehavior.fs" />
     <Compile Include="Command\CommandList.fs" />
+    <Compile Include="Interpretation\CameraInterpreter.fs" />
     <Compile Include="Interpretation\Interpreter.fs" />
     <Compile Include="Services\InputConfigurationService.fs" />
     <Compile Include="Unity\HUDUpdate.fs" />

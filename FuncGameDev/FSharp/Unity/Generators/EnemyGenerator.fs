@@ -13,15 +13,7 @@ let r = new System.Random()
 let validatePosition (x : float) (y : float) entities = 
     true
 
-let join (p:Map<'a,'b>) (q:Map<'a,'b>) = 
-    Map(Seq.concat [ (Map.toSeq p) ; (Map.toSeq q) ])
-
-let merge a b =
-    a @ b
-    |> Seq.distinct
-    |> List.ofSeq
-
-let createEntities enemyNumber =
+let createEntity enemyNumber =
     
     //let mutable invalidPos = true
     //let mutable xPos = 0.0
@@ -38,8 +30,8 @@ let createEntities enemyNumber =
     
     let xRand = r.NextDouble()
     let yRand = r.NextDouble()
-    let xPos = (xRand - 0.5) * 20.0
-    let yPos = (yRand - 0.5) * 10.0
+    let xPos = (xRand - 0.5) * CameraInterpreter.GetCameraWidth
+    let yPos = (yRand - 0.5) * CameraInterpreter.GetCameraHeight
 
     Spawner.spawnEnemy (xPos, yPos) 2
 
@@ -47,7 +39,7 @@ let createEntities enemyNumber =
     
 
 let generateEntities (numEnemies : int) = 
-    [1..numEnemies] |> List.iter createEntities
+    [1..numEnemies] |> List.iter createEntity
 
 
 
