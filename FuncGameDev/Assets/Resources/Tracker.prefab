@@ -12,6 +12,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tracker
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 8531404211682575262, guid: 822ae69cbf81c1b4981f3736ad7c6ccc,
         type: 3}
       propertyPath: m_Color.r
@@ -31,6 +32,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BodyType
       value: 0
+=======
+    - target: {fileID: 3232425631957166191, guid: 822ae69cbf81c1b4981f3736ad7c6ccc,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+>>>>>>> Fix collision mismatch by checking tags instead:
       objectReference: {fileID: 0}
     - target: {fileID: 8961383588847318968, guid: 822ae69cbf81c1b4981f3736ad7c6ccc,
         type: 3}
