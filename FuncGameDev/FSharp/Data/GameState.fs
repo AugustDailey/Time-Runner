@@ -22,6 +22,13 @@ let mutable instance: T = {
     gamedata = {
         GameData.time = 60.0;
         GameData.floor = 0
+        GameData.camera = { 
+            position = (0.0, 0.0, -10.0);
+            rotation = (0.0, 0.0, 0.0);
+            scale = (1.0, 1.0, 1.0);
+            width = 20.0;
+            height = 10.0;
+        }
     };
     nextid = 1
     spawnIds = []
