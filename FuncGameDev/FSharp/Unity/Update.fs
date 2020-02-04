@@ -7,11 +7,11 @@ type Updater() =
 
     member this.Start() =
         Spawner.spawnPlayer (2.0, 1.0)
-        //Spawner.spawnEnemy (-1.0, 0.0) 1
-        //Spawner.spawnEnemy (-2.0, -1.0) 2
-        //Spawner.spawnItem (-3.0, -2.5) 1
-        //Spawner.spawnWeapon (-3.5, 2.5) 1
-        //Spawner.spawnWeapon (-2.0, 2.5) 2
+        Spawner.spawnEnemy (-1.0, 0.0) 1
+        Spawner.spawnEnemy (-2.0, -1.0) 2
+        Spawner.spawnItem (-3.0, -2.5) 1
+        Spawner.spawnWeapon (-3.5, 2.5) 1
+        Spawner.spawnWeapon (-2.0, 2.5) 2
         ()
 
     member this.Update() =
