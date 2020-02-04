@@ -100,5 +100,7 @@ let collideWithProjectile (self:CommonEntityData.T) (other:CommonEntityData.T) (
             | _ ->
                 { gsWithReducedTime with entities = Map.add other.id { other with data = EntityType.Projectile newProj } gsWithReducedTime.entities}
 
+let collideWithNothing (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:GameState.T) =
+    gs
 
 

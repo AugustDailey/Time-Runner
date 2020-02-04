@@ -5,7 +5,7 @@ open UnityEngine
 let createTile (tileEntity:TileData.T) =
     let tileName = match tileEntity.blockID with
     | 0 -> "None"
-    | 1 -> "Enemy"
+    | 1 -> "Wall"
     match tileName with
     | "None" -> 
         null
@@ -18,7 +18,6 @@ let createTileFromRow tileRow =
     Array.map createTile tileRow
 
 let generateLevel gs =
-    let generatorBehavior = Map.find GameState.instance.level.generator GeneratorTable.Instance
-    GameState.instance <- generatorBehavior.generate gs
+    GameState.instance <- GeneratorBehavior.generate gs
     LevelGameObject.tiles = Array.map createTileFromRow GameState.instance.level.grid
     ()
