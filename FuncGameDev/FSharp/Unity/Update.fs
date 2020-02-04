@@ -8,9 +8,7 @@ type Updater() =
     member this.Start() =
 <<<<<<< HEAD
         Spawner.spawnPlayer (2.0, 1.0)
-        EnemyGenerator.generateEntities 2
-        //Spawner.spawnEnemy (-1.0, 0.0) 1
-        //Spawner.spawnEnemy (-2.0, -1.0) 2
+        EnemyGenerator.generateEntities [2 ; 2 ; 1 ; 1 ; 1]
         Spawner.spawnItem (-3.0, -2.5) 1
         Spawner.spawnWeapon (-3.5, 2.5) 1
         Spawner.spawnWeapon (-2.0, 2.5) 2
