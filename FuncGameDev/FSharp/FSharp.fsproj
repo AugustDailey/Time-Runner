@@ -60,8 +60,8 @@
     <Compile Include="Unity\Updater\WeaponUpdater.fs" />
     <Compile Include="Unity\Updater\GameDataUpdater.fs" />
     <Compile Include="Unity\Updater\UpdaterDispatcher.fs" />
-    <Compile Include="Unity\Spawner\Generators\EnemyGenerator.fs" />
     <Compile Include="Unity\Spawner\Spawner.fs" />
+    <Compile Include="Unity\Generators\EnemyGenerator.fs" />
     <Compile Include="Unity\EnemyAI\EnemyAIFunctions\StanderAI.fs" />
     <Compile Include="Unity\EnemyAI\EnemyAIFunctions\TrackerAI.fs" />
     <Compile Include="Unity\EnemyAI\EnemyAITable.fs" />
