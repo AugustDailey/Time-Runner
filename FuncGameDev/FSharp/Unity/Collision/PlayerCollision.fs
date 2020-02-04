@@ -7,12 +7,12 @@ type PlayerCollision()=
 
     member this.OnTriggerEnter2D (col : Collider2D) =
         
-        let collisionFunction = match col.gameObject.name with
-            | "Player(Clone)" -> PlayerBehavior.collideWithPlayer
-            | "Enemy(Clone)" -> PlayerBehavior.collideWithEnemy
-            | "Item(Clone)" -> PlayerBehavior.collideWithItem
-            | "Weapon(Clone)" -> PlayerBehavior.collideWithWeapon
-            | "Projectile(Clone)" -> PlayerBehavior.collideWithProjectile
+        let collisionFunction = match col.gameObject.tag with
+            | "Player" -> PlayerBehavior.collideWithPlayer
+            | "Enemy" -> PlayerBehavior.collideWithEnemy
+            | "Item" -> PlayerBehavior.collideWithItem
+            | "Weapon" -> PlayerBehavior.collideWithWeapon
+            | "Projectile" -> PlayerBehavior.collideWithProjectile
 
         let selfWrapper = GameObjectWrapper.findWrapperForGameObject this.gameObject
         let otherWrapper = GameObjectWrapper.findWrapperForGameObject col.gameObject
