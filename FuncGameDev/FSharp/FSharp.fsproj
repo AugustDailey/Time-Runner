@@ -29,6 +29,7 @@
     <Compile Include="Behavior\Level\Generators\TestGenerator.fs" />
     <Compile Include="Behavior\Level\Table.fs" />
     <Compile Include="Behavior\Level\Behavior.fs" />
+    <Compile Include="Behavior\CameraBehavior.fs" />
     <Compile Include="Behavior\GameDataUtils.fs" />
     <Compile Include="Behavior\GameStateUtils.fs" />
     <Compile Include="Behavior\CommonEntityBehavior.fs" />
