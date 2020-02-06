@@ -19,5 +19,5 @@ let update =
     let cScaleY = transform.localScale.y |> float
     let scale = (cScaleX, cScaleY)
 
-    CameraBehavior.updateCamera pos, rot, scale, 20.0, 10.0
+    CameraBehavior.updateCamera pos rot scale 20.0 10.0 |> Commands.addCommand
     ()

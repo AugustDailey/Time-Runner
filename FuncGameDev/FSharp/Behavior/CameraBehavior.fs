@@ -1,6 +1,6 @@
 ﻿module CameraBehavior
 
-let updateCamera (pos : float*float) (rot : float*float) (scale : float*float) (width : float) (height : float) =  
+let updateCamera (pos : float*float) (rot : float*float) (scale : float*float) (width : float) (height : float) (gs : GameState.T) =  
     let gs = GameState.instance
 
     let cPosX = fst pos
@@ -20,10 +20,8 @@ let updateCamera (pos : float*float) (rot : float*float) (scale : float*float) (
         width = 20.0;
         height = 10.0 }
     let gd : GameData.T = {
-        time = GameState.instance.gamedata.time;
-        floor = GameState.instance.gamedata.floor;
+        time = gs.gamedata.time;
+        floor = gs.gamedata.floor;
         camera = cd }
 
-    let gs = GameState.instance
-    GameState.instance <- { gs with gamedata = gd}
-    ()
+    { gs with gamedata = gd}
