@@ -19,9 +19,6 @@ let updateCamera (pos : float*float) (rot : float*float) (scale : float*float) (
         scale = (cScaleX, cScaleY);
         width = 20.0;
         height = 10.0 }
-    let gd : GameData.T = {
-        time = gs.gamedata.time;
-        floor = gs.gamedata.floor;
-        camera = cd }
+    let gd : GameData.T = { gs.gamedata with camera = cd}
 
     { gs with gamedata = gd}
