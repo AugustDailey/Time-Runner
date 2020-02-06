@@ -7,15 +7,17 @@ type T = {
     nextid: int // the next created entity will have this id
     spawnIds: int list
     killIds: int list
+    updateLevel: bool
 }
 
 let mutable instance: T = {
     entities = Map.empty;
     level = {
-        LevelData.grid = Array2D.zeroCreate 0 0;
+        LevelData.grid = null;
         LevelData.size = (0,0);
         LevelData.startpos = (0,0);
-        LevelData.stairpos = (0,0)
+        LevelData.stairpos = (0,0);
+        LevelData.generator = 1
     };
     gamedata = {
         GameData.time = 60.0;
@@ -24,5 +26,6 @@ let mutable instance: T = {
     nextid = 1
     spawnIds = []
     killIds = []
+    updateLevel = false
 }
 

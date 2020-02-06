@@ -1,6 +1,7 @@
 ﻿module LevelData
 
-type T = { grid: int[,]; 
+type T = { grid: TileData.T[][]
            size: int * int; 
            startpos: int * int; 
-           stairpos: int * int }
+           stairpos: int * int;
+           generator: int }

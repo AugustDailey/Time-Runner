@@ -15,6 +15,7 @@
     <Compile Include="Data\EnemyData.fs" />
     <Compile Include="Data\GameData.fs" />
     <Compile Include="Data\ItemData.fs" />
+    <Compile Include="Data\TileData.fs" />
     <Compile Include="Data\LevelData.fs" />
     <Compile Include="Data\ControlModel.fs" />
     <Compile Include="Data\PlayerData.fs" />
@@ -22,6 +23,11 @@
     <Compile Include="Data\EntityType.fs" />
     <Compile Include="Data\CommonEntityData.fs" />
     <Compile Include="Data\GameState.fs" />
+    <Compile Include="Behavior\Level\GeneratorUtils.fs" />
+    <Compile Include="Behavior\Level\Type.fs" />
+    <Compile Include="Behavior\Level\Generators\TestGenerator.fs" />
+    <Compile Include="Behavior\Level\Table.fs" />
+    <Compile Include="Behavior\Level\Behavior.fs" />
     <Compile Include="Behavior\GameDataUtils.fs" />
     <Compile Include="Behavior\GameStateUtils.fs" />
     <Compile Include="Behavior\CommonEntityBehavior.fs" />
@@ -46,10 +52,12 @@
     <Compile Include="Behavior\Enemy\Behavior.fs" />
     <Compile Include="Behavior\PlayerBehavior.fs" />
     <Compile Include="Command\CommandList.fs" />
+    <Compile Include="Interpretation\CameraInterpreter.fs" />
     <Compile Include="Interpretation\Interpreter.fs" />
     <Compile Include="Services\InputConfigurationService.fs" />
     <Compile Include="Unity\HUDUpdate.fs" />
     <Compile Include="Unity\GameObjectWrapper.fs" />
+    <Compile Include="Unity\LevelGameObject.fs" />
     <Compile Include="Unity\Collision\PlayerCollision.fs" />
     <Compile Include="Unity\Destroyer\Destroyer.fs" />
     <Compile Include="Unity\Updater\CommonEntityUpdater.fs" />
@@ -61,6 +69,8 @@
     <Compile Include="Unity\Updater\GameDataUpdater.fs" />
     <Compile Include="Unity\Updater\UpdaterDispatcher.fs" />
     <Compile Include="Unity\Spawner\Spawner.fs" />
+    <Compile Include="Unity\ProceduralGenerators\EnemyGenerator.fs" />
+    <Compile Include="Unity\ProceduralGenerators\LevelGenerator.fs" />
     <Compile Include="Unity\EnemyAI\EnemyAIFunctions\StanderAI.fs" />
     <Compile Include="Unity\EnemyAI\EnemyAIFunctions\TrackerAI.fs" />
     <Compile Include="Unity\EnemyAI\EnemyAITable.fs" />
