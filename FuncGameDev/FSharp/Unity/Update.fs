@@ -15,7 +15,7 @@ type Updater() =
         ()
 
     member this.Update() =
-        CameraUpdater.update
+        CameraInterpreter.updateCamera
         Time.deltaTime |> float |> GameDataUtils.decreaseTime |> Commands.addCommand
         GameState.instance.entities |> Map.iter UserController.tryQueryInput
         GameState.instance.entities |> Map.iter EnemyAIScript.callEnemyAI
