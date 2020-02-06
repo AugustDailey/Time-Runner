@@ -4,6 +4,7 @@
 //wid: int = id of the weapon
 //eid: int = id of the weapon owner
 //xy: float = xy coordinates of the unit holding the weapon
+// ^^^^ ????????? float or float * float
 //degrees: float = the degree direction that the unit is facing
 //gs: GameState = the current gamestate
 //returns a function that takes a gamestate and returns a gamestate
@@ -16,6 +17,11 @@ let attack wid eid xy degrees (gs:GameState.T) =
         weaponBehavior.attack weapon entityData xy degrees gs
     | _ ->
         gs
+
+let attack_2 (weapon:WeaponData.T) eid (xy:float) degrees (gs:GameState.T) = 
+    let entityData = GameStateUtils.getEntityByID gs eid
+    let weaponBehavior = Map.find weapon.behaviorID WeaponBehaviorTable.Instance
+    weaponBehavior.attack weapon entityData xy degrees gs
 
 let spawn xy bid (gs:GameState.T) =
     let weaponBehavior = Map.find bid WeaponBehaviorTable.Instance

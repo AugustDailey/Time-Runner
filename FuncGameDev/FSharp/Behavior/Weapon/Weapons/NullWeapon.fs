@@ -1,11 +1,10 @@
-﻿module TestRollWeapon
+﻿module NullWeapon
 
-// The Test Roll Weapon is a roll move
-// It moves the user 5 units in the direction they are facing
+// The Null Melee Weapon is a weapon
+// It does nothing, it is the weapon the player holds when they do not have a weapon in give slot
 
 let attack (weaponData: WeaponData.T) (commonEntityData: CommonEntityData.T) xy degrees (gs: GameState.T) = 
-    let newGS = CommonEntityBehavior.moveBy commonEntityData.id (1.0, 1.0) gs
-    newGS;
+    gs
 
 let spawn xy bid (gs:GameState.T) =
     let weaponData = {
@@ -13,11 +12,11 @@ let spawn xy bid (gs:GameState.T) =
         CommonEntityData.position = xy;
         CommonEntityData.speed = 0.0;
         CommonEntityData.data = EntityType.Weapon {
-            WeaponData.weaponName = "Melee Weapon";
-            WeaponData.cooldown = 1.0;
+            WeaponData.weaponName = "Null Weapon";
+            WeaponData.cooldown = 0.0;
             WeaponData.damage = 0;
             WeaponData.effects = [];
-            WeaponData.weaponType = WeaponData.Category.Roll;
+            WeaponData.weaponType = WeaponData.Category.Melee;
             WeaponData.behaviorID = bid
         };
         CommonEntityData.sprite = "yay"
@@ -26,5 +25,5 @@ let spawn xy bid (gs:GameState.T) =
 
 let behavior = {
     WeaponBehaviorType.attack = attack;
-    WeaponBehaviorType.spawn = spawn;
+    WeaponBehaviorType.spawn = spawn
 }
