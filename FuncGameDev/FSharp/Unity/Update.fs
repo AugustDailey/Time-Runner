@@ -25,4 +25,5 @@ type Updater() =
         newGameObjects |> Map.iter (fun key value -> GameObjectWrapper.addWrapper value)
         GameState.instance <- GameStateUtils.removeMarkedEntities GameState.instance
         GameState.instance.killIds |> Destroyer.update
+        CameraUpdater.update
         ()
