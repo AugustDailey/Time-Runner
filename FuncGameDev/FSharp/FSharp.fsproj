@@ -57,7 +57,6 @@
     <Compile Include="Interpretation\CameraInterpreter.fs" />
     <Compile Include="Interpretation\Interpreter.fs" />
     <Compile Include="Services\InputConfigurationService.fs" />
-    <Compile Include="Unity\CameraController.fs" />
     <Compile Include="Unity\HUDUpdate.fs" />
     <Compile Include="Unity\GameObjectWrapper.fs" />
     <Compile Include="Unity\LevelGameObject.fs" />
