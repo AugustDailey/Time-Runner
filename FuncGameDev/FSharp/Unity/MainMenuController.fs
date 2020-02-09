@@ -7,8 +7,8 @@ type MainMenuController() =
     inherit MonoBehaviour()
 
     member this.PlayGame() =
-        SceneManager.LoadScene("Gameplay")
+        "Gameplay" |> SceneManager.LoadScene
 
     member this.QuitGame() = 
-        Debug.Log("Quitting")
+        "Quitting" |> Debug.Log
         Application.Quit()
