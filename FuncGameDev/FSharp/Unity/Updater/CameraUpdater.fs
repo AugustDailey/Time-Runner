@@ -2,7 +2,7 @@
 
 open UnityEngine
 
-let update =
+let update() =
     
     let cameraData = GameState.instance.gamedata.camera
     let unityCameraTransform = Camera.main.transform
@@ -18,6 +18,4 @@ let update =
     Camera.main.transform.position <- posV
     Camera.main.transform.rotation <- rotV
     Camera.main.transform.localScale <- scaleV
-
-
     ()
