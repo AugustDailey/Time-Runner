@@ -9,13 +9,13 @@ open System
         let randomizer = new Random()
         let rand = randomizer.Next(4)
         // left
-        if rand < 1 then CommonEntityBehavior.move id 180.0 Time.deltaTime |> Commands.addCommand
+        if rand < 1 then CommonEntityBehavior.move id 180.0 |> Commands.addCommand
         // right
-        elif rand < 2 then  CommonEntityBehavior.move id 0.0 Time.deltaTime |> Commands.addCommand
+        elif rand < 2 then  CommonEntityBehavior.move id 0.0 |> Commands.addCommand
         // up
-        elif rand < 3 then  CommonEntityBehavior.move id 90.0 Time.deltaTime |> Commands.addCommand
+        elif rand < 3 then  CommonEntityBehavior.move id 90.0 |> Commands.addCommand
         // down 
-        else CommonEntityBehavior.move id 270.0 Time.deltaTime |> Commands.addCommand
+        else CommonEntityBehavior.move id 270.0 |> Commands.addCommand
 
     
     

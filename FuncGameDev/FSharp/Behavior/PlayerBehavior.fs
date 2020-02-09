@@ -32,6 +32,8 @@ let spawnPlayer xy (gs:GameState.T) =
         CommonEntityData.id = gs.nextid;
         CommonEntityData.position = xy;
         CommonEntityData.speed = 10.0;
+        CommonEntityData.direction = 0.0;
+        CommonEntityData.isMoving = false;
         CommonEntityData.data = EntityType.Player {
             melee = tempWeapon;
             ranged = tempWeapon;
@@ -41,6 +43,7 @@ let spawnPlayer xy (gs:GameState.T) =
             effects = [];
             controlModel = controlModel
         }
+        CommonEntityData.iframes = 0.0;
         CommonEntityData.sprite = "yay"
     }
     let newEntities = Map.add gs.nextid player gs.entities 
@@ -51,7 +54,12 @@ let collideWithPlayer (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:G
     gs
     
 let collideWithEnemy (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:GameState.T) =
-    GameDataUtils.decreaseTime 5.0 gs
+    match self.iframes with
+    | 0.0 when self.iframes <= 0.0 ->
+        let iframesGs = { gs with entities = Map.add self.id { self with iframes = 2.0 } gs.entities }
+        GameDataUtils.decreaseTime 5.0 iframesGs
+    | _ ->
+        gs
 
 let addWeaponToPlayer (playerData:CommonEntityData.T) (player:PlayerData.T) (weapon:WeaponData.T) (gs:GameState.T) =
     let newPlayer = match weapon.weaponType with

@@ -14,6 +14,8 @@ let spawn (weaponData: WeaponData.T) xy speed degrees (gs: GameState.T) =
         CommonEntityData.id = id
         CommonEntityData.position = xy
         CommonEntityData.speed = speed
+        CommonEntityData.direction = 0.0;
+        CommonEntityData.isMoving = false;
         CommonEntityData.data = EntityType.Projectile {
             damage = weaponData.damage
             effects = weaponData.effects
@@ -23,6 +25,7 @@ let spawn (weaponData: WeaponData.T) xy speed degrees (gs: GameState.T) =
             health = 1
             team = 0
         }
+        CommonEntityData.iframes = 0.0;
         CommonEntityData.sprite = "yay"
     }
     {gs with entities = gs.entities.Add(id, newProjectile)}

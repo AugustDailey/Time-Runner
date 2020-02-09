@@ -18,10 +18,26 @@ let checkDown id (model : ControlModel.T) =
     if Input.GetKey(model.down)
         then Interpreter.MovePlayerDown id
 
+let checkLeftUp id (model : ControlModel.T) =
+    if Input.GetKey(model.left) && Input.GetKey(model.up)
+        then Interpreter.MoveEntityInDirection id 135.0
+        
+let checkLeftDown id (model : ControlModel.T) =
+    if Input.GetKey(model.left) && Input.GetKey(model.down)
+        then Interpreter.MoveEntityInDirection id 225.0
+
+let checkRightUp id (model : ControlModel.T) =
+    if Input.GetKey(model.right) && Input.GetKey(model.up)
+        then Interpreter.MoveEntityInDirection id 45.0
+        
+let checkRightDown id (model : ControlModel.T) =
+    if Input.GetKey(model.right) && Input.GetKey(model.down)
+        then Interpreter.MoveEntityInDirection id 315.0
+
 
 let queryInput eid (player:PlayerData.T) =
     let model = player.controlModel
-    let controlQueryFunctionList = [checkRight ; checkLeft ; checkUp ; checkDown]
+    let controlQueryFunctionList = [checkRight ; checkLeft ; checkUp ; checkDown ; checkLeftUp ; checkLeftDown ; checkRightUp ; checkRightDown]
     controlQueryFunctionList |> List.map (fun x -> x eid) |> List.map (fun x -> x model)
     ()
 

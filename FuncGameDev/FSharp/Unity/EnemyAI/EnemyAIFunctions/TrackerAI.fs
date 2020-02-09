@@ -19,6 +19,6 @@ let ai id =
         let direction = Vector3.Normalize(result)
         let angle = Math.Atan2(float(direction.y), float(direction.x))
         let degreeAngle = angle * float(Mathf.Rad2Deg)
-        CommonEntityBehavior.move id degreeAngle Time.deltaTime |> Commands.addCommand
+        CommonEntityBehavior.move id degreeAngle |> Commands.addCommand
     | None ->
         ()
