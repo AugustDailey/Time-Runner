@@ -15,7 +15,7 @@ type Updater() =
         ()
 
     member this.Update() =
-        CameraInterpreter.updateCamera
+        CameraManager.updateCamera()
         Time.deltaTime |> float |> GameDataUtils.decreaseTime |> Commands.addCommand
         GameState.instance.entities |> Map.iter UserController.tryQueryInput
         GameState.instance.entities |> Map.iter EnemyAIScript.callEnemyAI
@@ -25,5 +25,5 @@ type Updater() =
         newGameObjects |> Map.iter (fun key value -> GameObjectWrapper.addWrapper value)
         GameState.instance <- GameStateUtils.removeMarkedEntities GameState.instance
         GameState.instance.killIds |> Destroyer.update
-        CameraUpdater.update
+        CameraUpdater.update()
         ()
