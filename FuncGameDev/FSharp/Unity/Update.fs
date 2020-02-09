@@ -16,6 +16,7 @@ type Updater() =
 
     member this.Update() =
         CameraManager.updateCamera()
+        GameState.instance <- GameObjectWrapper.wrappers |> CommonEntityUpdater.updateGameStateEntities GameState.instance
         Time.deltaTime |> float |> GameDataUtils.decreaseTime |> Commands.addCommand
         GameState.instance.entities |> Map.iter UserController.tryQueryInput
         GameState.instance.entities |> Map.iter EnemyAIScript.callEnemyAI

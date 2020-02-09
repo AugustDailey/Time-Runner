@@ -15,10 +15,13 @@ let spawn xy bid (gs:GameState.T) =
         CommonEntityData.id = gs.nextid;
         CommonEntityData.position = xy;
         CommonEntityData.speed = 0.0;
+        CommonEntityData.direction = 0.0;
+        CommonEntityData.isMoving = false;
         CommonEntityData.data = EntityType.Item {
             ItemData.itemName = "Time";
             ItemData.behaviorID = bid
         }
+        CommonEntityData.iframes = 0.0;
         CommonEntityData.sprite = "yay"
     }
     { gs with entities = Map.add gs.nextid itemData gs.entities }

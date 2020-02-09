@@ -12,6 +12,8 @@ let spawn xy bid (gs:GameState.T) =
         CommonEntityData.id = gs.nextid;
         CommonEntityData.position = xy;
         CommonEntityData.speed = 0.0;
+        CommonEntityData.direction = 0.0;
+        CommonEntityData.isMoving = false;
         CommonEntityData.data = EntityType.Weapon {
             WeaponData.weaponName = "Melee Weapon";
             WeaponData.cooldown = 0.4;
@@ -20,6 +22,7 @@ let spawn xy bid (gs:GameState.T) =
             WeaponData.weaponType = WeaponData.Category.Melee;
             WeaponData.behaviorID = bid
         };
+        CommonEntityData.iframes = 0.0;
         CommonEntityData.sprite = "yay"
     }
     { gs with entities = Map.add gs.nextid weaponData gs.entities}
