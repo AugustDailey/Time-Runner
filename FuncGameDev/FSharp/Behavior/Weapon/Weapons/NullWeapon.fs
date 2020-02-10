@@ -1,15 +1,10 @@
-﻿module TestMeleeWeapon
+﻿module NullWeapon
 
-// The Test Melee Weapon is a weapon
-// It performs a basic slashing attack
+// The Null Melee Weapon is a weapon
+// It does nothing, it is the weapon the player holds when they do not have a weapon in give slot
 
 let attack (weaponData: WeaponData.T) (commonEntityData: CommonEntityData.T) xy degrees (gs: GameState.T) = 
-    //let newGS = TestProjectile.spawn weaponData xy 0 degrees gs;
-    let x = 0.5 + (xy |> fst);
-    let y = 0.5 + (xy |> snd);
-    //let newGS = NullWeapon.spawn (0.0,0.0) 0 gs |> GameStateUtils.modifyForSpawn;
-    let newGS = TestProjectile.spawn weaponData (0.0, 0.0) 1.0 0.0 gs |> GameStateUtils.modifyForSpawn;
-    newGS;
+    gs
 
 let spawn xy bid (gs:GameState.T) =
     let weaponData = {
@@ -19,9 +14,9 @@ let spawn xy bid (gs:GameState.T) =
         CommonEntityData.direction = 0.0;
         CommonEntityData.isMoving = false;
         CommonEntityData.data = EntityType.Weapon {
-            WeaponData.weaponName = "Melee Weapon";
-            WeaponData.cooldown = 0.4;
-            WeaponData.damage = 35;
+            WeaponData.weaponName = "Null Weapon";
+            WeaponData.cooldown = 0.0;
+            WeaponData.damage = 0;
             WeaponData.effects = [];
             WeaponData.weaponType = WeaponData.Category.Melee;
             WeaponData.behaviorID = bid
