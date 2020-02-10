@@ -5,7 +5,25 @@
 // When dropped, it decreases the time by 5 seconds
 
 let spawn (weaponData: WeaponData.T) xy speed degrees (gs: GameState.T) =
-    gs
+    let projectileData = {
+        CommonEntityData.id = gs.nextid;
+        CommonEntityData.position = xy;
+        CommonEntityData.speed = speed;
+        CommonEntityData.direction = 0.0;
+        CommonEntityData.isMoving = false;
+        CommonEntityData.data = EntityType.Projectile {
+            ProjectileData.damage = weaponData.damage; 
+            ProjectileData.effects = weaponData.effects;
+            ProjectileData.lifespan = 50.0;
+            ProjectileData.degrees = degrees; 
+            ProjectileData.behaviorID = 0;
+            ProjectileData.health = 1;
+            ProjectileData.team = 2
+        }
+        CommonEntityData.iframes = 0.0;
+        CommonEntityData.sprite = "yay"
+    }
+    { gs with entities = Map.add gs.nextid projectileData gs.entities}
 
 let move (projData: CommonEntityData.T) (deltaTime: float) (gs: GameState.T) =
     match projData.data with 

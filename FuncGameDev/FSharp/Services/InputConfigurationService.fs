@@ -11,7 +11,12 @@ let AddControlsToMap (stream : StreamReader) (player : string) =
     let parsedDown = stream.ReadLine()
     let parsedLeft = stream.ReadLine()
     let parsedRight = stream.ReadLine()
-    PlayersToControls.Add(playerNumber, {right = parsedRight; left = parsedLeft; up = parsedUp; down = parsedDown})
+    let parsedMelee = stream.ReadLine()
+    let parseRanged = stream.ReadLine()
+    let parseRoll = stream.ReadLine()
+    let parseActive = stream.ReadLine()
+    PlayersToControls.Add(playerNumber, {right = parsedRight; left = parsedLeft; up = parsedUp; down = parsedDown;
+                                        melee = parsedMelee; range = parseRanged; dodge = parseRoll; active = parseActive})
     ()
 
 let Read =

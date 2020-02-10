@@ -39,6 +39,7 @@
     <Compile Include="Behavior\Projectile\Table.fs" />
     <Compile Include="Behavior\Projectile\Behavior.fs" />
     <Compile Include="Behavior\Weapon\Type.fs" />
+    <Compile Include="Behavior\Weapon\Weapons\NullWeapon.fs" />
     <Compile Include="Behavior\Weapon\Weapons\TestMeleeWeapon.fs" />
     <Compile Include="Behavior\Weapon\Weapons\TestRollWeapon.fs" />
     <Compile Include="Behavior\Weapon\Table.fs" />

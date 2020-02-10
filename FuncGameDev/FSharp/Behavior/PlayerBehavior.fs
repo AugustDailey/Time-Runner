@@ -26,7 +26,11 @@ let spawnPlayer xy (gs:GameState.T) =
         ControlModel.down = "down";
         ControlModel.up = "up";
         ControlModel.left = "left";
-        ControlModel.right = "right"
+        ControlModel.right = "right";
+        ControlModel.melee = "z";
+        ControlModel.range = "x";
+        ControlModel.active = "v";
+        ControlModel.dodge = "c"
     }
     let player = {
         CommonEntityData.id = gs.nextid;
