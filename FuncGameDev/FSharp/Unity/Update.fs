@@ -6,15 +6,12 @@ type Updater() =
     inherit MonoBehaviour()
 
     member this.Start() =
+        Spawner.spawnPlayer (GameState.instance.level.stairpos |> fst |> float, GameState.instance.level.stairpos |> snd |> float)
         Generator.generateLevel GameState.instance
-        Spawner.spawnPlayer (2.0, 1.0)
-        EnemyGenerator.generateEntities [2 ; 2 ; 1 ; 1 ; 1]
-        ItemGenerator.generateItems [1 ; 1 ; 1]
-        Spawner.spawnWeapon (-3.5, 2.5) 1
-        Spawner.spawnWeapon (-2.0, 2.5) 2
         ()
 
     member this.Update() =
+        Generator.tryGenerateLevel GameState.instance
         CameraManager.updateCamera()
         GameState.instance <- GameObjectWrapper.wrappers |> CommonEntityUpdater.updateGameStateEntities GameState.instance
         Time.deltaTime |> float |> GameDataUtils.decreaseTime |> Commands.addCommand
