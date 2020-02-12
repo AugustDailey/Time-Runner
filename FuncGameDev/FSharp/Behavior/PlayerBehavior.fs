@@ -112,7 +112,21 @@ let collideWithProjectile (self:CommonEntityData.T) (other:CommonEntityData.T) (
             | _ ->
                 { gsWithReducedTime with entities = Map.add other.id { other with data = EntityType.Projectile newProj } gsWithReducedTime.entities}
 
+let removeNonPlayerEntities gs eid (data:CommonEntityData.T) =
+    match data.data with
+    | EntityType.Player player -> // don't remove players
+        gs
+    | _ -> // remove all other entities
+        GameStateUtils.markEntityForDestruction gs eid
+
+let collideWithStairs (gs:GameState.T) =
+    match gs.level.complete with // need this check to prevent colliding with stairs twice
+    | false ->
+        let newGs = Map.fold removeNonPlayerEntities gs gs.entities
+        { newGs with level = { newGs.level with complete = true }}
+    | true ->
+        gs
+
 let collideWithNothing (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:GameState.T) =
     gs
-
 
