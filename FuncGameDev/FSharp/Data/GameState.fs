@@ -16,7 +16,8 @@ let mutable instance: T = {
         LevelData.grid = null;
         LevelData.size = (0,0);
         LevelData.startpos = (0,0);
-        LevelData.stairpos = (0,0);
+        LevelData.stairpos = (-7,-3);
+        LevelData.complete = false;
         LevelData.generator = 1
     };
     gamedata = {

@@ -18,6 +18,8 @@ type PlayerCollision()=
         match col.gameObject.tag with
             | "Wall" ->
                 () // don't try to look up wall in entity list or you'll crash
+            | "Stairs" ->
+                PlayerBehavior.collideWithStairs |> Commands.addCommand
             | _ ->
                 let selfWrapper = GameObjectWrapper.findWrapperForGameObject this.gameObject
                 let otherWrapper = GameObjectWrapper.findWrapperForGameObject col.gameObject
