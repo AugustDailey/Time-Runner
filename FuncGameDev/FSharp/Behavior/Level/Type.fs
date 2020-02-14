@@ -2,5 +2,8 @@
 
 type T = {
     //They return a GameState instance
-    generate: (GameState.T -> GameState.T)
+    generateLayout: (GameState.T -> GameState.T)
+    placePlayerAndStairs: (GameState.T -> GameState.T)
+    placeEnemies: (GameState.T -> GameState.T)
+    placeItems: (GameState.T -> GameState.T)
 }

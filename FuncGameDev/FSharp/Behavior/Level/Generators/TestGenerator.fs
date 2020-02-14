@@ -1,7 +1,7 @@
 ﻿module TestGenerator
 
 
-let generate (gs:GameState.T) =
+let generateLayout (gs:GameState.T) =
     let endPos = match gs.level.stairpos with
     | (-7, -3) ->
         (6, 2)
@@ -18,9 +18,9 @@ let generate (gs:GameState.T) =
         [| 1 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 1|] ;
         [| 1 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 1|] ;
         [| 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1|] |]
-    let tileGrid = grid |> GeneratorUtils.convertIdsToTiles
+    //let tileGrid = grid |> GeneratorUtils.convertIdsToTiles
     let levelData = {
-        LevelData.grid = tileGrid;
+        LevelData.grid = null;
         LevelData.size = (gs.gamedata.camera.width |> int, gs.gamedata.camera.height |> int);
         LevelData.startpos = gs.level.stairpos;
         LevelData.stairpos = endPos;
@@ -30,6 +30,23 @@ let generate (gs:GameState.T) =
     { gs with level = levelData}
 
 
+let placePlayerAndStairs (gs:GameState.T) =
+    let width = gs.level.size |> fst
+    let height = gs.level.size |> snd
+    gs.level.grid.[gs.level.startpos |> fst - width / 2].[gs.level.startpos |> snd - height / 2] <- -2
+    gs
+    
+let placeEnemies (gs:GameState.T) =
+    gs
+        
+        
+let placeItems (gs:GameState.T) =
+    gs
+
+
 let behavior = {
-    GeneratorBehaviorType.generate = generate
+    GeneratorBehaviorType.generateLayout = generateLayout
+    GeneratorBehaviorType.placePlayerAndStairs = placePlayerAndStairs
+    GeneratorBehaviorType.placeEnemies = placeEnemies
+    GeneratorBehaviorType.placeItems = placeItems
 }

@@ -27,7 +27,7 @@ let mutable instance: T = {
             position = (0.0, 0.0);
             rotation = (0.0, 0.0);
             scale = (1.0, 1.0);
-            width = 20.0;
+            width = 18.0;
             height = 10.0;
         }
     };

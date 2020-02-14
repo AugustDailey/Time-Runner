@@ -18,4 +18,4 @@ let updateCamera() =
     let cScaleY = transform.localScale.y |> float
     let scale = (cScaleX, cScaleY)
 
-    CameraInterpreter.updateCamera pos rot scale 20.0 10.0
+    CameraInterpreter.updateCamera pos rot scale 18.0 10.0
