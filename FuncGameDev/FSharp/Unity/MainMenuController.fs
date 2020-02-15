@@ -12,3 +12,6 @@ type MainMenuController() =
     member this.QuitGame() = 
         "Quitting" |> Debug.Log
         Application.Quit()
+
+    member this.ChangeKeyBinding() =
+        "Changing Control" |> Debug.Log
