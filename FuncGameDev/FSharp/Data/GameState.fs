@@ -8,12 +8,14 @@ type T = {
     spawnIds: int list
     killIds: int list
     updateLevel: bool
+    random: System.Random
 }
 
 let mutable instance: T = {
     entities = Map.empty;
     level = {
         LevelData.grid = null;
+        LevelData.validTiles = [];
         LevelData.size = (0,0);
         LevelData.startpos = (0,0);
         LevelData.stairpos = (-7,-3);
@@ -35,5 +37,6 @@ let mutable instance: T = {
     spawnIds = []
     killIds = []
     updateLevel = false
+    random = new System.Random()
 }
 
