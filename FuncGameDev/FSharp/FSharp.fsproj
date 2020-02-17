@@ -102,6 +102,9 @@
     <Reference Include="Unity.Legacy.NRefactory">
       <HintPath>..\Dependencies\Unity.Legacy.NRefactory.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>..\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>..\Dependencies\UnityEditor.dll</HintPath>
     </Reference>
@@ -230,6 +233,9 @@
     </Reference>
     <Reference Include="UnityEngine.TLSModule">
       <HintPath>..\Dependencies\UnityEngine.TLSModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UIElementsModule">
       <HintPath>..\Dependencies\UnityEngine.UIElementsModule.dll</HintPath>

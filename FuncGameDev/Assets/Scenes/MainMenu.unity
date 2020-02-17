@@ -2403,7 +2403,7 @@ GameObject:
   m_Component:
   - component: {fileID: 904246962}
   m_Layer: 5
-  m_Name: MoveUp
+  m_Name: Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4813,10 +4813,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1956117231}
         m_MethodName: ChangeKeyBinding
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 904246961}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6354,6 +6354,15 @@ MonoBehaviour:
   m_Script: {fileID: 1499406599, guid: 89318610a33d9ea41a3bd914e90e0cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentKey: {fileID: 0}
+  _up: {fileID: 1466176039}
+  _down: {fileID: 0}
+  _right: {fileID: 0}
+  _left: {fileID: 0}
+  _attackM: {fileID: 0}
+  _attackR: {fileID: 0}
+  _roll: {fileID: 0}
+  _menu: {fileID: 0}
 --- !u!1 &2022850133
 GameObject:
   m_ObjectHideFlags: 0
