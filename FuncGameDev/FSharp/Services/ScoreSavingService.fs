@@ -8,7 +8,7 @@ let getScore =
     let filePath = "HighScore.txt"
     let fullPath = Path.Combine(baseDirectory'.FullName, filePath)
     let score =  File.ReadAllText(fullPath)
-    score
+    score |> int
 
 let storeScore score =
     let baseDirectory = __SOURCE_DIRECTORY__
