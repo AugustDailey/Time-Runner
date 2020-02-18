@@ -65,8 +65,9 @@
     <Compile Include="Services\ScoreSavingService.fs" />
     <Compile Include="Services\InputConfigurationService.fs" />
     <Compile Include="Unity\CameraManager.fs" />
+    <Compile Include="Unity\HUD\HUDFloorUpdate.fs" />
     <Compile Include="Unity\MainMenuController.fs" />
-    <Compile Include="Unity\HUDUpdate.fs" />
+    <Compile Include="Unity\HUD\HUDTimerUpdate.fs" />
     <Compile Include="Unity\GameObjectWrapper.fs" />
     <Compile Include="Unity\LevelGameObject.fs" />
     <Compile Include="Unity\Collision\PlayerCollision.fs" />

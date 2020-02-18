@@ -115,7 +115,8 @@ let collideWithStairs (gs:GameState.T) =
     match gs.level.complete with // need this check to prevent colliding with stairs twice
     | false ->
         let newGs = Map.fold removeNonPlayerEntities gs gs.entities
-        { newGs with level = { newGs.level with complete = true }}
+        // mark level as complete and increment floor number
+        { newGs with level = { newGs.level with complete = true } ; gamedata = { newGs.gamedata with floor = newGs.gamedata.floor + 1 } }
     | true ->
         gs
 
