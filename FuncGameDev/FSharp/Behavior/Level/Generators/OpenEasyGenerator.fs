@@ -1,5 +1,9 @@
-﻿module TestGenerator
+﻿module OpenEasyGenerator
 
+
+let insertRandomWall (gs:GameState.T) (grid:int list list) =
+
+    grid
 
 let generate (gs:GameState.T) =
     let endPos = match gs.level.stairpos with
@@ -18,6 +22,7 @@ let generate (gs:GameState.T) =
         [ 1 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 1] ;
         [ 1 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 1] ;
         [ 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1] ]
+    let gridWithWalls = insertRandomWall gs grid
     GeneratorUtils.generateLevel gs grid endPos
 
 

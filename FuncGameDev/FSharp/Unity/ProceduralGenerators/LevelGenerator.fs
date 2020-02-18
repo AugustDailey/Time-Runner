@@ -15,14 +15,14 @@ let createTile (tileEntity:TileData.T) =
         tileObject
 
 let createTileFromRow tileRow =
-    Array.map createTile tileRow
+    List.map createTile tileRow
 
 let destroyTile (tile:GameObject) =
     tile |> UnityEngine.Object.Destroy
     ()
 
 let destroyTileRow tileRow =
-    Array.iter destroyTile tileRow
+    List.iter destroyTile tileRow
 
 let generateLevel gs =
     // generate level in the gamestate
@@ -30,8 +30,8 @@ let generateLevel gs =
     GameState.instance <- newGs
 
     // create wall game objects
-    Array.iter destroyTileRow LevelGameObject.tiles
-    LevelGameObject.tiles <- Array.map createTileFromRow GameState.instance.level.grid
+    List.iter destroyTileRow LevelGameObject.tiles
+    LevelGameObject.tiles <- List.map createTileFromRow GameState.instance.level.grid
 
     // create or update stairs game object
     let go = match LevelGameObject.stairs with

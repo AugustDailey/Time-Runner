@@ -8,13 +8,13 @@ let spawnTile size xy blockID =
     }
 
 let spawnTileRow size posRow idRow =
-    Array.map2 (spawnTile size) posRow idRow
+    List.map2 (spawnTile size) posRow idRow
 
-let convertIdsToTiles (idGrid: int[][]) =
-    let sizeX = Array.length idGrid.[0]
-    let sizeY = Array.length idGrid
-    let posGrid = Array.init sizeY (fun y -> Array.init sizeX (fun x -> (x, y)))
-    let tileGrid = Array.map2 (spawnTileRow (sizeX |> float, sizeY |> float)) posGrid idGrid
+let convertIdsToTiles (idGrid: int list list) =
+    let sizeX = List.length idGrid.[0]
+    let sizeY = List.length idGrid
+    let posGrid = List.init sizeY (fun y -> List.init sizeX (fun x -> (x, y)))
+    let tileGrid = List.map2 (spawnTileRow (sizeX |> float, sizeY |> float)) posGrid idGrid
     tileGrid
 
 let checkValidityOfTile validTiles (tile:TileData.T) =
@@ -25,7 +25,7 @@ let checkValidityOfTile validTiles (tile:TileData.T) =
         validTiles
 
 let checkValidityOfRow validTiles tileRow =
-    Array.fold checkValidityOfTile validTiles tileRow
+    List.fold checkValidityOfTile validTiles tileRow
 
 let areaNearPlayer startPos =
     let x = startPos |> fst
@@ -36,11 +36,11 @@ let areaNearPlayer startPos =
     (x+1,y-2) ; (x+1,y-1) ; (x+1,y) ; (x+1,y+1) ; (x+1,y+2) ;
     (x+2,y-2) ; (x+2,y-1) ; (x+2,y) ; (x+2,y+1) ; (x+2,y+2)]
 
-let generateLevel (gs:GameState.T) (idGrid: int[][]) endPos =
+let generateLevel (gs:GameState.T) (idGrid: int list list) endPos =
     let tileGrid = idGrid |> convertIdsToTiles
     let startPos = gs.level.stairpos
     let size = (gs.gamedata.camera.width |> int, gs.gamedata.camera.height |> int)
-    let validTiles = Array.fold checkValidityOfRow [] tileGrid
+    let validTiles = List.fold checkValidityOfRow [] tileGrid
     let validTilesConverted = List.map (fun xy -> ((xy |> fst) - (size |> fst) / 2 + 1, (xy |> snd) - (size |> snd) / 2)) validTiles
     let posNearPlayer = startPos |> areaNearPlayer
     let validTilesWithoutPlayerPos = List.except posNearPlayer validTilesConverted
