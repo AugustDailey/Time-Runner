@@ -36,15 +36,40 @@ let areaNearPlayer startPos =
     (x+1,y-2) ; (x+1,y-1) ; (x+1,y) ; (x+1,y+1) ; (x+1,y+2) ;
     (x+2,y-2) ; (x+2,y-1) ; (x+2,y) ; (x+2,y+1) ; (x+2,y+2)]
 
+let insertBlockAtIndex x y blockID (grid: int list list) =
+    List.mapi (fun yi col ->
+        List.mapi (fun xi ele ->
+            match (xi,yi) = (x,y) with
+            | true -> blockID
+            | false -> ele) 
+            col)
+        grid
+
 let generateLevel (gs:GameState.T) (idGrid: int list list) endPos =
-    let tileGrid = idGrid |> convertIdsToTiles
     let startPos = gs.level.stairpos
     let size = (gs.gamedata.camera.width |> int, gs.gamedata.camera.height |> int)
+    let sizeX, sizeY = size
+    
+    let startX = ((startPos |> fst) + sizeX / 2 - 1)
+    let startY = ((startPos |> snd) + sizeY / 2)
+    let endX = ((endPos |> fst) + sizeX / 2 - 1)
+    let endY = ((endPos |> snd) + sizeY / 2)
+
+    // make start and stair positions floor
+    let idGridFixed = idGrid |> 
+        (insertBlockAtIndex startX startY 0) |> 
+        (insertBlockAtIndex endX endY 0)
+
+    // convert block numbers to actual tiles
+    let tileGrid = idGridFixed |> convertIdsToTiles
+
+    // generate the list of valid entity spawning positions
     let validTiles = List.fold checkValidityOfRow [] tileGrid
-    let validTilesConverted = List.map (fun xy -> ((xy |> fst) - (size |> fst) / 2 + 1, (xy |> snd) - (size |> snd) / 2)) validTiles
+    let validTilesConverted = List.map (fun xy -> ((xy |> fst) - sizeX / 2 + 1, (xy |> snd) - sizeY / 2)) validTiles
     let posNearPlayer = startPos |> areaNearPlayer
     let validTilesWithoutPlayerPos = List.except posNearPlayer validTilesConverted
     let validTilesWithoutStairs = List.except [endPos] validTilesWithoutPlayerPos
+
     let levelData = {
         LevelData.grid = tileGrid;
         LevelData.validTiles = validTilesWithoutStairs;
@@ -54,4 +79,5 @@ let generateLevel (gs:GameState.T) (idGrid: int list list) endPos =
         LevelData.complete = false;
         LevelData.generator = 1
     }
+
     { gs with level = levelData }

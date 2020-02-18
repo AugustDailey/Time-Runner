@@ -26,7 +26,7 @@ let destroyTileRow tileRow =
 
 let generateLevel gs =
     // generate level in the gamestate
-    let newGs = GeneratorBehavior.generate gs
+    let newGs = GeneratorBehavior.generate gs 2
     GameState.instance <- newGs
 
     // create wall game objects
