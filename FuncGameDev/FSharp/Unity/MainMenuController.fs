@@ -38,8 +38,6 @@ type MainMenuController() =
     [<DefaultValue>] val mutable _menu : GameObject
 
     member this.Start() =
-
-
         _keyBindings.Add("Up", KeyCode.UpArrow)
         _keyBindings.Add("Down", KeyCode.DownArrow)
         _keyBindings.Add("Left", KeyCode.LeftArrow)
