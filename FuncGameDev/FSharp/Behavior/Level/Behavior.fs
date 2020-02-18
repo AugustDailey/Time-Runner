@@ -1,5 +1,5 @@
 ﻿module GeneratorBehavior
 
-let generate (gs:GameState.T) =
-    let generatorBehavior = Map.find gs.level.generator GeneratorTable.Instance
+let generate (gs:GameState.T) genID =
+    let generatorBehavior = Map.find genID GeneratorTable.Instance
     generatorBehavior.generate gs
