@@ -1,10 +1,8 @@
 ﻿namespace FSharp.Unity
 
 open UnityEngine
-open UnityEngine.SceneManagement
 open System.Collections.Generic
 open TMPro
-open System
 
 type SettingsMenuController() =
     inherit MonoBehaviour()
