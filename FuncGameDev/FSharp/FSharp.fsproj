@@ -58,6 +58,7 @@
     <Compile Include="Interpretation\CameraInterpreter.fs" />
     <Compile Include="Interpretation\Interpreter.fs" />
     <Compile Include="Services\InputConfigurationService.fs" />
+    <Compile Include="SettingsMenuController.fs" />
     <Compile Include="Unity\CameraManager.fs" />
     <Compile Include="Unity\MainMenuController.fs" />
     <Compile Include="Unity\HUDUpdate.fs" />
