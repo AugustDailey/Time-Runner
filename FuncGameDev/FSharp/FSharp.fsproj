@@ -27,6 +27,7 @@
     <Compile Include="Behavior\Level\GeneratorUtils.fs" />
     <Compile Include="Behavior\Level\Type.fs" />
     <Compile Include="Behavior\Level\Generators\TestGenerator.fs" />
+    <Compile Include="Behavior\Level\Generators\OpenEasyGenerator.fs" />
     <Compile Include="Behavior\Level\Table.fs" />
     <Compile Include="Behavior\Level\Behavior.fs" />
     <Compile Include="Behavior\CameraBehavior.fs" />
