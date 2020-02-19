@@ -7,28 +7,9 @@
 //direction: float = angle at which to tr
 //gs: GameState = the current gamestate
 //returns a function that takes a gamestate and returns a gamestate
-let spawn (weaponData: WeaponData.T) xy speed degrees (gs: GameState.T) = 
-    let id = gs.nextid
-    gs.nextid = gs.nextid + 1
-    let newProjectile = {
-        CommonEntityData.id = id
-        CommonEntityData.position = xy
-        CommonEntityData.speed = speed
-        CommonEntityData.direction = 0.0;
-        CommonEntityData.isMoving = false;
-        CommonEntityData.data = EntityType.Projectile {
-            damage = weaponData.damage
-            effects = weaponData.effects
-            lifespan = 100.0
-            degrees = degrees
-            behaviorID = 1
-            health = 1
-            team = 0
-        }
-        CommonEntityData.iframes = 0.0;
-        CommonEntityData.sprite = "yay"
-    }
-    {gs with entities = gs.entities.Add(id, newProjectile)}
+let spawn bid (weaponData: WeaponData.T) xy speed degrees (gs: GameState.T) = 
+    let projBehavior = Map.find bid ProjectileBehaviorTable.Instance
+    projBehavior.spawn weaponData xy speed degrees gs |> GameStateUtils.modifyForSpawn
 
 let move pid (deltaTime: float32) (gs: GameState.T) =
     let projData = GameStateUtils.getEntityByID gs pid
@@ -55,8 +36,11 @@ let decreaseLifespan pid deltaTime (gs:GameState.T) =
     match projData.data with
     | EntityType.Projectile proj ->
         let newLifespan = proj.lifespan - deltaTime
+        let newGs = match newLifespan <= 0.0 with
+        | true ->
+            GameStateUtils.markEntityForDestruction gs pid
+        | false ->
+            gs
         let newProj = { proj with lifespan = newLifespan}
         let newData = { projData with data = EntityType.Projectile newProj}
-        { gs with entities = Map.add pid newData gs.entities }
-    | _ ->
-        gs
+        { newGs with entities = Map.add pid newData gs.entities }

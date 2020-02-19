@@ -22,7 +22,7 @@ let spawnEntity (gs:GameState.T) eid =
         | EntityType.Enemy enemy -> enemy.enemyType
         | EntityType.Item item -> "Item"
         | EntityType.Weapon weapon -> "Weapon"
-        | EntityType.Projectile projectile -> "Projectile"
+        | EntityType.Projectile projectile -> entity.sprite
     let go = entityName |> Resources.Load<GameObject> |> GameObject.Instantiate<GameObject>
     go.transform.position <- new Vector3(entity.position |> fst |> float32, entity.position |> snd |> float32)
     (eid, { GameObjectWrapper.T.id = eid; GameObjectWrapper.T.go = go})

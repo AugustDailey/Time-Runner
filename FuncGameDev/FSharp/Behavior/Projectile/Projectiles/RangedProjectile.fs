@@ -19,7 +19,7 @@ let spawn (weaponData: WeaponData.T) xy speed degrees (gs: GameState.T) =
             ProjectileData.team = 0
         }
         CommonEntityData.iframes = 0.0;
-        CommonEntityData.sprite = "yay"
+        CommonEntityData.sprite = "Knife"
     }
     { gs with entities = Map.add gs.nextid projectileData gs.entities}
 
