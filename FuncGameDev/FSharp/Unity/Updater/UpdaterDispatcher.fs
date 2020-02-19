@@ -12,6 +12,7 @@ let updateDispatch (entityData:CommonEntityData.T) (gameObject:GameObject) =
     | EntityType.Item itemData ->
         ()
     | EntityType.Projectile projectileData ->
+        ProjectileUpdater.update entityData projectileData gameObject
         ()
     | EntityType.Weapon weaponData ->
         ()

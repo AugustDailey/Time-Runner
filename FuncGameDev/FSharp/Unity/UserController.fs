@@ -36,20 +36,20 @@ let checkRightDown id (player:PlayerData.T) (entity:CommonEntityData.T) (model :
         then Interpreter.MoveEntityInDirection id 315.0
 
 let checkMelee id (player:PlayerData.T) (entity:CommonEntityData.T) (model:ControlModel.T) = 
-    if Input.GetKey(model.melee)
-        then Interpreter.ActivateWeapon player.melee id entity.position 0.0
+    if Input.GetKeyDown(model.melee)
+        then Interpreter.ActivateWeapon player.melee id entity.position entity.direction
 
 let checkRoll id (player:PlayerData.T) (entity:CommonEntityData.T) (model:ControlModel.T) = 
-    if Input.GetKey(model.dodge)
-        then Interpreter.ActivateWeapon player.roll id entity.position 0.0
+    if Input.GetKeyDown(model.dodge)
+        then Interpreter.ActivateWeapon player.roll id entity.position entity.direction
 
 let checkRanged id (player:PlayerData.T) (entity:CommonEntityData.T) (model:ControlModel.T) = 
-    if Input.GetKey(model.range)
-        then Interpreter.ActivateWeapon player.ranged id entity.position 0.0
+    if Input.GetKeyDown(model.range)
+        then Interpreter.ActivateWeapon player.ranged id entity.position entity.direction
 
 let checkActive id (player:PlayerData.T) (entity:CommonEntityData.T) (model:ControlModel.T) = 
-    if Input.GetKey(model.active)
-        then Interpreter.ActivateWeapon player.active id entity.position 0.0
+    if Input.GetKeyDown(model.active)
+        then Interpreter.ActivateWeapon player.active id entity.position entity.direction
 
 
 let queryInput eid (player:PlayerData.T) (entity:CommonEntityData.T) =
