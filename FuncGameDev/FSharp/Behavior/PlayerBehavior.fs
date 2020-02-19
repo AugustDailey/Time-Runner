@@ -14,14 +14,6 @@ let useWeapon pid weapontype gs =
     gs
 
 let spawnPlayer xy (gs:GameState.T) =
-    let tempWeapon = {
-        WeaponData.weaponName = "Temp Weapon";
-        WeaponData.cooldown = 0.4;
-        WeaponData.damage = 35;
-        WeaponData.effects = [];
-        WeaponData.weaponType = WeaponData.Category.Melee;
-        WeaponData.behaviorID = 0
-    }
     let controlModel = {
         ControlModel.down = "down";
         ControlModel.up = "up";
@@ -39,10 +31,10 @@ let spawnPlayer xy (gs:GameState.T) =
         CommonEntityData.direction = 0.0;
         CommonEntityData.isMoving = false;
         CommonEntityData.data = EntityType.Player {
-            melee = tempWeapon;
-            ranged = tempWeapon;
-            roll = tempWeapon;
-            active = tempWeapon;
+            melee = TestMeleeWeapon.createWeapon ();
+            ranged = TestRangedWeapon.createWeapon ();
+            roll = NullWeapon.createWeapon ();
+            active = NullWeapon.createWeapon ();
             items = [];
             effects = [];
             controlModel = controlModel

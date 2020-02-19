@@ -6,21 +6,24 @@
 let attack (weaponData: WeaponData.T) (commonEntityData: CommonEntityData.T) xy degrees (gs: GameState.T) = 
     gs
 
-let spawn xy bid (gs:GameState.T) =
+let createWeapon () =
+    {
+        WeaponData.weaponName = "Null Weapon";
+        WeaponData.cooldown = 0.0;
+        WeaponData.damage = 0;
+        WeaponData.effects = [];
+        WeaponData.weaponType = WeaponData.Category.Melee;
+        WeaponData.behaviorID = 0
+    };
+
+let spawn xy (gs:GameState.T) =
     let weaponData = {
         CommonEntityData.id = gs.nextid;
         CommonEntityData.position = xy;
         CommonEntityData.speed = 0.0;
         CommonEntityData.direction = 0.0;
         CommonEntityData.isMoving = false;
-        CommonEntityData.data = EntityType.Weapon {
-            WeaponData.weaponName = "Null Weapon";
-            WeaponData.cooldown = 0.0;
-            WeaponData.damage = 0;
-            WeaponData.effects = [];
-            WeaponData.weaponType = WeaponData.Category.Melee;
-            WeaponData.behaviorID = bid
-        };
+        CommonEntityData.data = createWeapon () |> EntityType.Weapon
         CommonEntityData.iframes = 0.0;
         CommonEntityData.sprite = "yay"
     }
@@ -29,4 +32,5 @@ let spawn xy bid (gs:GameState.T) =
 let behavior = {
     WeaponBehaviorType.attack = attack;
     WeaponBehaviorType.spawn = spawn
+    WeaponBehaviorType.createWeapon = createWeapon
 }

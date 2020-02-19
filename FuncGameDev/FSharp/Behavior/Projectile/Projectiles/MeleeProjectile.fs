@@ -12,14 +12,14 @@ let spawn (weaponData: WeaponData.T) xy speed degrees (gs: GameState.T) =
         CommonEntityData.data = EntityType.Projectile {
             ProjectileData.damage = weaponData.damage; 
             ProjectileData.effects = weaponData.effects;
-            ProjectileData.lifespan = 0.8;
+            ProjectileData.lifespan = 0.25;
             ProjectileData.degrees = degrees; 
             ProjectileData.behaviorID = 0;
             ProjectileData.health = 1;
             ProjectileData.team = 0
         }
         CommonEntityData.iframes = 0.0;
-        CommonEntityData.sprite = "yay"
+        CommonEntityData.sprite = "SwordWave"
     }
     { gs with entities = Map.add gs.nextid projectileData gs.entities}
 
