@@ -10,9 +10,10 @@ let createWeapon () =
     {
         WeaponData.weaponName = "Null Weapon";
         WeaponData.cooldown = 0.0;
+        WeaponData.firerate = 0.5;
         WeaponData.damage = 0;
         WeaponData.effects = [];
-        WeaponData.weaponType = WeaponData.Category.Melee;
+        WeaponData.weaponType = WeaponData.Category.Active;
         WeaponData.behaviorID = 0
     };
     
