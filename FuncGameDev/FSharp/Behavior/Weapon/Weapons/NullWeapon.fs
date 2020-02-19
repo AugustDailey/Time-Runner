@@ -15,7 +15,7 @@ let createWeapon () =
         WeaponData.weaponType = WeaponData.Category.Melee;
         WeaponData.behaviorID = 0
     };
-
+    
 let spawn xy (gs:GameState.T) =
     let weaponData = {
         CommonEntityData.id = gs.nextid;
