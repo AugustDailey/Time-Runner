@@ -9,6 +9,9 @@ type Updater() =
     let highScore = ScoreSavingService.getScore
 
     member this.Start() =
+        GameState.instance <- GameState.createInitialGameState ()
+        GameObjectWrapper.wrappers <- Map.empty
+        LevelGameObject.stairs <- null
         Spawner.spawnPlayer (GameState.instance.level.stairpos |> fst |> float, GameState.instance.level.stairpos |> snd |> float)
         Generator.generateLevel GameState.instance
         ()

@@ -11,7 +11,8 @@ type T = {
     random: System.Random
 }
 
-let mutable instance: T = {
+let createInitialGameState () =
+    {
     entities = Map.empty;
     level = {
         LevelData.grid = [];
@@ -39,4 +40,6 @@ let mutable instance: T = {
     updateLevel = false
     random = new System.Random()
 }
+
+let mutable instance: T = createInitialGameState ()
 
