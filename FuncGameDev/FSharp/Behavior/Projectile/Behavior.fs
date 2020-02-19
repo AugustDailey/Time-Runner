@@ -49,3 +49,14 @@ let collision pid eid (gs: GameState.T) =
         projBehavior.collision projData entityData gs
     | _ ->
         gs
+
+let decreaseLifespan pid deltaTime (gs:GameState.T) =
+    let projData = GameStateUtils.getEntityByID gs pid
+    match projData.data with
+    | EntityType.Projectile proj ->
+        let newLifespan = proj.lifespan - deltaTime
+        let newProj = { proj with lifespan = newLifespan}
+        let newData = { projData with data = EntityType.Projectile newProj}
+        { gs with entities = Map.add pid newData gs.entities }
+    | _ ->
+        gs

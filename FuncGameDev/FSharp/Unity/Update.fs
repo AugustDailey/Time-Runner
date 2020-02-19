@@ -8,6 +8,8 @@ type Updater() =
     member this.Start() =
         Spawner.spawnPlayer (GameState.instance.level.stairpos |> fst |> float, GameState.instance.level.stairpos |> snd |> float)
         Generator.generateLevel GameState.instance
+        Spawner.spawnWeapon (-3.5, 2.5) 1
+        Spawner.spawnWeapon (-2.0, 2.5) 3
         ()
 
     member this.Update() =

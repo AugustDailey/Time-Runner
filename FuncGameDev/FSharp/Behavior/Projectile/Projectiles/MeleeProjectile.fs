@@ -1,15 +1,13 @@
-﻿module TestProjectile
+﻿module MeleeProjectile
 
-// The Test Item is an item
-// When picked up, it increases the timer by 5 seconds
-// When dropped, it decreases the time by 5 seconds
+// Projectile used for melee attacks
 
 let spawn (weaponData: WeaponData.T) xy speed degrees (gs: GameState.T) =
     let projectileData = {
         CommonEntityData.id = gs.nextid;
         CommonEntityData.position = xy;
-        CommonEntityData.speed = 10.1;
-        CommonEntityData.direction = 0.0;
+        CommonEntityData.speed = speed;
+        CommonEntityData.direction = degrees;
         CommonEntityData.isMoving = true;
         CommonEntityData.data = EntityType.Projectile {
             ProjectileData.damage = weaponData.damage; 
