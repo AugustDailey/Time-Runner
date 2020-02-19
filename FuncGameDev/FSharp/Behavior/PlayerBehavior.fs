@@ -122,3 +122,22 @@ let collideWithStairs (gs:GameState.T) =
 let collideWithNothing (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:GameState.T) =
     gs
 
+let tickWeaponCooldown delta id (weaponData:WeaponData.T) (gs:GameState.T) =
+    let entityData = GameStateUtils.getEntityByID gs id
+    match entityData.data with
+    | EntityType.Player playerData ->
+        let newWeapon = { weaponData with cooldown = max (weaponData.cooldown - delta) 0.0 }
+        let newPlayerData = match weaponData.weaponType with
+        | WeaponData.Category.Melee ->
+            { playerData with melee = newWeapon }
+        | WeaponData.Category.Ranged ->
+            { playerData with ranged = newWeapon }
+        | WeaponData.Category.Roll ->
+            { playerData with roll = newWeapon }
+        | WeaponData.Category.Active ->
+            { playerData with active = newWeapon }
+        let newEntityData = { entityData with data = EntityType.Player newPlayerData }
+        { gs with entities = Map.add id newEntityData gs.entities }
+    | _ ->
+        gs
+

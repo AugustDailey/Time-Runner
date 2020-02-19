@@ -8,6 +8,7 @@ type Category =
 
 type T = { weaponName: string;
            cooldown: float; 
+           firerate: float;
            damage: int; 
            effects: EffectData.T list; 
            weaponType: Category;

@@ -13,7 +13,8 @@ let attack (weaponData: WeaponData.T) (commonEntityData: CommonEntityData.T) xy 
 let createWeapon () =
     {
         WeaponData.weaponName = "Ranged Weapon";
-        WeaponData.cooldown = 0.4;
+        WeaponData.cooldown = 0.0;
+        WeaponData.firerate = 0.4;
         WeaponData.damage = 20;
         WeaponData.effects = [];
         WeaponData.weaponType = WeaponData.Category.Ranged;

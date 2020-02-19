@@ -13,7 +13,8 @@ let attack (weaponData: WeaponData.T) (commonEntityData: CommonEntityData.T) xy 
 let createWeapon () =
     {
         WeaponData.weaponName = "Melee Weapon";
-        WeaponData.cooldown = 0.4;
+        WeaponData.cooldown = 0.0;
+        WeaponData.firerate = 1.0;
         WeaponData.damage = 100;
         WeaponData.effects = [];
         WeaponData.weaponType = WeaponData.Category.Melee;
