@@ -68,6 +68,7 @@
     <Compile Include="Unity\HUD\HUDFloorUpdate.fs" />
     <Compile Include="Unity\MainMenuController.fs" />
     <Compile Include="Unity\HUD\HUDTimerUpdate.fs" />
+    <Compile Include="Unity\GameOverController.fs" />
     <Compile Include="Unity\GameObjectWrapper.fs" />
     <Compile Include="Unity\LevelGameObject.fs" />
     <Compile Include="Unity\Collision\PlayerCollision.fs" />
@@ -109,8 +110,17 @@
     <Reference Include="Unity.Legacy.NRefactory">
       <HintPath>..\Dependencies\Unity.Legacy.NRefactory.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>..\Dependencies\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>..\Dependencies\Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>..\Dependencies\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>..\Dependencies\UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
       <HintPath>..\Dependencies\UnityEngine.dll</HintPath>
@@ -237,6 +247,9 @@
     </Reference>
     <Reference Include="UnityEngine.TLSModule">
       <HintPath>..\Dependencies\UnityEngine.TLSModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\Dependencies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UIElementsModule">
       <HintPath>..\Dependencies\UnityEngine.UIElementsModule.dll</HintPath>
