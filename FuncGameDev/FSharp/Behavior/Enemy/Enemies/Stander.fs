@@ -18,7 +18,7 @@ let spawn xy bid (gs:GameState.T) =
                 WeaponData.behaviorID = 0
             };
             effects = [];
-            enemyType = "Enemy";
+            enemyType = "Stander";
             behaviorId = bid;
             aiId = 1
         };
