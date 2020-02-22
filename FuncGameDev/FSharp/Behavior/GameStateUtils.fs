@@ -19,9 +19,14 @@ let removeEntityWithID (gs:GameState.T) eid =
     { gs with entities = Map.remove eid gs.entities }
 
 //Marks an entity so we can destroy it
-//at the end of the update loop
+//at the end of the update loop,
+//if and only if it is not already marked
 let markEntityForDestruction (gs:GameState.T) eid =
-    { gs with killIds = eid::gs.killIds }
+    match (List.contains eid gs.killIds) with
+    | true ->
+        gs
+    | false ->
+        { gs with killIds = eid::gs.killIds }
 
 //Removes all entities that have been marked for destruction
 let removeMarkedEntities (gs:GameState.T) =

@@ -15,7 +15,7 @@ let spawn (weaponData: WeaponData.T) xy speed degrees (gs: GameState.T) =
             ProjectileData.lifespan = 0.25;
             ProjectileData.degrees = degrees; 
             ProjectileData.behaviorID = 0;
-            ProjectileData.health = 1;
+            ProjectileData.health = 10;
             ProjectileData.team = 0
         }
         CommonEntityData.iframes = 0.0;

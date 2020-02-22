@@ -44,3 +44,48 @@ let decreaseLifespan pid deltaTime (gs:GameState.T) =
         let newProj = { proj with lifespan = newLifespan}
         let newData = { projData with data = EntityType.Projectile newProj}
         { newGs with entities = Map.add pid newData gs.entities }
+
+let collideWithPlayer (projData:CommonEntityData.T) (playerData:CommonEntityData.T) (gs: GameState.T) =
+    match projData.data with
+    | EntityType.Projectile proj ->
+        match proj.team with
+        | 0 ->
+            gs
+        | _ ->
+            let newProj = { proj with health = proj.health - 1}
+            let projDamage = proj.damage |> float
+            let gsWithReducedTime = GameDataUtils.decreaseTime projDamage gs
+            match newProj.health with
+            | 0 ->
+                let gsWithoutProj = GameStateUtils.markEntityForDestruction gsWithReducedTime projData.id
+                { gsWithoutProj with entities = Map.add projData.id { projData with data = EntityType.Projectile newProj } gsWithoutProj.entities}
+            | _ ->
+                { gsWithReducedTime with entities = Map.add projData.id { projData with data = EntityType.Projectile newProj } gsWithReducedTime.entities}
+
+let collideWithEnemy (projData:CommonEntityData.T) (enemyData:CommonEntityData.T) (gs: GameState.T) =
+    match projData.data with
+    | EntityType.Projectile proj ->
+        match enemyData.data with
+        | EntityType.Enemy enemy ->
+            match proj.team with
+            | 1 ->
+                gs
+            | _ ->
+                let newProj = { proj with health = proj.health - 1}
+                let newData = { enemy with health = enemy.health - proj.damage }
+                let newEnemyData = { enemyData with data = EntityType.Enemy newData }
+                let gsPostEnemy = match newData.health <= 0 with
+                | true ->
+                    let gsWithoutEnemy = GameStateUtils.markEntityForDestruction gs enemyData.id
+                    { gsWithoutEnemy with entities = Map.add enemyData.id newEnemyData gsWithoutEnemy.entities }
+                | false ->
+                    { gs with entities = Map.add enemyData.id newEnemyData gs.entities }
+                match newProj.health with
+                | 0 ->
+                    let gsWithoutProj = GameStateUtils.markEntityForDestruction gsPostEnemy projData.id
+                    { gsWithoutProj with entities = Map.add projData.id { projData with data = EntityType.Projectile newProj } gsWithoutProj.entities}
+                | _ ->
+                    { gsPostEnemy with entities = Map.add projData.id { projData with data = EntityType.Projectile newProj } gsPostEnemy.entities}
+
+let collideWithWall (projData:CommonEntityData.T) (gs:GameState.T) =
+    projData.id |> GameStateUtils.markEntityForDestruction gs
