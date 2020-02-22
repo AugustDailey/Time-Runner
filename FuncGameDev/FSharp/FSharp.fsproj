@@ -73,6 +73,7 @@
     <Compile Include="Unity\GameOverController.fs" />
     <Compile Include="Unity\GameObjectWrapper.fs" />
     <Compile Include="Unity\LevelGameObject.fs" />
+    <Compile Include="Unity\Collision\ProjectileCollision.fs" />
     <Compile Include="Unity\Collision\PlayerCollision.fs" />
     <Compile Include="Unity\Destroyer\Destroyer.fs" />
     <Compile Include="Unity\Updater\CameraUpdater.fs" />
