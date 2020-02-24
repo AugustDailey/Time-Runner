@@ -2,18 +2,23 @@
 
 open System.IO
 
-let getScore = 
-    let baseDirectory = __SOURCE_DIRECTORY__
-    let baseDirectory' = Directory.GetParent(baseDirectory)
-    let filePath = "HighScore.txt"
-    let fullPath = Path.Combine(baseDirectory'.FullName, filePath)
-    let score =  File.ReadAllText(fullPath)
-    score |> int
 
-let storeScore score =
+// Scores is an array of Strings. 
+// Scores [0] represents the floor reached
+// Scores [1] represents the time remaining
+// Scores [2] represents the total time spent
+let getScores = 
     let baseDirectory = __SOURCE_DIRECTORY__
     let baseDirectory' = Directory.GetParent(baseDirectory)
     let filePath = "HighScore.txt"
     let fullPath = Path.Combine(baseDirectory'.FullName, filePath)
-    File.WriteAllText(fullPath, score)
+    let scores =  File.ReadAllLines(fullPath)
+    scores
+
+let storeScores scores =
+    let baseDirectory = __SOURCE_DIRECTORY__
+    let baseDirectory' = Directory.GetParent(baseDirectory)
+    let filePath = "HighScore.txt"
+    let fullPath = Path.Combine(baseDirectory'.FullName, filePath)
+    File.WriteAllLines(fullPath, scores)
     ()

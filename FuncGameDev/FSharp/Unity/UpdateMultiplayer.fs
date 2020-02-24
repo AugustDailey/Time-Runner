@@ -6,7 +6,10 @@ open UnityEngine.SceneManagement
 type MultiplayerUpdater() = 
     inherit MonoBehaviour()
 
-    let highScore = ScoreSavingService.getScore
+    let highScores = ScoreSavingService.getScores
+    let highestFloor = highScores.[0]
+    let highestRemaining = highScores.[1]
+    let lowestTotal = highScores.[2]
 
     member this.Start() =
         GameState.instance <- GameState.createInitialGameState ()
@@ -51,14 +54,27 @@ type MultiplayerUpdater() =
     member this.checkGameOver() =
         match GameState.instance.gamedata.floor with 
         | 11 ->
-            match highScore with
-            | highScore when highScore |> float > GameState.instance.gamedata.time ->
-                ScoreSavingService.storeScore (GameState.instance.gamedata.time |> string)
-            | _ -> ()
+            match highestRemaining with
+            | highestRemaining when highestRemaining |> float < GameState.instance.gamedata.time ->
+                match lowestTotal with
+                | lowestTotal when lowestTotal |> float > GameState.instance.gamedata.totaltime ->
+                    ScoreSavingService.storeScores ([|"11"; GameState.instance.gamedata.time |> string; GameState.instance.gamedata.totaltime |> string|])
+                | _ ->
+                    ScoreSavingService.storeScores ([|"11"; GameState.instance.gamedata.time |> string; lowestTotal|])
+            | _ -> 
+                match lowestTotal with
+                | lowestTotal when lowestTotal |> float > GameState.instance.gamedata.totaltime ->
+                    ScoreSavingService.storeScores ([|"11"; highestRemaining; GameState.instance.gamedata.totaltime |> string|])
+                | _ ->
+                    ScoreSavingService.storeScores ([|"11"; highestRemaining; lowestTotal|])
             "GameOver" |> SceneManager.LoadScene
         | _ -> 
             match GameState.instance.gamedata.time with
             | 0.0 -> 
+                match highestFloor with 
+                | highestFloor when highestFloor |> int < GameState.instance.gamedata.floor ->
+                    ScoreSavingService.storeScores ([|GameState.instance.gamedata.floor |> string; highestRemaining; lowestTotal|])
+                | _ -> ()
                 "GameOver" |> SceneManager.LoadScene
             | _ -> ()
         ()
