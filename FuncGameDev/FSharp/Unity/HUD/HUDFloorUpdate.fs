@@ -12,6 +12,6 @@ type HUDFloorUpdate() =
       let txt = this.GetComponent<TextMesh>()
       let floor : int = int GameState.instance.gamedata.floor
       let floor_string : string = string floor
-      txt.text <- "\nFloor: " + floor_string
-      this.transform.position <- new Vector3(5.0f, 4.5f, 5.0f) + camera.transform.position
+      txt.text <- "Floor: " + floor_string
+      this.transform.position <- new Vector3(14.0f, 7.5f, 5.0f) + camera.transform.position
       ()

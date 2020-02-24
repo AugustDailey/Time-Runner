@@ -47,8 +47,8 @@ let generateLevel gs =
     Map.iter (fun id (wrapper:GameObjectWrapper.T) -> wrapper.go.transform.position <- new Vector3(newGs.level.startpos |> fst |> float32, newGs.level.startpos |> snd |> float32)) GameObjectWrapper.wrappers
 
     // generate items, enemies, etc.
-    let generateEnemies = EntityGenerator.generateEntities newGs Spawner.spawnEnemy [3 ; 2 ; 1 ; 1 ; 1]
-    let generateItems = EntityGenerator.generateEntities newGs Spawner.spawnItem [1 ; 1]
+    let generateEnemies = EntityGenerator.generateEntities newGs Spawner.spawnEnemy [3 ; 3 ; 2 ; 2 ; 2 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1]
+    let generateItems = EntityGenerator.generateEntities newGs Spawner.spawnItem [1 ; 1 ; 1 ; 1 ; 1]
     newGs.level.validTiles |> generateEnemies |> generateItems
     ()
 

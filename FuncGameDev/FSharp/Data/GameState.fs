@@ -19,7 +19,7 @@ let createInitialGameState () =
         LevelData.validTiles = [];
         LevelData.size = (0,0);
         LevelData.startpos = (0,0);
-        LevelData.stairpos = (-7,-3);
+        LevelData.stairpos = (-14,-7);
         LevelData.complete = false;
         LevelData.generator = 1
     };
@@ -30,9 +30,9 @@ let createInitialGameState () =
             position = (-0.5, -0.5);
             rotation = (0.0, 0.0);
             scale = (1.0, 1.0);
-            width = 20.0;
-            height = 10.0;
-            shakeTime = 0.0
+            width = 36.0;
+            height = 18.0;
+            shakeTime = 0.0;
         }
     };
     nextid = 1
