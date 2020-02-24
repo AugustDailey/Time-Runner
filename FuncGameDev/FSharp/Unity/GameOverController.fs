@@ -8,9 +8,12 @@ type GameOverController() =
     inherit MonoBehaviour()
 
     member this.Start() =
-        let highScore = ScoreSavingService.getScore
+        let highScores = ScoreSavingService.getScores
+        let highestFloor = highScores.[0] |> string
+        let highestRemaining = highScores.[1] |> string
+        let lowestTotal = highScores.[2] |> string
         let txt = this.GetComponentInChildren<TextMeshProUGUI>()
-        txt.text <- "High Score: " + (highScore |> string)
+        txt.text <- "Highest Floor: " + highestFloor + "\nHigh Score: " + highestRemaining + "\n Least Time Used: " + lowestTotal
         ()
 
     member this.PlayAgain() =
