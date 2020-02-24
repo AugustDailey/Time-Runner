@@ -17,8 +17,8 @@ let updateCamera delta (pos : float*float) (rot : float*float) (scale : float*fl
         position = (cPosX, cPosY);
         rotation = (cRotX, cRotY);
         scale = (cScaleX, cScaleY);
-        width = 20.0;
-        height = 10.0;
+        width = 36.0;
+        height = 18.0;
         shakeTime = max (gs.gamedata.camera.shakeTime - delta) 0.0 }
     let gd : GameData.T = { gs.gamedata with camera = cd}
     

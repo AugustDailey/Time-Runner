@@ -12,6 +12,6 @@ type HUDTimerUpdate() =
       let txt = this.GetComponent<TextMesh>()
       let time : int = int GameState.instance.gamedata.time
       let time_string : string = string time
-      txt.text <- "\nTime: " + time_string
-      this.transform.position <- new Vector3(-5.0f, 4.5f, 5.0f) + camera.transform.position
+      txt.text <- "Time: " + time_string
+      this.transform.position <- new Vector3(-14.0f, 7.5f, 5.0f) + camera.transform.position
       ()

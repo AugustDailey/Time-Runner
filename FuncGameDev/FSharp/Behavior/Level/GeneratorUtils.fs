@@ -52,7 +52,7 @@ let generateLevel (gs:GameState.T) (idGrid: int list list) endPos =
     
     let startX = ((startPos |> fst) + sizeX / 2 - 1)
     let startY = ((startPos |> snd) + sizeY / 2)
-    let endX = ((endPos |> fst) + sizeX / 2 - 1)
+    let endX = ((endPos |> fst) + sizeX / 2)
     let endY = ((endPos |> snd) + sizeY / 2)
 
     // make start and stair positions floor
@@ -65,7 +65,7 @@ let generateLevel (gs:GameState.T) (idGrid: int list list) endPos =
 
     // generate the list of valid entity spawning positions
     let validTiles = List.fold checkValidityOfRow [] tileGrid
-    let validTilesConverted = List.map (fun xy -> ((xy |> fst) - sizeX / 2 + 1, (xy |> snd) - sizeY / 2)) validTiles
+    let validTilesConverted = List.map (fun xy -> ((xy |> fst) - sizeX / 2, (xy |> snd) - sizeY / 2)) validTiles
     let posNearPlayer = startPos |> areaNearPlayer
     let validTilesWithoutPlayerPos = List.except posNearPlayer validTilesConverted
     let validTilesWithoutStairs = List.except [endPos] validTilesWithoutPlayerPos
