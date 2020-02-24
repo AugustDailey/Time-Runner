@@ -13,17 +13,7 @@ let useWeapon pid weapontype gs =
     | WeaponData.Category.Active -> printfn "Player Using Active"
     gs
 
-let spawnPlayer xy (gs:GameState.T) =
-    let controlModel = {
-        ControlModel.down = "down";
-        ControlModel.up = "up";
-        ControlModel.left = "left";
-        ControlModel.right = "right";
-        ControlModel.melee = "z";
-        ControlModel.range = "x";
-        ControlModel.active = "v";
-        ControlModel.dodge = "c"
-    }
+let spawnPlayer xy (cm:ControlModel.T) (gs:GameState.T) =
     let player = {
         CommonEntityData.id = gs.nextid;
         CommonEntityData.position = xy;
@@ -37,17 +27,13 @@ let spawnPlayer xy (gs:GameState.T) =
             active = NullWeapon.createWeapon ();
             items = [];
             effects = [];
-            controlModel = controlModel
+            controlModel = cm
         }
         CommonEntityData.iframes = 0.0;
         CommonEntityData.sprite = "yay"
     }
     let newEntities = Map.add gs.nextid player gs.entities 
     { gs with entities = newEntities } |> GameStateUtils.modifyForSpawn
-
-let collideWithPlayer (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:GameState.T) =
-    UnityEngine.Debug.Log("Player collided with another Player")
-    gs
     
 let collideWithEnemy (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:GameState.T) =
     match self.iframes with
