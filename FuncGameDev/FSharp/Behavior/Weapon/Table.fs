@@ -6,3 +6,4 @@ let Instance : Collections.Map<int, WeaponBehaviorType.T> =
         .Add(1, TestMeleeWeapon.behavior)
         .Add(2, TestRollWeapon.behavior)
         .Add(3, TestRangedWeapon.behavior)
+        .Add(4, CameraShakeWeapon.behavior)

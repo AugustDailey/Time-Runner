@@ -27,11 +27,12 @@ let createInitialGameState () =
         GameData.time = 60.0;
         GameData.floor = 0
         GameData.camera = { 
-            position = (0.0, 0.0);
+            position = (-0.5, -0.5);
             rotation = (0.0, 0.0);
             scale = (1.0, 1.0);
             width = 20.0;
             height = 10.0;
+            shakeTime = 0.0
         }
     };
     nextid = 1
