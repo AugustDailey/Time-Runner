@@ -15,7 +15,13 @@ let update() =
     let rotV = new Quaternion(fst rot |> float32, snd rot |> float32, unityCameraTransform.transform.rotation.z, unityCameraTransform.transform.rotation.w)
     let scaleV = new Vector3(fst scale |> float32, snd scale |> float32, unityCameraTransform.transform.localScale.z)
 
-    Camera.main.transform.position <- posV
+    match cameraData.shakeTime > 0.0 with
+    | true ->
+        let random = new System.Random()
+        let randomX = posV.x + ((random.Next(3) - 1) |> float32)
+        let randomY = posV.y + ((random.Next(3) - 1) |> float32)
+        Camera.main.transform.position <- new Vector3(randomX, randomY, posV.z)
+    | false ->
+        Camera.main.transform.position <- posV
     Camera.main.transform.rotation <- rotV
     Camera.main.transform.localScale <- scaleV
-    ()
