@@ -14,6 +14,9 @@ type MultiplayerUpdater() =
     member this.Start() =
         GameState.instance <- GameState.createInitialGameState ()
         GameState.instance <- LevelDataService.loadLevelParams GameState.instance
+        GameState.instance.gamedata.highestFloor = (highestFloor |> int)
+        GameState.instance.gamedata.highestRemaining = (highestRemaining |> float)
+        GameState.instance.gamedata.lowestTotal = (lowestTotal |> float)
         GameObjectWrapper.wrappers <- Map.empty
         LevelGameObject.stairs <- null
         
@@ -58,23 +61,39 @@ type MultiplayerUpdater() =
             | highestRemaining when highestRemaining |> float < GameState.instance.gamedata.time ->
                 match lowestTotal with
                 | lowestTotal when lowestTotal |> float > GameState.instance.gamedata.totaltime ->
-                    ScoreSavingService.storeScores ([|"11"; GameState.instance.gamedata.time |> string; GameState.instance.gamedata.totaltime |> string|])
-                | _ ->
-                    ScoreSavingService.storeScores ([|"11"; GameState.instance.gamedata.time |> string; lowestTotal|])
+                    let newGameData = { GameState.instance.gamedata with lowestTotal = GameState.instance.gamedata.totaltime }
+                    GameState.instance <- { GameState.instance with gamedata = newGameData }
+                    ()
+                | _ -> ()
+                let newGameData = { GameState.instance.gamedata with highestRemaining = GameState.instance.gamedata.time }
+                GameState.instance <- { GameState.instance with gamedata = newGameData }
+                ()
+
             | _ -> 
                 match lowestTotal with
                 | lowestTotal when lowestTotal |> float > GameState.instance.gamedata.totaltime ->
-                    ScoreSavingService.storeScores ([|"11"; highestRemaining; GameState.instance.gamedata.totaltime |> string|])
-                | _ ->
-                    ScoreSavingService.storeScores ([|"11"; highestRemaining; lowestTotal|])
+                    let newGameData = { GameState.instance.gamedata with lowestTotal = GameState.instance.gamedata.totaltime }
+                    GameState.instance <- { GameState.instance with gamedata = newGameData }
+                    ()
+                | _ -> ()
+            let newGameData = { GameState.instance.gamedata with highestFloor = GameState.instance.gamedata.floor }
+            GameState.instance <- { GameState.instance with gamedata = newGameData }
+            ScoreSavingService.storeScores ([|GameState.instance.gamedata.highestFloor |> string; 
+                                                GameState.instance.gamedata.highestRemaining |> string; 
+                                                GameState.instance.gamedata.lowestTotal |> string|])
             "GameOver" |> SceneManager.LoadScene
         | _ -> 
             match GameState.instance.gamedata.time with
             | 0.0 -> 
                 match highestFloor with 
                 | highestFloor when highestFloor |> int < GameState.instance.gamedata.floor ->
-                    ScoreSavingService.storeScores ([|GameState.instance.gamedata.floor |> string; highestRemaining; lowestTotal|])
+                    let newGameData = { GameState.instance.gamedata with highestFloor = GameState.instance.gamedata.floor }
+                    GameState.instance <- { GameState.instance with gamedata = newGameData }
+                    ()
                 | _ -> ()
+                ScoreSavingService.storeScores ([|GameState.instance.gamedata.highestFloor |> string; 
+                                                    GameState.instance.gamedata.highestRemaining |> string; 
+                                                    GameState.instance.gamedata.lowestTotal |> string|])
                 "GameOver" |> SceneManager.LoadScene
             | _ -> ()
         ()
