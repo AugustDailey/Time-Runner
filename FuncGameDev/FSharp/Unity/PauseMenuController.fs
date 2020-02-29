@@ -16,7 +16,7 @@ type PauseMenuController() =
         _isPaused <- false
 
     member this.Update() =
-        if (not _isPaused && Input.GetKeyDown(KeyCode.Space)) then
+        if (not _isPaused && Input.GetKeyDown(KeyCode.Escape)) then
             this.Pause()
 
     member this.Pause() = 
