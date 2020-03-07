@@ -50,9 +50,10 @@ let collideWithPlayer (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:G
     gs
     
 let collideWithEnemy (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:GameState.T) =
-    match self.iframes with
-    | 0.0 when self.iframes <= 0.0 ->
-        let iframesGs = { gs with entities = Map.add self.id { self with iframes = 0.5 } gs.entities }
+    let player = GameStateUtils.getEntityByID gs self.id
+    match player.iframes with
+    | 0.0 when player.iframes <= 0.0 ->
+        let iframesGs = { gs with entities = Map.add player.id { player with iframes = 0.5 } gs.entities }
         GameDataUtils.decreaseTime 5.0 iframesGs
     | _ ->
         gs
@@ -88,21 +89,27 @@ let collideWithItem (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:Gam
         gs
     
 let collideWithProjectile (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:GameState.T) =
+    let player = GameStateUtils.getEntityByID gs self.id
     match other.data with
     | EntityType.Projectile proj ->
         match proj.team with
         | 0 ->
             gs
         | _ ->
-            let newProj = { proj with health = proj.health - 1}
-            let projDamage = proj.damage |> float
-            let gsWithReducedTime = GameDataUtils.decreaseTime projDamage gs
-            match newProj.health with
-            | 0 ->
-                let gsWithoutProj = GameStateUtils.markEntityForDestruction gsWithReducedTime other.id
-                { gsWithoutProj with entities = Map.add other.id { other with data = EntityType.Projectile newProj } gsWithoutProj.entities}
-            | _ ->
-                { gsWithReducedTime with entities = Map.add other.id { other with data = EntityType.Projectile newProj } gsWithReducedTime.entities}
+            match player.iframes <= 0.0 with
+            | true ->
+                let newProj = { proj with health = proj.health - 1}
+                let projDamage = proj.damage |> float
+                let iframesGs = { gs with entities = Map.add player.id { player with iframes = 2.0 } gs.entities }
+                let gsWithReducedTime = GameDataUtils.decreaseTime projDamage iframesGs
+                match newProj.health with
+                | 0 ->
+                    let gsWithoutProj = GameStateUtils.markEntityForDestruction gsWithReducedTime other.id
+                    { gsWithoutProj with entities = Map.add other.id { other with data = EntityType.Projectile newProj } gsWithoutProj.entities}
+                | _ ->
+                    { gsWithReducedTime with entities = Map.add other.id { other with data = EntityType.Projectile newProj } gsWithReducedTime.entities}
+            | false ->
+                gs
 
 let removeNonPlayerEntities gs eid (data:CommonEntityData.T) =
     match data.data with
