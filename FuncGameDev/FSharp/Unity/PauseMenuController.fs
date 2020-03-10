@@ -30,4 +30,5 @@ type PauseMenuController() =
         Time.timeScale <- 1.0f
 
     member this.Quit() = 
+        this.Play()
         "MainMenu" |> SceneManager.LoadScene
