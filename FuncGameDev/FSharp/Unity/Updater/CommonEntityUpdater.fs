@@ -14,6 +14,11 @@ let updateGameStateEntities (gs:GameState.T) (goWrappers:Map<int, GameObjectWrap
     goWrappers |> Map.fold updateGameStateEntity gs
 
 let update (entityData:CommonEntityData.T) (gameObject:GameObject) =
+    let anim = gameObject.GetComponent<Animator>()
+    anim.SetBool("isMoving", entityData.isMoving)
+    let dir_int = entityData.direction |> int
+    let direction = ((dir_int % 360) + 360) % 360
+    anim.SetFloat("direction", direction |> float32)
     match entityData.isMoving with
     | true ->
         let x = entityData.position |> fst |> float32
