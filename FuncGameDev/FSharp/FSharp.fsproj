@@ -17,6 +17,7 @@
     <Compile Include="Data\GameData.fs" />
     <Compile Include="Data\ItemData.fs" />
     <Compile Include="Data\TileData.fs" />
+    <Compile Include="Data\LevelParam.fs" />
     <Compile Include="Data\LevelData.fs" />
     <Compile Include="Data\ControlModel.fs" />
     <Compile Include="Data\PlayerData.fs" />
@@ -67,6 +68,7 @@
     <Compile Include="Interpretation\CameraInterpreter.fs" />
     <Compile Include="Interpretation\Interpreter.fs" />
     <Compile Include="Services\ScoreSavingService.fs" />
+    <Compile Include="Services\LevelDataService.fs" />
     <Compile Include="Services\InputConfigurationService.fs" />
     <Compile Include="Unity\PauseMenuController.fs" />
     <Compile Include="Unity\CameraManager.fs" />

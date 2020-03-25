@@ -10,6 +10,7 @@ type Updater() =
 
     member this.Start() =
         GameState.instance <- GameState.createInitialGameState ()
+        GameState.instance <- LevelDataService.loadLevelParams GameState.instance
         GameObjectWrapper.wrappers <- Map.empty
         LevelGameObject.stairs <- null
         Spawner.spawnPlayer (GameState.instance.level.stairpos |> fst |> float, GameState.instance.level.stairpos |> snd |> float)
