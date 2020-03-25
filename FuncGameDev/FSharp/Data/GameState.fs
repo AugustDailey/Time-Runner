@@ -3,6 +3,7 @@
 type T = {
     entities : Collections.Map<int, CommonEntityData.T>; // map from id to entity
     level: LevelData.T;
+    levelParams: LevelParam.T[];
     gamedata: GameData.T;
     nextid: int // the next created entity will have this id
     spawnIds: int list
@@ -23,6 +24,7 @@ let createInitialGameState () =
         LevelData.complete = false;
         LevelData.generator = 1
     };
+    levelParams = [||];
     gamedata = {
         GameData.time = 60.0;
         GameData.floor = 0

@@ -1,8 +1,12 @@
 ﻿module EnemyBehavior
 
 let spawn xy bid (gs:GameState.T) =
-    let enemyBehavior = Map.find bid EnemyBehaviorTable.Instance
-    enemyBehavior.spawn xy bid gs |> GameStateUtils.modifyForSpawn
+    match bid with
+    | 0 ->
+        gs
+    | _ ->
+        let enemyBehavior = Map.find bid EnemyBehaviorTable.Instance
+        enemyBehavior.spawn xy bid gs |> GameStateUtils.modifyForSpawn
 
 let attack eid (gs:GameState.T) =
     let enemy = Map.find eid gs.entities
