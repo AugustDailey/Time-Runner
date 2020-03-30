@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2478411167600114436}
   - component: {fileID: 8126750319968203020}
   - component: {fileID: -5482852201863786164}
+  - component: {fileID: 7397923753787052930}
   m_Layer: 0
   m_Name: Knife
   m_TagString: Projectile
@@ -132,3 +133,22 @@ MonoBehaviour:
   m_Script: {fileID: 805263944, guid: 89318610a33d9ea41a3bd914e90e0cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &7397923753787052930
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3232425631957166191}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4830079ebebb1c040a47fc12df3de26c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

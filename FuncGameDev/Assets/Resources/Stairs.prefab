@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6008701454532778253}
   - component: {fileID: 8444839758020869586}
   - component: {fileID: 2545986134418905456}
+  - component: {fileID: -5015082080469076733}
   m_Layer: 0
   m_Name: Stairs
   m_TagString: Stairs
@@ -107,3 +108,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1}
   m_EdgeRadius: 0
+--- !u!95 &-5015082080469076733
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5666268235243839833}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4830079ebebb1c040a47fc12df3de26c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
