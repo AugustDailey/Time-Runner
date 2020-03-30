@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2478411167600114436}
   - component: {fileID: 8126750319968203020}
   - component: {fileID: 6640027808526695157}
-  - component: {fileID: 5984314030219361151}
+  - component: {fileID: -5482852201863786164}
   m_Layer: 0
   m_Name: Knife
   m_TagString: Projectile
@@ -140,7 +140,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5984314030219361151
+--- !u!114 &-5482852201863786164
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
