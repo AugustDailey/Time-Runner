@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5420545410765564792}
   - component: {fileID: 5420545410765564793}
   - component: {fileID: 5420545410765564794}
+  - component: {fileID: -8113274142636400599}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Wall
@@ -129,3 +130,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.15, y: 0.15}
   m_EdgeRadius: 0
+--- !u!95 &-8113274142636400599
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5420545410765564795}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4830079ebebb1c040a47fc12df3de26c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
