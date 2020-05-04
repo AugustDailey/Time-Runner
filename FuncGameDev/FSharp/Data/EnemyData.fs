@@ -5,4 +5,5 @@ type T = { health: int;
            effects: EffectData.T list;
            enemyType: string;
            behaviorId: int;
-           aiId: int }
+           aiId: int;
+           isBoss: bool }

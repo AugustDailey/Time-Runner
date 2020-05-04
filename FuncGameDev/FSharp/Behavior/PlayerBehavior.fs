@@ -13,17 +13,7 @@ let useWeapon pid weapontype gs =
     | WeaponData.Category.Active -> printfn "Player Using Active"
     gs
 
-let spawnPlayer xy (gs:GameState.T) =
-    let controlModel = {
-        ControlModel.down = "down";
-        ControlModel.up = "up";
-        ControlModel.left = "left";
-        ControlModel.right = "right";
-        ControlModel.melee = "z";
-        ControlModel.range = "x";
-        ControlModel.active = "v";
-        ControlModel.dodge = "c"
-    }
+let spawnPlayer xy (cm:ControlModel.T) (gs:GameState.T) =
     let player = {
         CommonEntityData.id = gs.nextid;
         CommonEntityData.position = xy;
@@ -37,7 +27,7 @@ let spawnPlayer xy (gs:GameState.T) =
             active = CameraShakeWeapon.createWeapon ();
             items = [];
             effects = [];
-            controlModel = controlModel
+            controlModel = cm
         }
         CommonEntityData.iframes = 0.0;
         CommonEntityData.sprite = "yay"
@@ -100,7 +90,7 @@ let collideWithProjectile (self:CommonEntityData.T) (other:CommonEntityData.T) (
             | true ->
                 let newProj = { proj with health = proj.health - 1}
                 let projDamage = proj.damage |> float
-                let iframesGs = { gs with entities = Map.add player.id { player with iframes = 2.0 } gs.entities }
+                let iframesGs = { gs with entities = Map.add player.id { player with iframes = 0.5 } gs.entities }
                 let gsWithReducedTime = GameDataUtils.decreaseTime projDamage iframesGs
                 match newProj.health with
                 | 0 ->

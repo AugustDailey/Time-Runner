@@ -13,12 +13,13 @@ let spawn xy bid (gs:GameState.T) =
             effects = [];
             enemyType = "GolemBoss";
             behaviorId = bid;
-            aiId = 10
+            aiId = 10;
+            isBoss = true
         };
         CommonEntityData.iframes = 0.0;
         CommonEntityData.sprite = "yay"
     }
-    { gs with entities = Map.add gs.nextid enemyData gs.entities }
+    { gs with entities = Map.add gs.nextid enemyData gs.entities ; level = { gs.level with stairsSpawned = false } }
 
 let behavior = {
     EnemyBehaviorType.spawn = spawn;

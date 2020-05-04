@@ -26,7 +26,7 @@ let destroyTileRow tileRow =
 
 let generateLevel gs =
     // generate level in the gamestate
-    let newGs = GeneratorBehavior.generate gs gs.levelParams.[gs.gamedata.floor].generator
+    let newGs = GeneratorBehavior.generate gs gs.levelParams.[gs.gamedata.floor-1].generator
     GameState.instance <- newGs
 
     // create wall game objects
@@ -47,10 +47,8 @@ let generateLevel gs =
     Map.iter (fun id (wrapper:GameObjectWrapper.T) -> wrapper.go.transform.position <- new Vector3(newGs.level.startpos |> fst |> float32, newGs.level.startpos |> snd |> float32)) GameObjectWrapper.wrappers
 
     // generate items, enemies, etc.
-    //let generateEnemies = EntityGenerator.generateEntities newGs Spawner.spawnEnemy [3 ; 3 ; 2 ; 2 ; 2 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1 ; 1]
-    //let generateItems = EntityGenerator.generateEntities newGs Spawner.spawnItem [1 ; 1 ; 1 ; 1 ; 1]
-    let generateEnemies = EntityGenerator.generateEntities newGs Spawner.spawnEnemy gs.levelParams.[gs.gamedata.floor].enemies
-    let generateItems = EntityGenerator.generateEntities newGs Spawner.spawnItem gs.levelParams.[gs.gamedata.floor].items
+    let generateEnemies = EntityGenerator.generateEntities newGs Spawner.spawnEnemy gs.levelParams.[gs.gamedata.floor-1].enemies
+    let generateItems = EntityGenerator.generateEntities newGs Spawner.spawnItem gs.levelParams.[gs.gamedata.floor-1].items
     newGs.level.validTiles |> generateEnemies |> generateItems
     ()
 

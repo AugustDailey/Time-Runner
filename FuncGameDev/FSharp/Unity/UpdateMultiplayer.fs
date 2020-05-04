@@ -3,7 +3,7 @@
 open UnityEngine
 open UnityEngine.SceneManagement
 
-type Updater() = 
+type MultiplayerUpdater() = 
     inherit MonoBehaviour()
 
     let highScore = ScoreSavingService.getScore
@@ -24,8 +24,21 @@ type Updater() =
             ControlModel.active = "l";
             ControlModel.dodge = ";"
         }
-        
+
+        let p2cm = {
+            ControlModel.down = "s";
+            ControlModel.up = "w";
+            ControlModel.left = "a";
+            ControlModel.right = "d";
+            ControlModel.melee = "z";
+            ControlModel.range = "x";
+            ControlModel.active = "v";
+            ControlModel.dodge = "c"
+        }
+
         Spawner.spawnPlayer (GameState.instance.level.stairpos |> fst |> float, GameState.instance.level.stairpos |> snd |> float) p1cm
+        Spawner.spawnPlayer (GameState.instance.level.stairpos |> fst |> float, GameState.instance.level.stairpos |> snd |> float) p2cm
+        
         Generator.generateLevel GameState.instance
         ()
 
