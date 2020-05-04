@@ -52,7 +52,7 @@ let collideWithPlayer (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:G
 let collideWithEnemy (self:CommonEntityData.T) (other:CommonEntityData.T) (gs:GameState.T) =
     match self.iframes with
     | 0.0 when self.iframes <= 0.0 ->
-        let iframesGs = { gs with entities = Map.add self.id { self with iframes = 2.0 } gs.entities }
+        let iframesGs = { gs with entities = Map.add self.id { self with iframes = 0.5 } gs.entities }
         GameDataUtils.decreaseTime 5.0 iframesGs
     | _ ->
         gs
