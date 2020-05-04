@@ -77,7 +77,8 @@ let generateLevel (gs:GameState.T) (idGrid: int list list) endPos =
         LevelData.startpos = startPos;
         LevelData.stairpos = endPos;
         LevelData.complete = false;
-        LevelData.generator = 1
+        LevelData.generator = 1;
+        LevelData.stairsSpawned = true
     }
 
     { gs with level = levelData }

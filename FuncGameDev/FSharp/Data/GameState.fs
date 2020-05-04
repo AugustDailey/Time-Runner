@@ -22,13 +22,14 @@ let createInitialGameState () =
         LevelData.startpos = (0,0);
         LevelData.stairpos = (-14,-7);
         LevelData.complete = false;
-        LevelData.generator = 1
+        LevelData.generator = 1;
+        LevelData.stairsSpawned = true
     };
     levelParams = [||];
     gamedata = {
         GameData.time = 60.0;
-        GameData.floor = 0
-        GameData.camera = { 
+        GameData.floor = 1
+        GameData.camera = {
             position = (-0.5, -0.5);
             rotation = (0.0, 0.0);
             scale = (1.0, 1.0);
