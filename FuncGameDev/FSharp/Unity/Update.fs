@@ -18,7 +18,7 @@ type Updater() =
         ()
 
     member this.Update() =
-        CameraManager.updateCamera()
+        CameraManager.updateCamera ()
         GameState.instance <- GameObjectWrapper.wrappers |> CommonEntityUpdater.updateGameStateEntities GameState.instance
         Time.deltaTime |> float |> GameDataUtils.decreaseTime |> Commands.addCommand
         UpdaterDispatcher.issueUpdateCommands GameState.instance GameObjectWrapper.wrappers
@@ -30,8 +30,9 @@ type Updater() =
         Generator.tryGenerateLevel GameState.instance
         GameState.instance <- GameStateUtils.removeMarkedEntities GameState.instance
         GameState.instance.killIds |> Destroyer.update
-        CameraUpdater.update()
-        this.checkGameOver()
+        LevelUpdater.update ()
+        CameraUpdater.update ()
+        this.checkGameOver ()
         ()
 
     member this.checkGameOver() =

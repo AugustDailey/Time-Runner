@@ -100,7 +100,7 @@ let collideWithProjectile (self:CommonEntityData.T) (other:CommonEntityData.T) (
             | true ->
                 let newProj = { proj with health = proj.health - 1}
                 let projDamage = proj.damage |> float
-                let iframesGs = { gs with entities = Map.add player.id { player with iframes = 2.0 } gs.entities }
+                let iframesGs = { gs with entities = Map.add player.id { player with iframes = 0.5 } gs.entities }
                 let gsWithReducedTime = GameDataUtils.decreaseTime projDamage iframesGs
                 match newProj.health with
                 | 0 ->

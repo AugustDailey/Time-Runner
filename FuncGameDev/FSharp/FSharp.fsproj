@@ -81,6 +81,7 @@
     <Compile Include="Unity\Collision\ProjectileCollision.fs" />
     <Compile Include="Unity\Collision\PlayerCollision.fs" />
     <Compile Include="Unity\Destroyer\Destroyer.fs" />
+    <Compile Include="Unity\Updater\LevelUpdater.fs" />
     <Compile Include="Unity\Updater\CameraUpdater.fs" />
     <Compile Include="Unity\Updater\CommonEntityUpdater.fs" />
     <Compile Include="Unity\Updater\PlayerUpdater.fs" />

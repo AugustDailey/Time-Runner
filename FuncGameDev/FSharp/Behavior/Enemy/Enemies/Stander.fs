@@ -21,7 +21,8 @@ let spawn xy bid (gs:GameState.T) =
             effects = [];
             enemyType = "Stander";
             behaviorId = bid;
-            aiId = 1
+            aiId = 1;
+            isBoss = false
         };
         CommonEntityData.iframes = 0.0;
         CommonEntityData.sprite = "yay"

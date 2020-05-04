@@ -76,8 +76,13 @@ let collideWithEnemy (projData:CommonEntityData.T) (enemyData:CommonEntityData.T
                 let newEnemyData = { enemyData with data = EntityType.Enemy newData }
                 let gsPostEnemy = match newData.health <= 0 with
                 | true ->
-                    let gsWithoutEnemy = GameStateUtils.markEntityForDestruction gs enemyData.id
-                    { gsWithoutEnemy with entities = Map.add enemyData.id newEnemyData gsWithoutEnemy.entities }
+                    let tempGS = GameStateUtils.markEntityForDestruction gs enemyData.id
+                    let gsWithoutEnemy = { tempGS with entities = Map.add enemyData.id newEnemyData tempGS.entities }
+                    match newData.isBoss with
+                    | false ->
+                        gsWithoutEnemy
+                    | true ->
+                        { gsWithoutEnemy with level = { gsWithoutEnemy.level with stairsSpawned = true } }
                 | false ->
                     { gs with entities = Map.add enemyData.id newEnemyData gs.entities }
                 match newProj.health with

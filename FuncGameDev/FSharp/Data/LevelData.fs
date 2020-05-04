@@ -6,4 +6,5 @@ type T = { grid: TileData.T list list;
            startpos: int * int; 
            stairpos: int * int;
            complete: bool;
-           generator: int }
+           generator: int;
+           stairsSpawned: bool }
