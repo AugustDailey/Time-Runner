@@ -25,6 +25,7 @@ let spawnEntity (gs:GameState.T) eid =
         | EntityType.Projectile projectile -> entity.sprite
     let go = entityName |> Resources.Load<GameObject> |> GameObject.Instantiate<GameObject>
     go.transform.position <- new Vector3(entity.position |> fst |> float32, entity.position |> snd |> float32)
+    go.transform.Rotate(0.0f, 0.0f, entity.direction |> float32)
     (eid, { GameObjectWrapper.T.id = eid; GameObjectWrapper.T.go = go})
 
 
