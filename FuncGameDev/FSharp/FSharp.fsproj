@@ -102,8 +102,9 @@
     <Compile Include="Unity\EnemyAI\EnemyAITable.fs" />
     <Compile Include="Unity\EnemyAI\EnemyAI.fs" />
     <Compile Include="Unity\UserController.fs" />
+    <Compile Include="Unity\UpdateLoop.fs" />
     <Compile Include="Unity\UpdateMultiplayer.fs" />
-    <Compile Include="Unity\Update.fs" />
+    <Compile Include="Unity\UpdateSingleplayer.fs" />
   </ItemGroup>
 
   <ItemGroup>
