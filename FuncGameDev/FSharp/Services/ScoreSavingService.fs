@@ -2,7 +2,6 @@
 
 open System.IO
 
-
 // Scores is an array of Strings. 
 // Scores [0] represents the floor reached
 // Scores [1] represents the time remaining
