@@ -11,8 +11,8 @@ let spawnItem xy bid =
 let spawnEnemy xy bid =
     EnemyBehavior.spawn xy bid |> Commands.addCommand
 
-let spawnPlayer xy =
-    PlayerBehavior.spawnPlayer xy |> Commands.addCommand
+let spawnPlayer xy cm =
+    PlayerBehavior.spawnPlayer xy cm |> Commands.addCommand
 
 let spawnEntity (gs:GameState.T) eid =
     let entity = GameStateUtils.getEntityByID gs eid

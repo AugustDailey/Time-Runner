@@ -94,6 +94,7 @@
     <Compile Include="Unity\Spawner\Spawner.fs" />
     <Compile Include="Unity\ProceduralGenerators\EntityGenerator.fs" />
     <Compile Include="Unity\ProceduralGenerators\LevelGenerator.fs" />
+    <Compile Include="Unity\EnemyAI\EnemyAIUtils.fs" />
     <Compile Include="Unity\EnemyAI\EnemyAIFunctions\StanderAI.fs" />
     <Compile Include="Unity\EnemyAI\EnemyAIFunctions\TrackerAI.fs" />
     <Compile Include="Unity\EnemyAI\EnemyAIFunctions\JumperAI.fs" />
@@ -101,6 +102,7 @@
     <Compile Include="Unity\EnemyAI\EnemyAITable.fs" />
     <Compile Include="Unity\EnemyAI\EnemyAI.fs" />
     <Compile Include="Unity\UserController.fs" />
+    <Compile Include="Unity\UpdateMultiplayer.fs" />
     <Compile Include="Unity\Update.fs" />
   </ItemGroup>
 

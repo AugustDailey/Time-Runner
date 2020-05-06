@@ -8,7 +8,6 @@ type PlayerCollision()=
     member this.OnTriggerEnter2D (col : Collider2D) =
         
         let collisionFunction = match col.gameObject.tag with
-            | "Player" -> PlayerBehavior.collideWithPlayer
             | "Enemy" -> PlayerBehavior.collideWithEnemy
             | "Item" -> PlayerBehavior.collideWithItem
             | "Weapon" -> PlayerBehavior.collideWithWeapon
