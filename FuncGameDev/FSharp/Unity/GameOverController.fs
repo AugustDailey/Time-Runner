@@ -15,9 +15,6 @@ type GameOverController() =
         txt.text <- "Highest Floor: " + highestFloor + "\nHigh Score: " + highestRemaining + "\n Least Time Used: " + lowestTotal
         ()
 
-    member this.PlayAgain() =
-        "Gameplay" |> SceneManager.LoadScene
-
     member this.BackToMain() =
         "MainMenu" |> SceneManager.LoadScene
 
