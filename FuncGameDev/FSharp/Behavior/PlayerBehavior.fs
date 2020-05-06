@@ -113,7 +113,7 @@ let collideWithStairs (gs:GameState.T) =
     | false ->
         let newGs = Map.fold removeNonPlayerEntities gs gs.entities
         // mark level as complete and increment floor number
-        { newGs with level = { newGs.level with complete = true } ; gamedata = { newGs.gamedata with floor = newGs.gamedata.floor + 1 } }
+        { newGs with level = { newGs.level with complete = true } ; gamedata = { newGs.gamedata with floor = newGs.gamedata.floor + 1; floortime = 0.0 } }
     | true ->
         gs
 
