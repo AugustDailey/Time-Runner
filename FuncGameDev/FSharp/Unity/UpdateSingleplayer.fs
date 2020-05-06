@@ -3,7 +3,7 @@
 open UnityEngine
 open UnityEngine.SceneManagement
 
-type Updater() = 
+type SingleplayerUpdater() = 
     inherit MonoBehaviour()
 
     let highScore = ScoreSavingService.getScore
@@ -19,10 +19,10 @@ type Updater() =
             ControlModel.up = "up";
             ControlModel.left = "left";
             ControlModel.right = "right";
-            ControlModel.melee = "j";
-            ControlModel.range = "k";
-            ControlModel.active = "l";
-            ControlModel.dodge = ";"
+            ControlModel.melee = "z";
+            ControlModel.range = "x";
+            ControlModel.active = "v";
+            ControlModel.dodge = "c"
         }
         
         Spawner.spawnPlayer (GameState.instance.level.stairpos |> fst |> float, GameState.instance.level.stairpos |> snd |> float) p1cm
@@ -30,20 +30,7 @@ type Updater() =
         ()
 
     member this.Update() =
-        CameraManager.updateCamera ()
-        GameState.instance <- GameObjectWrapper.wrappers |> CommonEntityUpdater.updateGameStateEntities GameState.instance
-        Time.deltaTime |> float |> GameDataUtils.decreaseTime |> Commands.addCommand
-        GameState.instance <- PlayerUpdater.updatePlayerPos GameState.instance
-        UpdaterDispatcher.issueUpdateCommands GameState.instance GameObjectWrapper.wrappers
-        GameState.instance.entities |> Map.iter UserController.tryQueryInput
-        GameState.instance.entities |> Map.iter EnemyAIScript.callEnemyAI
-        GameState.instance <- Commands.executeAllCommands GameState.instance
-        UpdaterDispatcher.updateAllGameObjects GameState.instance GameObjectWrapper.wrappers
-        Spawner.spawnGameObjects GameState.instance |> Map.iter (fun key value -> GameObjectWrapper.addWrapper value)
-        Generator.tryGenerateLevel GameState.instance
-        GameState.instance <- GameStateUtils.removeMarkedEntities GameState.instance
-        GameState.instance.killIds |> Destroyer.update
-        LevelUpdater.update ()
+        UpdateLoop.Updateloop ()
         CameraUpdater.update ()
         this.checkGameOver ()
         ()
