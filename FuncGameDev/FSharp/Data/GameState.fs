@@ -2,6 +2,7 @@
 
 type T = {
     entities : Collections.Map<int, CommonEntityData.T>; // map from id to entity
+    playerPos : (float*float) list // list of player positions
     level: LevelData.T;
     levelParams: LevelParam.T[];
     gamedata: GameData.T;
@@ -15,6 +16,7 @@ type T = {
 let createInitialGameState () =
     {
     entities = Map.empty;
+    playerPos = [];
     level = {
         LevelData.grid = [];
         LevelData.validTiles = [];
